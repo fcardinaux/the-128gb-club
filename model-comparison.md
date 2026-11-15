@@ -20,7 +20,7 @@ Facts are verifiable: each one has its source and the date it was checked, in th
 
 ## Code
 
-8 models.
+9 models.
 
 | Model | Usage | Licence | Size (GB) | Fits 128 GB | Released | Web verdict | Feedback | Positive | Negative |
 |---|---|---|---|---|---|---|---|---|---|
@@ -31,6 +31,7 @@ Facts are verifiable: each one has its source and the date it was checked, in th
 | [Qwen3-Coder-Next](#qwen3-coder-next) | Code, large projects | Apache 2.0 | 51.7 | yes | 2026-01-30 | Fast but overtaken by Qwen3.8-27B; **LICENSE file missing** | moderate | [2](#qwen3-coder-next) | [4](#qwen3-coder-next) |
 | [Qwen3.8-27B](#qwen38-27b) | Code, dense 27B | Apache 2.0 | 17.7 | yes | 2026-08-05 | Best local coder of its size; lower the default thinking; Ollama MLX memory leak reported on M5 Max 128 GB | moderate | [5](#qwen38-27b) | [4](#qwen38-27b) |
 | [sweep-next-edit 1.5B](#sweep-next-edit-15b) | Next-edit prediction in the editor | Apache 2.0 | 1.54 | yes | 2026-01-20 | Most praised small next-edit model; fast on Macs; one open Zed bug | moderate | [3](#sweep-next-edit-15b) | [1](#sweep-next-edit-15b) |
+| [Tinfield 1](#tinfield-1) | Agentic coding and terminal work; fine-tune of Qwen3.8-Flash-Next | Qwen Community License 1.0 | bf16: 360; Q8_0: 188.2; Q4_K_XL: 111.3; Compact (IQ2_XXS gate/up, IQ4_NL down): 77.4; Mini (IQ2_XXS gate/up, Q2_0 down): 66 | yes | 2026-09-21 | Thin feedback: one sceptical comment on the self-reported scores; one independent run on a DGX Spark | thin | [1](#tinfield-1) | [1](#tinfield-1) |
 | [Zeta 2 / 2.1 (Zed)](#zeta-2--21-zed) | Next-edit prediction in Zed, self-hosted | Apache 2.0 | 16.5 | yes | 2026-05-07 (zeta-2: 2026-03-23) | Best fit for Zed users wanting local next edit; setup was buggy until May 2026 | moderate | [3](#zeta-2--21-zed) | [1](#zeta-2--21-zed) |
 
 ## Image understanding
@@ -679,6 +680,40 @@ Sources: huggingface `sweepai/sweep-next-edit-1.5B` – GGUF only, 1.54 GB; leav
 - Neovim plugin author: super impressed by performance and quality, integrated it into cursortab.nvim. ([leonardcser, 2026-01-22](https://news.ycombinator.com/item?id=46717434))
 - Added it as a Zed edit-prediction provider on llama.cpp on a MacBook Pro; works well, including next edit. ([ihales, 2026-01-23](https://news.ycombinator.com/item?id=46734093))
 - The Zed PR adding self-hosted Sweep says personal testing shows impressive quality. ([zed PR #51139, 2026-07-30](https://github.com/zed-industries/zed/pull/51139))
+
+### Tinfield 1
+
+File: [`models/tinfield-1.json`](models/tinfield-1.json).
+
+Sources: huggingface `badtheorylabs/Tinfield-1` [facts]; huggingface `badtheorylabs/Tinfield-1-Compact-GGUF` [facts]; huggingface `badtheorylabs/Tinfield-1-Mini-GGUF` [facts]; huggingface `badtheorylabs/Tinfield-1-Q4_K_XL-GGUF` [facts]; huggingface `Qwen/Qwen3.8-Flash-Next` [info] – base model.
+
+| Fact | Value | Source | Checked |
+|---|---|---|---|
+| licence | Qwen Community License 1.0 (Follows the base model. The Q4_K_XL repository declares no licence in its metadata.) | [huggingface.co/badtheorylabs/Tinfield-1](https://huggingface.co/badtheorylabs/Tinfield-1) | 2026-11-15 |
+| gated | no | [huggingface.co/api/models/badtheorylabs/Ti…](https://huggingface.co/api/models/badtheorylabs/Tinfield-1) | 2026-11-15 |
+| publisher | badtheorylabs (Small lab; earlier releases BTL-2-coder, BTL-3, BTL-4 and Macaw (June to August 2026). A Hacker News submission presents it as based in Nigeria (not checked).) | [huggingface.co/badtheorylabs](https://huggingface.co/badtheorylabs) | 2026-11-15 |
+| release_date | 2026-09-21 (GGUF builds from 18.09.2026 (Compact) to 22.09.2026 (Q4_K_XL).) | [huggingface.co/api/models/badtheorylabs/Ti…](https://huggingface.co/api/models/badtheorylabs/Tinfield-1) | 2026-11-15 |
+| parameters_total_b | 177 | [huggingface.co/badtheorylabs/Tinfield-1](https://huggingface.co/badtheorylabs/Tinfield-1) | 2026-11-15 |
+| parameters_active_b | 6.6 | [huggingface.co/badtheorylabs/Tinfield-1](https://huggingface.co/badtheorylabs/Tinfield-1) | 2026-11-15 |
+| size_gb | bf16: 360; Q8_0: 188.2; Q4_K_XL: 111.3; Compact (IQ2_XXS gate/up, IQ4_NL down): 77.4; Mini (IQ2_XXS gate/up, Q2_0 down): 66 (All builds from the publisher. Like the base model, they include the n-gram embedding table.) | Hugging Face API, file sizes | 2026-11-15 |
+| formats | safetensors (bf16); GGUF | [huggingface.co/badtheorylabs](https://huggingface.co/badtheorylabs) | 2026-11-15 |
+| runtimes | llama.cpp with the GGUF builds; Transformers with the bf16 weights | [huggingface.co/badtheorylabs/Tinfield-1](https://huggingface.co/badtheorylabs/Tinfield-1) | 2026-11-15 |
+| fits_128gb | yes (Compact (77.4 GB) and Mini (66.0 GB) fit; the Compact build ran on a DGX Spark 128 GB with llama.cpp, about 94 GB in use with four 128k slots. Q4_K_XL (111.3 GB) is tight. Not reported on Apple silicon.) | [github.com/0xBakeer/inference-atlas/pull/228](https://github.com/0xBakeer/inference-atlas/pull/228) | 2026-11-15 |
+
+**Web summary** (searched 2026-11-15, feedback thin): The publisher reports 33.0 on Terminal-Bench 4.0 and 62 on DeepSWE v1.1 for the bf16 weights, about 4 points above Qwen3.8-Flash-Next, measured by itself; the quantised builds were not evaluated. No independent check of these gains was found. The one comment on quality calls it a benchmark-tuned Qwen fine-tune. One independent measurement on a DGX Spark 128 GB (Compact build, llama.cpp) shows it runs well at 2 bits, with high tool and JSON scores and long thinking that can exhaust a token budget. No report on Apple silicon.
+
+**Negative**
+
+- Sees a Qwen fine-tune tuned for a few benchmark sets, far from beating Opus in real use, and reads the publisher's call for pre-seed investors as a reason to doubt the headline scores ([Reubend, 22.09.2026](https://news.ycombinator.com/item?id=49796378)).
+
+**Positive**
+
+- Praises the publisher for providing top-quality quantisations along with the fine-tune, and asks for its Q2_0 improvements to be contributed to llama.cpp ([Green-Sky, 23.09.2026](https://huggingface.co/badtheorylabs/Tinfield-1-Mini-GGUF/discussions/1)).
+
+**Neutral**
+
+- Fine-tunes of existing models have value; an earlier model from the same publisher was awkward to run and needed a llama.cpp patch, the tooling seems to improve; waiting to see real performance ([kadoban, 22.09.2026](https://news.ycombinator.com/item?id=49796727)).
+- Compact build on a DGX Spark 128 GB with llama.cpp: tool use 0.988, JSON 0.982, instruction following 0.990, needle found up to 128k; coding 0.757 because 33 of 140 items spent the 4,096-token budget thinking (106 of the 107 finished items passed); one long-generation test returned nothing with thinking on, 0.972 with thinking off ([0xBakeer, inference-atlas #228, 21.09.2026](https://github.com/0xBakeer/inference-atlas/pull/228)).
 
 ### Zeta 2 / 2.1 (Zed)
 

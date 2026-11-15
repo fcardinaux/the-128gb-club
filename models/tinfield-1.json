@@ -1,0 +1,171 @@
+{
+  "id": "tinfield-1",
+  "name": "Tinfield 1",
+  "category": "code",
+  "usage": "Agentic coding and terminal work; fine-tune of Qwen3.8-Flash-Next",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "badtheorylabs/Tinfield-1",
+      "role": "facts"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "badtheorylabs/Tinfield-1-Compact-GGUF",
+      "role": "facts"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "badtheorylabs/Tinfield-1-Mini-GGUF",
+      "role": "facts"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "badtheorylabs/Tinfield-1-Q4_K_XL-GGUF",
+      "role": "facts"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "Qwen/Qwen3.8-Flash-Next",
+      "role": "info",
+      "note": "base model"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Qwen Community License 1.0",
+      "source": "https://huggingface.co/badtheorylabs/Tinfield-1",
+      "checked": "2026-11-15",
+      "note": "Follows the base model. The Q4_K_XL repository declares no licence in its metadata."
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/api/models/badtheorylabs/Tinfield-1",
+      "checked": "2026-11-15"
+    },
+    "publisher": {
+      "value": "badtheorylabs",
+      "source": "https://huggingface.co/badtheorylabs",
+      "checked": "2026-11-15",
+      "note": "Small lab; earlier releases BTL-2-coder, BTL-3, BTL-4 and Macaw (June to August 2026). A Hacker News submission presents it as based in Nigeria (not checked)."
+    },
+    "release_date": {
+      "value": "2026-09-21",
+      "source": "https://huggingface.co/api/models/badtheorylabs/Tinfield-1",
+      "checked": "2026-11-15",
+      "note": "GGUF builds from 18.09.2026 (Compact) to 22.09.2026 (Q4_K_XL)."
+    },
+    "parameters_total_b": {
+      "value": 177,
+      "source": "https://huggingface.co/badtheorylabs/Tinfield-1",
+      "checked": "2026-11-15"
+    },
+    "parameters_active_b": {
+      "value": 6.6,
+      "source": "https://huggingface.co/badtheorylabs/Tinfield-1",
+      "checked": "2026-11-15"
+    },
+    "size_gb": {
+      "value": {
+        "bf16": 360.0,
+        "Q8_0": 188.2,
+        "Q4_K_XL": 111.3,
+        "Compact (IQ2_XXS gate/up, IQ4_NL down)": 77.4,
+        "Mini (IQ2_XXS gate/up, Q2_0 down)": 66.0
+      },
+      "source": "Hugging Face API, file sizes",
+      "checked": "2026-11-15",
+      "note": "All builds from the publisher. Like the base model, they include the n-gram embedding table."
+    },
+    "formats": {
+      "value": "safetensors (bf16); GGUF",
+      "source": "https://huggingface.co/badtheorylabs",
+      "checked": "2026-11-15"
+    },
+    "runtimes": {
+      "value": "llama.cpp with the GGUF builds; Transformers with the bf16 weights",
+      "source": "https://huggingface.co/badtheorylabs/Tinfield-1",
+      "checked": "2026-11-15"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "https://github.com/0xBakeer/inference-atlas/pull/228",
+      "checked": "2026-11-15",
+      "note": "Compact (77.4 GB) and Mini (66.0 GB) fit; the Compact build ran on a DGX Spark 128 GB with llama.cpp, about 94 GB in use with four 128k slots. Q4_K_XL (111.3 GB) is tight. Not reported on Apple silicon."
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Thin feedback: one sceptical comment on the self-reported scores; one independent run on a DGX Spark",
+      "summary": "The publisher reports 33.0 on Terminal-Bench 4.0 and 62 on DeepSWE v1.1 for the bf16 weights, about 4 points above Qwen3.8-Flash-Next, measured by itself; the quantised builds were not evaluated. No independent check of these gains was found. The one comment on quality calls it a benchmark-tuned Qwen fine-tune. One independent measurement on a DGX Spark 128 GB (Compact build, llama.cpp) shows it runs well at 2 bits, with high tool and JSON scores and long thinking that can exhaust a token budget. No report on Apple silicon.",
+      "searched": "2026-11-15",
+      "scope": "Released on 21.09.2026 (under 3 months): all comments since the release. Read: Hacker News (comments of the only thread), Hugging Face discussions of the five repositories, GitHub issues and pull requests. Reddit could not be read (access refused to scripts).",
+      "feedback": "thin"
+    },
+    "speed": [
+      {
+        "machine": "DGX Spark (GB10, 128 GB)",
+        "runtime": "llama.cpp b11071",
+        "quantisation": "Compact (IQ2_XXS gate/up, IQ4_NL down)",
+        "value": "about 31 tok/s decode, one request; prompt 978 tok/s at 8k, about 520 tok/s at 160k",
+        "measured_by": "web",
+        "url": "https://github.com/0xBakeer/inference-atlas/pull/228",
+        "date": "2026-09-21"
+      }
+    ]
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "Sees a Qwen fine-tune tuned for a few benchmark sets, far from beating Opus in real use, and reads the publisher's call for pre-seed investors as a reason to doubt the headline scores ([Reubend, 22.09.2026](https://news.ycombinator.com/item?id=49796378)).",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49796378",
+          "site": "hacker-news",
+          "label": "Reubend",
+          "date": "2026-09-22"
+        }
+      ],
+      "searched": "2026-11-15"
+    },
+    {
+      "sentiment": "neutral",
+      "text": "Fine-tunes of existing models have value; an earlier model from the same publisher was awkward to run and needed a llama.cpp patch, the tooling seems to improve; waiting to see real performance ([kadoban, 22.09.2026](https://news.ycombinator.com/item?id=49796727)).",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49796727",
+          "site": "hacker-news",
+          "label": "kadoban",
+          "date": "2026-09-22"
+        }
+      ],
+      "searched": "2026-11-15"
+    },
+    {
+      "sentiment": "positive",
+      "text": "Praises the publisher for providing top-quality quantisations along with the fine-tune, and asks for its Q2_0 improvements to be contributed to llama.cpp ([Green-Sky, 23.09.2026](https://huggingface.co/badtheorylabs/Tinfield-1-Mini-GGUF/discussions/1)).",
+      "refs": [
+        {
+          "url": "https://huggingface.co/badtheorylabs/Tinfield-1-Mini-GGUF/discussions/1",
+          "site": "huggingface",
+          "label": "Green-Sky",
+          "date": "2026-09-23"
+        }
+      ],
+      "searched": "2026-11-15"
+    },
+    {
+      "sentiment": "neutral",
+      "text": "Compact build on a DGX Spark 128 GB with llama.cpp: tool use 0.988, JSON 0.982, instruction following 0.990, needle found up to 128k; coding 0.757 because 33 of 140 items spent the 4,096-token budget thinking (106 of the 107 finished items passed); one long-generation test returned nothing with thinking on, 0.972 with thinking off ([0xBakeer, inference-atlas #228, 21.09.2026](https://github.com/0xBakeer/inference-atlas/pull/228)).",
+      "refs": [
+        {
+          "url": "https://github.com/0xBakeer/inference-atlas/pull/228",
+          "site": "github",
+          "label": "0xBakeer, inference-atlas #228",
+          "date": "2026-09-21"
+        }
+      ],
+      "searched": "2026-11-15"
+    }
+  ]
+}

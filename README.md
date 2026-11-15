@@ -19,7 +19,7 @@ What "fits" means is defined in [`research-method.md`](research-method.md#memory
 
 | Part | Content | Status |
 |---|---|---|
-| **Model attic** | One record per model: licence, size, formats, publisher, release date, runtimes, plus short summaries of user feedback with links (Hacker News, Hugging Face discussions, runtime GitHub issues; Reddit when it can be read). A small tool checks the records and renders [`model-comparison.md`](model-comparison.md). | 107 models |
+| **Model attic** | One record per model: licence, size, formats, publisher, release date, runtimes, plus short summaries of user feedback with links (Hacker News, Hugging Face discussions, runtime GitHub issues; Reddit when it can be read). A small tool checks the records and renders [`model-comparison.md`](model-comparison.md). | 108 models |
 | **[Glossary](glossary.md)** | Terms, software and organisations met along the way, with French, German and Italian translations. | ≈ 190 terms |
 | **Taxonomies** | Overviews of [image](taxonomies/image-tools.md), [music](taxonomies/music-tools.md), [speech and voice](taxonomies/speech-tools.md), [document](taxonomies/document-tools.md), [vision and 3D](taxonomies/vision-3d-tools.md), [retrieval and RAG](taxonomies/retrieval-tools.md), [code](taxonomies/code-tools.md), [video](taxonomies/video-tools.md) and [time-series](taxonomies/time-series-tools.md) tools: what each kind of model does, and the main open candidates. | 9 |
 | **[Research method](research-method.md)** | How facts and user feedback are gathered: sources, recency window, rules for summaries. | – |
