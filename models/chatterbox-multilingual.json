@@ -1,0 +1,132 @@
+{
+  "id": "chatterbox-multilingual",
+  "name": "Chatterbox Multilingual",
+  "category": "tts",
+  "usage": "Expressive speech synthesis",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "ResembleAI/chatterbox"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "MIT",
+      "source": "https://huggingface.co/ResembleAI/chatterbox",
+      "checked": "2026-11-12"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/ResembleAI/chatterbox",
+      "checked": "2026-11-12"
+    },
+    "publisher": {
+      "value": "ResembleAI",
+      "source": "https://huggingface.co/ResembleAI/chatterbox",
+      "checked": "2026-11-12"
+    },
+    "release_date": {
+      "value": "2025-04-24",
+      "source": "https://huggingface.co/ResembleAI/chatterbox",
+      "checked": "2026-11-12",
+      "note": "24.04.2025 (updated 10.06.2026)"
+    },
+    "size_gb": {
+      "value": 10.7,
+      "source": "https://huggingface.co/ResembleAI/chatterbox",
+      "checked": "2026-11-12",
+      "note": "files needed to run the model (the repository holds more)"
+    },
+    "formats": {
+      "value": "safetensors **and 5 `.pt`**",
+      "source": "https://huggingface.co/ResembleAI/chatterbox",
+      "checked": "2026-11-12"
+    },
+    "languages": {
+      "value": "23 languages; includes fr, de",
+      "source": "https://huggingface.co/ResembleAI/chatterbox (model card)",
+      "checked": "2026-11-13",
+      "note": "The repository also holds a .pt file and per-language variants."
+    },
+    "runtimes": {
+      "value": "Official chatterbox-tts package on MPS (repo ships example_for_mac.py; multilingual v2 confirmed on an M5, needs PYTORCH_MPS_LOW_WATERMARK_RATIO to curb memory growth, issue #218 open); mlx-audio (MLX ports of Multilingual v2 and v3, mlx-community/chatterbox-fp16 and chatterbox-multilingual-v3). Not whisper.cpp, vLLM or Ollama",
+      "source": "https://github.com/resemble-ai/chatterbox (README, example_for_mac.py, issues #218, #147); https://github.com/Neywa-Labs/mlx-audio (README model table)",
+      "checked": "2026-11-14",
+      "note": "The official loader also reads a .pt (pickle) conditionals file; the mlx-audio ports are converted repos, not the ResembleAI files. Older open Mac issues (#147 'output channels > 65536 not supported on MPS', #85 torch.load on Mac) may be stale; not re-tested. Whether v3 runs on MPS with the official package is unverified."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026. Sources: Hacker News comments, Hugging Face discussions, issues of Ollama, QwenLM, resemble-ai/chatterbox and mlx-audio (now `Neywa-Labs/mlx-audio`). **Reddit could not be read.** Items from before 13.05.2026 that are not launch discussions are marked \"older\". Multilingual released in September 2025; window: since 13.05.2026. **Feedback thin; no FR/DE report.**",
+      "summary": "Still used, judged more predictable than Qwen3-TTS by some; needs the MPS memory workaround on M5. Ships a `.pt` (pickle) file.",
+      "feedback": "thin",
+      "verdict": "Still used; memory workaround needed on M5; no FR/DE report"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "**M5 Mac**: memory grew to 28 GB for an 11 s line; `PYTORCH_MPS_LOW_WATERMARK_RATIO=0.3` brought it to 9.3 GB ([chatterbox#218, 31.10.2026](https://github.com/resemble-ai/chatterbox/issues/218#issuecomment-6543892732)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://github.com/resemble-ai/chatterbox/issues/218#issuecomment-6543892732",
+          "site": "github",
+          "date": "2026-10-31",
+          "label": "chatterbox#218"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Reference in one language, text in another: accent carried over ([HF #55, 16.05.2026](https://huggingface.co/ResembleAI/chatterbox/discussions/55)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://huggingface.co/ResembleAI/chatterbox/discussions/55",
+          "site": "huggingface",
+          "date": "2026-05-16",
+          "label": "HF #55"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Artifacts at chunk joins in long texts ([HF #53, 27.08.2026](https://huggingface.co/ResembleAI/chatterbox/discussions/53)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://huggingface.co/ResembleAI/chatterbox/discussions/53",
+          "site": "huggingface",
+          "date": "2026-08-27",
+          "label": "HF #53"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Quality judged excellent on Mac and PC ([armcat, 21.08.2026](https://news.ycombinator.com/item?id=49392664)); still used as a specialty model ([itsdavesanders, 05.11.2026](https://news.ycombinator.com/item?id=50379352)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49392664",
+          "site": "hacker-news",
+          "date": "2026-08-21",
+          "label": "armcat"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=50379352",
+          "site": "hacker-news",
+          "date": "2026-11-05",
+          "label": "itsdavesanders"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "id": "q-insight",
+  "name": "Q-Insight",
+  "category": "image",
+  "usage": "Image quality scoring with explanation of degradations (VLM)",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "ByteDance/Q-Insight",
+      "note": "16.6 GB; repo 86 GB with .pt/.pkl/.bin"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "ByteDance (NeurIPS 2025)",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2025-05-29 (updated 2026-02-13)",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "parameters_total_b": {
+      "value": 8,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "size_gb": {
+      "value": 16.6,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".safetensors (score_degradation/); .pt, .pkl, .bin elsewhere",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "runtimes": {
+      "value": "transformers MPS",
+      "source": "GitHub README",
+      "checked": "2026-11-13"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size",
+      "checked": "2026-11-13"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "No user reports",
+      "summary": "NeurIPS 2025 spotlight; VisualQuality-R1's paper claims to beat it.",
+      "searched": "2026-11-13",
+      "scope": "Released 05.2025: last 6 months. Hacker News comments, Hugging Face discussions, GitHub issues; Reddit blocked.",
+      "feedback": "none"
+    }
+  },
+  "comments": []
+}

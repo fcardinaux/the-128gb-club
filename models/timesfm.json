@@ -1,0 +1,68 @@
+{
+  "id": "timesfm",
+  "name": "TimesFM 2.5 and 3.0 (Google)",
+  "category": "timeseries",
+  "usage": "Time-series forecasting",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "google/timesfm-2.5-200m-pytorch"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "google/timesfm-3.0-pytorch"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "2.5: Apache 2.0 (card; no LICENSE file); 3.0: TimesFM Non-Commercial v1.0 (LICENSE file)",
+      "source": "https://huggingface.co/google/timesfm-2.5-200m-pytorch",
+      "checked": "2026-11-15"
+    },
+    "release_date": {
+      "value": "2025-09-02",
+      "source": "https://huggingface.co/google/timesfm-2.5-200m-pytorch",
+      "checked": "2026-11-15"
+    },
+    "size_gb": {
+      "value": 0.93,
+      "source": "https://huggingface.co/google/timesfm-2.5-200m-pytorch",
+      "checked": "2026-11-15"
+    },
+    "formats": {
+      "value": "safetensors",
+      "source": "https://huggingface.co/google/timesfm-2.5-200m-pytorch",
+      "checked": "2026-11-15"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-15",
+      "note": "a build of 100 GB or less (see research-method.md, Memory target)"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-15",
+      "scope": "Checked on 15.11.2026 while researching time-series forecasting models: Hugging Face metadata, licence files, TS-Arena and GIFT-Eval results, Hacker News comments. Not researched further.",
+      "summary": "2.5 scores below the recommended models (TS-Arena 55.0); 3.0 is non-commercial.",
+      "feedback": "thin",
+      "verdict": "2.5 superseded; 3.0 non-commercial"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "Internal tests: quality about ARIMA level while bigger and slower ([magimas, 31.03.2026](https://news.ycombinator.com/item?id=47583870)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=47583870",
+          "site": "hacker-news",
+          "date": "2026-03-31",
+          "label": "magimas"
+        }
+      ]
+    }
+  ]
+}

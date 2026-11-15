@@ -1,0 +1,143 @@
+{
+  "id": "unlimited-ocr-2",
+  "name": "Unlimited-OCR-2 (Baidu)",
+  "category": "ocr",
+  "usage": "OCR (long documents, one pass)",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "baidu/Unlimited-OCR-2"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "MIT",
+      "source": "https://huggingface.co/baidu/Unlimited-OCR-2",
+      "checked": "2026-11-15"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/baidu/Unlimited-OCR-2",
+      "checked": "2026-11-15"
+    },
+    "publisher": {
+      "value": "Baidu",
+      "source": "https://huggingface.co/baidu/Unlimited-OCR-2",
+      "checked": "2026-11-15"
+    },
+    "release_date": {
+      "value": "2026-10-26",
+      "source": "https://huggingface.co/baidu/Unlimited-OCR-2",
+      "checked": "2026-11-15",
+      "note": "createdAt of the repository; version 1 released 19.06.2026"
+    },
+    "size_gb": {
+      "value": 6.7,
+      "source": "https://huggingface.co/baidu/Unlimited-OCR-2",
+      "checked": "2026-11-15",
+      "note": "two safetensors shards; the repository also holds .py model code, a .whl and demo images"
+    },
+    "formats": {
+      "value": "safetensors; .py model code (custom architecture unlimited-ocr, built on DeepSeek-OCR); .whl (SGLang)",
+      "source": "https://huggingface.co/baidu/Unlimited-OCR-2",
+      "checked": "2026-11-15"
+    },
+    "languages": {
+      "value": "\"multilingual\" (no list); Turkish and Arabic requested by users",
+      "source": "https://huggingface.co/baidu/Unlimited-OCR-2/discussions/1",
+      "checked": "2026-11-15",
+      "note": "French and German not listed explicitly"
+    },
+    "runtimes": {
+      "value": "mlx-vlm (model folder unlimited_ocr; mlx-community builds bf16, 4-8 bit); SGLang and vLLM (CUDA); llama.cpp supports version 1 (PR #24969)",
+      "source": "https://github.com/Blaizzy/mlx-vlm/tree/main/mlx_vlm/models, https://huggingface.co/mlx-community/Unlimited-OCR-2-bf16, https://github.com/ggml-org/llama.cpp/issues/25009",
+      "checked": "2026-11-15"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-15"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-15",
+      "scope": "Version 2 released 26.10.2026, version 1 on 19.06.2026: all comments since version 1. Hacker News comments, Hugging Face discussions of both versions, llama.cpp, Ollama and mlx-vlm issues. Reddit not found. **Feedback thin for version 2.**",
+      "summary": "Version 1 praised on Hacker News as very good and cheap to run locally, but one side-by-side test on a hard scan found it the fastest and the least faithful: it invented text. Almost no reports on version 2 yet.",
+      "feedback": "thin",
+      "verdict": "Fast, liked on HN; invents text on hard scans (v1); v2 too new"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "positive",
+      "text": "Version 1 judged very good and cheap to run on a decent computer ([HDBaseT, 30.06.2026](https://news.ycombinator.com/item?id=48740641); [Johnny_Bonk, 13.08.2026](https://news.ycombinator.com/item?id=49289852)); fits in 12 GB of VRAM and seems competitive ([potsandpans, 04.07.2026](https://news.ycombinator.com/item?id=48786469)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48740641",
+          "site": "hacker-news",
+          "date": "2026-06-30",
+          "label": "HDBaseT"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=49289852",
+          "site": "hacker-news",
+          "date": "2026-08-13",
+          "label": "Johnny_Bonk"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=48786469",
+          "site": "hacker-news",
+          "date": "2026-07-04",
+          "label": "potsandpans"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Version 1, same hard low-resolution scan through five models: fastest but least faithful, it wrote plausible text that is not in the document; faithfulness order olmOCR-2, Qianfan-OCR, PaddleOCR-VL, HunyuanOCR, Unlimited-OCR. Tall pages need the cropping mode, otherwise it repeats itself ([rhirae, HF #3, 25.06.2026](https://huggingface.co/baidu/Unlimited-OCR/discussions/3)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://huggingface.co/baidu/Unlimited-OCR/discussions/3",
+          "site": "huggingface",
+          "date": "2026-06-25",
+          "label": "HF #3"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Version 1 breaks with recent vLLM and Transformers 5 after a config change; workaround by pinning an older revision ([HF #23, 16–30.10.2026](https://huggingface.co/baidu/Unlimited-OCR/discussions/23)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://huggingface.co/baidu/Unlimited-OCR/discussions/23",
+          "site": "huggingface",
+          "date": "2026-10-16",
+          "label": "HF #23"
+        }
+      ]
+    },
+    {
+      "sentiment": "neutral",
+      "text": "Version 2 runs on Apple Silicon through the mlx-community build ([HF #2, 28.10.2026](https://huggingface.co/baidu/Unlimited-OCR-2/discussions/2)); users ask for Turkish and Arabic, more languages promised ([HF #1, 27.10.2026](https://huggingface.co/baidu/Unlimited-OCR-2/discussions/1)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://huggingface.co/baidu/Unlimited-OCR-2/discussions/2",
+          "site": "huggingface",
+          "date": "2026-10-28",
+          "label": "HF #2"
+        },
+        {
+          "url": "https://huggingface.co/baidu/Unlimited-OCR-2/discussions/1",
+          "site": "huggingface",
+          "date": "2026-10-27",
+          "label": "HF #1"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "id": "wan2.2-i2v-a14b",
+  "name": "Wan 2.2 I2V-A14B",
+  "category": "video",
+  "usage": "Quality video from an image",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "Wan-AI/Wan2.2-I2V-A14B-Diffusers"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://huggingface.co/Wan-AI/Wan2.2-I2V-A14B-Diffusers",
+      "checked": "2026-11-12"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/Wan-AI/Wan2.2-I2V-A14B-Diffusers",
+      "checked": "2026-11-12"
+    },
+    "publisher": {
+      "value": "Wan-AI",
+      "source": "https://huggingface.co/Wan-AI/Wan2.2-I2V-A14B-Diffusers",
+      "checked": "2026-11-12"
+    },
+    "release_date": {
+      "value": "2025-07-28",
+      "source": "https://huggingface.co/Wan-AI/Wan2.2-I2V-A14B-Diffusers",
+      "checked": "2026-11-12",
+      "note": "28.07.2025"
+    },
+    "parameters_total_b": {
+      "value": 27,
+      "source": "https://huggingface.co/Wan-AI/Wan2.2-I2V-A14B-Diffusers",
+      "checked": "2026-11-14",
+      "note": "two 14B experts (high noise, low noise)"
+    },
+    "parameters_active_b": {
+      "value": 14,
+      "source": "https://huggingface.co/Wan-AI/Wan2.2-I2V-A14B-Diffusers",
+      "checked": "2026-11-14",
+      "note": "one expert per denoising step"
+    },
+    "size_gb": {
+      "value": 126.2,
+      "source": "https://huggingface.co/Wan-AI/Wan2.2-I2V-A14B-Diffusers",
+      "checked": "2026-11-12",
+      "note": "whole repository: two experts, used one at a time"
+    },
+    "formats": {
+      "value": "safetensors (Diffusers)",
+      "source": "https://huggingface.co/Wan-AI/Wan2.2-I2V-A14B-Diffusers",
+      "checked": "2026-11-12"
+    },
+    "languages": {
+      "value": "en, zh (prompts)",
+      "source": "https://huggingface.co/api/models/Wan-AI/Wan2.2-I2V-A14B-Diffusers",
+      "checked": "2026-11-14"
+    },
+    "runtimes": {
+      "value": "mlx-video (I2V-14B, converted from the original checkpoint; quantized 4/8-bit at 81 frames gives black videos, bf16 fine, #40 open); ComfyUI native (a diffusers user confirmed I2V works in ComfyUI on MPS; Wan 2.x MPS corruption reports #15793 open); Draw Things (14B series, community hne/lne I2V configs); stable-diffusion.cpp (Metal, Comfy-Org or GGUF); diffusers WanImageToVideoPipeline on MPS (worked after pinning transformers 4.57.1 and PYTORCH_ENABLE_MPS_FALLBACK=1, diffusers#12896); DiffSynth-Studio. Official Wan2.2 code: no MPS",
+      "source": "https://github.com/Blaizzy/mlx-video/issues/40; https://github.com/huggingface/diffusers/issues/12896; https://github.com/Comfy-Org/ComfyUI/issues/15793; https://drawthings.ai/downloads/; https://github.com/drawthingsai/community-models; https://github.com/leejet/stable-diffusion.cpp/blob/master/docs/wan.md; https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B-Diffusers/discussions/6",
+      "checked": "2026-11-14",
+      "note": "mlx-video needs the original Wan-AI/Wan2.2-I2V-A14B repo (.pth T5 and VAE). kijai WanVideoWrapper: open I2V bf16 mismatch on macOS (#2018) and fp8 not supported on MPS (#963)."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "https://github.com/Blaizzy/mlx-video/issues/44",
+      "checked": "2026-11-14",
+      "note": "the repository (126 GB) holds two experts used one at a time, so the resident build stays below 100 GB; runs on a 48 GB M5 Max in mlx-video"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026. Sources: Hacker News comments, Hugging Face discussions, issues of mflux, ComfyUI, mlx-video and ComfyUI-WanVideoWrapper. **Reddit could not be read**; blogs and developers promoting their own engines are leads only. Released 28.07.2025; window: 13.05–13.11.2026. Feedback thin. See also the record `wan2.2-t2v-a14b`: many reports concern both models. Removed on 15.11.2026: an undated Reddit lead seen through a mirror (no source link), not evidence.",
+      "summary": "Best open Wan, but wrong output reported on M5 Macs; better wait for fixes.",
+      "feedback": "thin",
+      "verdict": "Same as T2V; black videos when quantised on M5 Pro"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "I2V quantised (4/8-bit) at 81 frames: black videos on an M5 Pro; bf16 is fine ([mlx-video#40, 05.07.2026](https://github.com/Blaizzy/mlx-video/issues/40)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://github.com/Blaizzy/mlx-video/issues/40",
+          "site": "github",
+          "date": "2026-07-05",
+          "label": "mlx-video#40"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Diffusers repositories: the text encoder loads with `embed_tokens MISSING` under transformers 5.x, so the prompt is ignored; workaround `transformers==4.57.1`. ([HF #6, 07–11.02.2026](https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B-Diffusers/discussions/6))",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B-Diffusers/discussions/6",
+          "site": "huggingface",
+          "label": "HF Wan2.2-TI2V-5B-Diffusers #6",
+          "date": "2026-02-11"
+        }
+      ]
+    }
+  ]
+}

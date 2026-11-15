@@ -1,0 +1,126 @@
+{
+  "id": "wan2.2-t2v-a14b",
+  "name": "Wan 2.2 T2V-A14B",
+  "category": "video",
+  "usage": "Quality video from text",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "Wan-AI/Wan2.2-T2V-A14B-Diffusers"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers",
+      "checked": "2026-11-12"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers",
+      "checked": "2026-11-12"
+    },
+    "publisher": {
+      "value": "Wan-AI",
+      "source": "https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers",
+      "checked": "2026-11-12"
+    },
+    "release_date": {
+      "value": "2025-07-28",
+      "source": "https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers",
+      "checked": "2026-11-12",
+      "note": "28.07.2025"
+    },
+    "parameters_total_b": {
+      "value": 27,
+      "source": "https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers",
+      "checked": "2026-11-14",
+      "note": "two 14B experts (high noise, low noise)"
+    },
+    "parameters_active_b": {
+      "value": 14,
+      "source": "https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers",
+      "checked": "2026-11-14",
+      "note": "one expert per denoising step"
+    },
+    "size_gb": {
+      "value": 126.2,
+      "source": "https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers",
+      "checked": "2026-11-12",
+      "note": "whole repository: two experts, used one at a time"
+    },
+    "formats": {
+      "value": "safetensors (Diffusers)",
+      "source": "https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers",
+      "checked": "2026-11-12"
+    },
+    "languages": {
+      "value": "en, zh (prompts)",
+      "source": "https://huggingface.co/api/models/Wan-AI/Wan2.2-TI2V-5B-Diffusers",
+      "checked": "2026-11-14",
+      "note": "card metadata of the same family"
+    },
+    "runtimes": {
+      "value": "mlx-video (dual-expert pipeline, converted from the original checkpoint; cross-hatch artifact on M5 Max in bf16 and 8-bit, #44 open); ComfyUI native (progressive output corruption on Apple Silicon reported for Wan 2.1/2.2, #15793 open; uni_pc bug #16573); Draw Things (14B series in Official Models since Aug 2025; community configs and Lightning LoRAs); stable-diffusion.cpp (Metal, Comfy-Org or GGUF); diffusers WanPipeline (prompt ignored under transformers 5.0-5.2, HF discussion #11; pin 4.57.1 or use a release with PR #43880); DiffSynth-Studio. Official Wan2.2 code: no MPS",
+      "source": "https://github.com/Blaizzy/mlx-video/issues/44; https://github.com/Comfy-Org/ComfyUI/issues/15793; https://github.com/Comfy-Org/ComfyUI/issues/16573; https://drawthings.ai/downloads/; https://github.com/drawthingsai/community-models; https://github.com/leejet/stable-diffusion.cpp/blob/master/docs/wan.md; https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/discussions/11; https://github.com/huggingface/transformers/pull/43880",
+      "checked": "2026-11-14",
+      "note": "mlx-video needs the original Wan-AI/Wan2.2-T2V-A14B repo (.pth T5 and VAE), not the Diffusers repo. ComfyUI#15793 was reproduced on TI2V-5B; the 14B is included by title only. kijai's WanVideoWrapper has several open Mac issues (#1856, #1857 float64 on MPS)."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "https://github.com/Blaizzy/mlx-video/issues/44",
+      "checked": "2026-11-14",
+      "note": "the repository (126 GB) holds two experts used one at a time, so the resident build stays below 100 GB; runs on a 48 GB M5 Max in mlx-video"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026. Sources: Hacker News comments, Hugging Face discussions, issues of mflux, ComfyUI, mlx-video and ComfyUI-WanVideoWrapper. **Reddit could not be read**; blogs and developers promoting their own engines are leads only. Released 28.07.2025; window: 13.05–13.11.2026. Feedback thin. See also the record `wan2.2-i2v-a14b`: many reports concern both models. Removed on 15.11.2026: an undated Reddit lead seen through a mirror (no source link), not evidence.",
+      "summary": "Best open Wan, but wrong output reported on M5 Macs; better wait for fixes.",
+      "feedback": "thin",
+      "verdict": "Best open Wan; wrong output (cross-hatch) reported on M5 in mlx-video; Diffusers text-encoder bug"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "**M5 Max (48 GB), T2V in mlx-video**: cross-hatch over the whole frame, in bf16 and 8-bit ([mlx-video#44, 21.07.2026](https://github.com/Blaizzy/mlx-video/issues/44)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://github.com/Blaizzy/mlx-video/issues/44",
+          "site": "github",
+          "date": "2026-07-21",
+          "label": "mlx-video#44"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "T2V Diffusers ignores the prompt (text-encoder bug) ([HF #11, 30.01.2026](https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/discussions/11)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B-Diffusers/discussions/11",
+          "site": "huggingface",
+          "date": "2026-01-30",
+          "label": "HF #11"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Diffusers repositories: the text encoder loads with `embed_tokens MISSING` under transformers 5.x, so the prompt is ignored; workaround `transformers==4.57.1`. ([HF #6, 07–11.02.2026](https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B-Diffusers/discussions/6))",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B-Diffusers/discussions/6",
+          "site": "huggingface",
+          "label": "HF Wan2.2-TI2V-5B-Diffusers #6",
+          "date": "2026-02-11"
+        }
+      ]
+    }
+  ]
+}

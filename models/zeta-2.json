@@ -1,0 +1,154 @@
+{
+  "id": "zeta-2",
+  "name": "Zeta 2 / 2.1 (Zed)",
+  "category": "code",
+  "usage": "Next-edit prediction in Zed, self-hosted",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "zed-industries/zeta-2.1",
+      "note": "16.5 GB, fine-tune of Seed-Coder-8B-Base"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "Zed Industries",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2026-05-07 (zeta-2: 2026-03-23)",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "parameters_total_b": {
+      "value": 8,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "size_gb": {
+      "value": 16.5,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".safetensors",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "languages": {
+      "value": "code; en (card metadata)",
+      "source": "https://huggingface.co/api/models/zed-industries/zeta-2.1",
+      "checked": "2026-11-14"
+    },
+    "runtimes": {
+      "value": "Zed only, through Ollama or an OpenAI-compatible llama-server (prompt_format zeta2 / zeta2_1)",
+      "source": "zed.dev docs",
+      "checked": "2026-11-13"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size",
+      "checked": "2026-11-13"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Best fit for Zed users wanting local next edit; setup was buggy until May 2026",
+      "summary": "Zeta 2 has about 30 % higher acceptance than Zeta 1 (Zed). Self-hosting needed fixes (prompt format, max_output_tokens 256). Conservative suggestions. More useful since Zed removed edit predictions from its free plan (07.10.2026).",
+      "searched": "2026-11-13",
+      "scope": "Released 03–05.2026 (3–12 months): last 6 months plus launch. Hacker News comments (Algolia), Hugging Face discussions, GitHub issues of the runtimes; Reddit blocked (no r/LocalLLaMA feedback).",
+      "feedback": "moderate"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "positive",
+      "text": "Recommends zeta-2 (bartowski GGUF) for autocomplete instead of a general Qwen3.6 model.",
+      "refs": [
+        {
+          "label": "recov",
+          "date": "2026-04-16",
+          "url": "https://news.ycombinator.com/item?id=47794567",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "Self-hosted Zeta 2 proposed deleting most of the file: Zed sent Qwen-style FIM tokens while Zeta 2 expects Seed-Coder tokens in SPM order.",
+      "refs": [
+        {
+          "label": "zed #52585",
+          "date": "2026-03-31",
+          "url": "https://github.com/zed-industries/zed/issues/52585#issuecomment-4162121354",
+          "site": "github"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "positive",
+      "text": "After Zed's fix, self-hosted Zeta 2 worked once max_output_tokens was raised to 256.",
+      "refs": [
+        {
+          "label": "zed #52585",
+          "date": "2026-05-11",
+          "url": "https://github.com/zed-industries/zed/issues/52585#issuecomment-4420727863",
+          "site": "github"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "positive",
+      "text": "With Ollama and `prompt_format: zeta2`, the local model gave the same experience as Zed's hosted predictions.",
+      "refs": [
+        {
+          "label": "GolmEi",
+          "date": "2026-05-10",
+          "url": "https://huggingface.co/zed-industries/zeta-2/discussions/1",
+          "site": "huggingface"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "neutral",
+      "text": "Zeta2 is very conservative and rarely proposes more than a few obvious lines; mostly saves typing.",
+      "refs": [
+        {
+          "label": "ekidd",
+          "date": "2026-07-30",
+          "url": "https://news.ycombinator.com/item?id=49109764",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "neutral",
+      "text": "After Zed moved edit predictions out of the free plan: Zeta 2.1 is an 8B that fits most computers at Q4.",
+      "refs": [
+        {
+          "label": "rarisma",
+          "date": "2026-08-28",
+          "url": "https://news.ycombinator.com/item?id=49483373",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

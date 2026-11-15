@@ -1,0 +1,129 @@
+{
+  "id": "whisper-large-v3-turbo",
+  "name": "Whisper large-v3-turbo",
+  "category": "asr",
+  "usage": "Transcription, widest runtime support",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "openai/whisper-large-v3-turbo"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "MIT",
+      "source": "https://huggingface.co/openai/whisper-large-v3-turbo",
+      "checked": "2026-11-12"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/openai/whisper-large-v3-turbo",
+      "checked": "2026-11-12"
+    },
+    "publisher": {
+      "value": "openai",
+      "source": "https://huggingface.co/openai/whisper-large-v3-turbo",
+      "checked": "2026-11-12"
+    },
+    "release_date": {
+      "value": "2024-10-01",
+      "source": "https://huggingface.co/openai/whisper-large-v3-turbo",
+      "checked": "2026-11-12",
+      "note": "01.10.2024"
+    },
+    "parameters_total_b": {
+      "value": 0.81,
+      "source": "https://huggingface.co/api/models/openai/whisper-large-v3-turbo",
+      "checked": "2026-11-14"
+    },
+    "size_gb": {
+      "value": 1.6,
+      "source": "https://huggingface.co/openai/whisper-large-v3-turbo",
+      "checked": "2026-11-12"
+    },
+    "formats": {
+      "value": "safetensors",
+      "source": "https://huggingface.co/openai/whisper-large-v3-turbo",
+      "checked": "2026-11-12"
+    },
+    "languages": {
+      "value": "99 languages; includes en, fr, de",
+      "source": "https://huggingface.co/openai/whisper-large-v3-turbo (model card)",
+      "checked": "2026-11-13",
+      "note": "Multilingual model (not an English-only .en variant)."
+    },
+    "runtimes": {
+      "value": "whisper.cpp (Metal, encoder on the Neural Engine via Core ML, 'make large-v3-turbo'); mlx-whisper (mlx-community/whisper-large-v3-turbo, fp16/8-bit/4-bit); mlx-audio (mlx-community/whisper-large-v3-turbo-asr-fp16, with an OpenAI-style /v1/audio/transcriptions server); transformers pipeline on MPS. No blocker found",
+      "source": "https://github.com/ggml-org/whisper.cpp (README); https://github.com/ml-explore/mlx-examples/tree/main/whisper; https://github.com/Neywa-Labs/mlx-audio (README); https://huggingface.co/api/models?author=mlx-community&search=whisper-large-v3-turbo",
+      "checked": "2026-11-14",
+      "note": "whisper.cpp and mlx runtimes use converted files (GGML / mlx-community), not the openai safetensors directly. transformers on MPS not re-checked against a recent issue."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026. Sources: Hacker News comments, Hugging Face discussions, issues of Ollama, QwenLM, resemble-ai/chatterbox and mlx-audio (now `Neywa-Labs/mlx-audio`). **Reddit could not be read.** Items from before 13.05.2026 that are not launch discussions are marked \"older\". Released 01.10.2024; window: since 13.05.2026.",
+      "summary": "Safe and widely supported; overtaken on accuracy.",
+      "feedback": "moderate",
+      "verdict": "Safe and widely supported; overtaken on accuracy"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "Apple's on-device model is 5× faster, though somewhat less accurate ([llimllib, 13.10.2026](https://news.ycombinator.com/item?id=50071395)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50071395",
+          "site": "hacker-news",
+          "date": "2026-10-13",
+          "label": "llimllib"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Voxtral and Qwen3-ASR preferred for multilingual work ([decide1000, 28.08.2026](https://news.ycombinator.com/item?id=49478139); [skolos, 08.10.2026](https://news.ycombinator.com/item?id=50013705)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49478139",
+          "site": "hacker-news",
+          "date": "2026-08-28",
+          "label": "decide1000"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=50013705",
+          "site": "hacker-news",
+          "date": "2026-10-08",
+          "label": "skolos"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Preferred to Parakeet for dictation on an M3 Max ([obmelvin, 13.07.2026](https://news.ycombinator.com/item?id=48897089)); copes better with accents and jargon ([AG342, 15.06.2026](https://news.ycombinator.com/item?id=48536021)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48897089",
+          "site": "hacker-news",
+          "date": "2026-07-13",
+          "label": "obmelvin"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=48536021",
+          "site": "hacker-news",
+          "date": "2026-06-15",
+          "label": "AG342"
+        }
+      ]
+    }
+  ]
+}

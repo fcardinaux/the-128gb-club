@@ -1,0 +1,121 @@
+{
+  "id": "zonos3-mini",
+  "name": "ZONOS3-Mini (Zyphra)",
+  "category": "tts",
+  "usage": "Speech synthesis: fast, 43 languages, cloning and voice design",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "Zyphra/ZONOS3-Mini"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "mlx-community/ZONOS3-Mini"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0 (card; no LICENSE file)",
+      "source": "https://huggingface.co/Zyphra/ZONOS3-Mini",
+      "checked": "2026-11-15"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/Zyphra/ZONOS3-Mini",
+      "checked": "2026-11-15"
+    },
+    "publisher": {
+      "value": "Zyphra",
+      "source": "https://huggingface.co/Zyphra/ZONOS3-Mini",
+      "checked": "2026-11-15"
+    },
+    "release_date": {
+      "value": "2026-11-09",
+      "source": "https://huggingface.co/Zyphra/ZONOS3-Mini",
+      "checked": "2026-11-15"
+    },
+    "parameters_total_b": {
+      "value": 0.8,
+      "source": "https://huggingface.co/Zyphra/ZONOS3-Mini",
+      "checked": "2026-11-15",
+      "note": "sparse mixture of experts, about 0.1B active"
+    },
+    "size_gb": {
+      "value": {
+        "official (all files)": 30.7,
+        "mlx-community": 1.41
+      },
+      "source": "https://huggingface.co/Zyphra/ZONOS3-Mini, https://huggingface.co/mlx-community/ZONOS3-Mini",
+      "checked": "2026-11-15"
+    },
+    "formats": {
+      "value": "official: mostly .pt/.bin/.pth plus a gguf folder; mlx-community: safetensors, JSON and .npz (speaker-encoder front end and preset voice embeddings)",
+      "source": "https://huggingface.co/Zyphra/ZONOS3-Mini, https://huggingface.co/mlx-community/ZONOS3-Mini",
+      "checked": "2026-11-15"
+    },
+    "languages": {
+      "value": "43 languages including French and German; preset voices Gaspard (fr), Liesel and Wolfgang (de)",
+      "source": "https://huggingface.co/Zyphra/ZONOS3-Mini, https://huggingface.co/mlx-community/ZONOS3-Mini",
+      "checked": "2026-11-15"
+    },
+    "runtimes": {
+      "value": "mlx-audio (native zonos3 model, mlx-community build listed in its README); ggml/Metal",
+      "source": "https://github.com/Neywa-Labs/mlx-audio",
+      "checked": "2026-11-15"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-15"
+    },
+    "provenance": {
+      "value": "strong: conversion.json names Zyphra revision d78708d6 and three source GGUF files whose sha256 match the official ones exactly; \"Q4_0/Q8_0 repacked without requantization\", so the backbone is Zyphra's own quantised release",
+      "source": "https://huggingface.co/mlx-community/ZONOS3-Mini",
+      "checked": "2026-11-15",
+      "note": "uploaded 09.11.2026 by the main mlx-audio maintainer, author of PR #1162 (merged); 424 downloads; Zyphra also publishes the source GGUF files"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-15",
+      "scope": "Released 09.11.2026 (six days before the search): all comments since release. Hacker News (none), Hugging Face discussions, mlx-audio issues (none). Reddit unreadable. **Feedback very thin.**",
+      "summary": "Too new for real feedback. Skips the typographic apostrophe, confirmed by the publisher with a fix promised; publisher claims real time on an M3 MacBook Air.",
+      "feedback": "thin",
+      "verdict": "Very new and fast; skips typographic apostrophes (fix promised)"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "Skips the curly apostrophe (’), e.g. \"nurse’s\" read as \"nurse\"; Zyphra confirms and promises a text normaliser ([HF #4, 13.11.2026](https://huggingface.co/Zyphra/ZONOS3-Mini/discussions/4)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://huggingface.co/Zyphra/ZONOS3-Mini/discussions/4",
+          "site": "huggingface",
+          "date": "2026-11-13",
+          "label": "HF #4"
+        }
+      ]
+    },
+    {
+      "sentiment": "neutral",
+      "text": "Urdu cloning good but pronunciation inconsistent, 15.3 % word error rate measured by Zyphra ([HF #3, 12.11.2026](https://huggingface.co/Zyphra/ZONOS3-Mini/discussions/3)); any language works with any voice ([HF #1, 11.11.2026](https://huggingface.co/Zyphra/ZONOS3-Mini/discussions/1)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://huggingface.co/Zyphra/ZONOS3-Mini/discussions/3",
+          "site": "huggingface",
+          "date": "2026-11-12",
+          "label": "HF #3"
+        },
+        {
+          "url": "https://huggingface.co/Zyphra/ZONOS3-Mini/discussions/1",
+          "site": "huggingface",
+          "date": "2026-11-11",
+          "label": "HF #1"
+        }
+      ]
+    }
+  ]
+}

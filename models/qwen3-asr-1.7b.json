@@ -1,0 +1,150 @@
+{
+  "id": "qwen3-asr-1.7b",
+  "name": "Qwen3-ASR-1.7B",
+  "category": "asr",
+  "usage": "Transcription (files, voice notes)",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "Qwen/Qwen3-ASR-1.7B"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://huggingface.co/Qwen/Qwen3-ASR-1.7B",
+      "checked": "2026-11-12"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/Qwen/Qwen3-ASR-1.7B",
+      "checked": "2026-11-12"
+    },
+    "publisher": {
+      "value": "Qwen",
+      "source": "https://huggingface.co/Qwen/Qwen3-ASR-1.7B",
+      "checked": "2026-11-12"
+    },
+    "release_date": {
+      "value": "2026-01-28",
+      "source": "https://huggingface.co/Qwen/Qwen3-ASR-1.7B",
+      "checked": "2026-11-12",
+      "note": "28.01.2026"
+    },
+    "parameters_total_b": {
+      "value": 2.35,
+      "source": "https://huggingface.co/api/models/Qwen/Qwen3-ASR-1.7B",
+      "checked": "2026-11-14",
+      "note": "all weights, including the audio encoder"
+    },
+    "size_gb": {
+      "value": 4.7,
+      "source": "https://huggingface.co/Qwen/Qwen3-ASR-1.7B",
+      "checked": "2026-11-12"
+    },
+    "formats": {
+      "value": "safetensors",
+      "source": "https://huggingface.co/Qwen/Qwen3-ASR-1.7B",
+      "checked": "2026-11-12"
+    },
+    "languages": {
+      "value": "30 languages and 22 Chinese dialects, automatic language detection; includes en, fr, de",
+      "source": "https://huggingface.co/Qwen/Qwen3-ASR-1.7B (model card)",
+      "checked": "2026-11-13",
+      "note": "French punctuation lost on long audio reported (see comments)."
+    },
+    "runtimes": {
+      "value": "mlx-audio (mlx-community/Qwen3-ASR-1.7B-8bit; server truncation of long audio fixed in #1008); llama.cpp mtmd (ggml-org/Qwen3-ASR-1.7B-GGUF, Metal); transformers native since 26.06.2026 but via the separate Qwen/Qwen3-ASR-1.7B-hf repo; official qwen-asr package, transformers backend on MPS (sdpa: clips > 8 s get full attention, issue #213 open). vLLM backend is CUDA-oriented",
+      "source": "https://github.com/QwenLM/Qwen3-ASR (README, issue #213); https://github.com/Neywa-Labs/mlx-audio (README, #1008); https://github.com/ggml-org/llama.cpp/blob/master/docs/multimodal.md; transformers docs model_doc/qwen3_asr",
+      "checked": "2026-11-14",
+      "note": "Issue #213 does not name MPS explicitly, but sdpa is what MPS uses because flash-attn is CUDA-only, so it applies on a Mac. qwen-asr on MPS and llama.cpp on Metal are not backed by any Mac user report found. vLLM on Mac (vllm-metal) does not list Qwen3-ASR."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026. Sources: Hacker News comments, Hugging Face discussions, issues of Ollama, QwenLM, resemble-ai/chatterbox and mlx-audio (now `Neywa-Labs/mlx-audio`). **Reddit could not be read.** Items from before 13.05.2026 that are not launch discussions are marked \"older\". Released 28.01.2026; window: since 13.05.2026 plus the launch.",
+      "summary": "Strong Whisper replacement on MLX; split long files into chunks; check French punctuation.",
+      "feedback": "moderate",
+      "verdict": "Better than Whisper on MLX; French punctuation lost on long audio; split long files"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "**French**: punctuation lost on long audio, giving large blocks of unstructured text ([QwenLM/Qwen3-ASR#100, 25.02.2026](https://github.com/QwenLM/Qwen3-ASR/issues/100)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://github.com/QwenLM/Qwen3-ASR/issues/100",
+          "site": "github",
+          "date": "2026-02-25",
+          "label": "QwenLM/Qwen3-ASR#100"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Repetition loops ([HF #23, 27.04.2026, older](https://huggingface.co/Qwen/Qwen3-ASR-1.7B/discussions/23)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://huggingface.co/Qwen/Qwen3-ASR-1.7B/discussions/23",
+          "site": "huggingface",
+          "date": "2026-04-27",
+          "label": "HF #23, older"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "mlx-audio server truncated long audio (`max_tokens=1024`), now fixed ([mlx-audio#1008, 09.10.2026](https://github.com/Neywa-Labs/mlx-audio/issues/1008)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://github.com/Neywa-Labs/mlx-audio/issues/1008",
+          "site": "github",
+          "date": "2026-10-09",
+          "label": "mlx-audio#1008"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "With MLX on macOS, copes much better with background noise than Whisper or Parakeet ([sidclaw, 29.07.2026](https://news.ycombinator.com/item?id=49100131)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49100131",
+          "site": "hacker-news",
+          "date": "2026-07-29",
+          "label": "sidclaw"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Satisfied with transcription quality and speed; better than Parakeet ([skolos, 08.10.2026](https://news.ycombinator.com/item?id=50013705)); better than Voxtral ([jiehong, 28.10.2026](https://news.ycombinator.com/item?id=50280418)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50013705",
+          "site": "hacker-news",
+          "date": "2026-10-08",
+          "label": "skolos"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=50280418",
+          "site": "hacker-news",
+          "date": "2026-10-28",
+          "label": "jiehong"
+        }
+      ]
+    }
+  ]
+}

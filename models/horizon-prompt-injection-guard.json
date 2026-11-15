@@ -1,0 +1,108 @@
+{
+  "id": "horizon-prompt-injection-guard",
+  "name": "Horizon-Labs prompt-injection-guard small / base / large",
+  "category": "guard",
+  "usage": "Fast prompt-injection detector for tool outputs and documents",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "Horizon-Labs/prompt-injection-guard-base",
+      "note": "Recommended, 1.23 GB; leave out code/*.py and ONNX"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "Horizon-Labs/prompt-injection-guard-large",
+      "note": "2.27 GB (bge-m3)"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "Horizon-Labs/prompt-injection-guard-small",
+      "role": "info",
+      "note": "0.56 GB"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "Horizon Labs (Agent I/O Guards)",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2026-09-23",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "parameters_total_b": {
+      "value": {
+        "base": 0.31,
+        "large": 0.57,
+        "small": 0.14
+      },
+      "source": "Hugging Face API, safetensors totals",
+      "checked": "2026-11-14"
+    },
+    "size_gb": {
+      "value": {
+        "small": 0.56,
+        "base": 1.23,
+        "large": 2.27
+      },
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".safetensors, .onnx, .py (training code)",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "languages": {
+      "value": "30 languages, FR/DE included",
+      "source": "model card",
+      "checked": "2026-11-13"
+    },
+    "runtimes": {
+      "value": "transformers text-classification on MPS, ONNX; milliseconds per chunk, 8k context",
+      "source": "model card",
+      "checked": "2026-11-13"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "sizes",
+      "checked": "2026-11-13"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Newest agent-oriented injection encoder; responsive maintainer; numbers mostly self-reported",
+      "summary": "Trained on injections in documents, web pages, email, RAG chunks and tool outputs. Vendor: macro average 0.887 vs 0.637 for ProtectAI v2; the card lists weaknesses (out-of-place tasks missed, false positives on benign agent requests).",
+      "searched": "2026-11-13",
+      "scope": "Released 23.09.2026 (under 3 months): all comments. Hacker News comments (Algolia), Hugging Face discussions, GitHub issues of the runtimes; Reddit blocked (no r/LocalLLaMA feedback).",
+      "feedback": "thin"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "neutral",
+      "text": "Maintainer measurements: 0.4 % flagged on 24,788 real multilingual prompts, 12.2 % on benign commands with trigger words; recommends threshold 0.9 for user turns, 0.5 for retrieved content.",
+      "refs": [
+        {
+          "label": "HF discussion #1",
+          "date": "2026-10-22",
+          "url": "https://huggingface.co/Horizon-Labs/prompt-injection-guard-base/discussions/1",
+          "site": "huggingface"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

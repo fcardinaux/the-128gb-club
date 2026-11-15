@@ -1,0 +1,70 @@
+{
+  "id": "apertus-v1.5",
+  "name": "Apertus v1.5 (8B, 70B)",
+  "category": "translation",
+  "usage": "Translation and general (Swiss AI: EPFL, ETH Zurich, CSCS)",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "swiss-ai/Apertus-v1.5-8B",
+      "role": "facts"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "swiss-ai/Apertus-v1.5-70B",
+      "role": "facts"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://huggingface.co/swiss-ai/Apertus-v1.5-8B",
+      "checked": "2026-11-15"
+    },
+    "gated": {
+      "value": "yes (automatic approval)",
+      "source": "https://huggingface.co/swiss-ai/Apertus-v1.5-8B",
+      "checked": "2026-11-15"
+    },
+    "publisher": {
+      "value": "Swiss AI (EPFL, ETH Zurich, CSCS)",
+      "source": "https://huggingface.co/swiss-ai",
+      "checked": "2026-11-15"
+    },
+    "release_date": {
+      "value": "2026-07-24",
+      "source": "https://huggingface.co/swiss-ai/Apertus-v1.5-8B",
+      "checked": "2026-11-15"
+    },
+    "size_gb": {
+      "value": {
+        "8B": 18.4,
+        "70B": 144.6
+      },
+      "source": "Hugging Face API, file sizes",
+      "checked": "2026-11-15",
+      "note": "official bf16 weights"
+    },
+    "formats": {
+      "value": "safetensors",
+      "source": "https://huggingface.co/swiss-ai/Apertus-v1.5-70B/tree/main",
+      "checked": "2026-11-15"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-15",
+      "note": "the 8B fits; the 70B in bf16 (144.6 GB) does not, quantised builds not checked"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Judged very good for its size in translation (1 HN comment)",
+      "summary": "Apache 2.0 but gated: downloading needs accepting terms and a Hugging Face token.",
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026: Hacker News comments (Algolia API). Reddit, Hugging Face discussions and runtime issues not read.",
+      "feedback": "thin"
+    }
+  },
+  "comments": []
+}

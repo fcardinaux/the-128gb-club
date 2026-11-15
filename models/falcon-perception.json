@@ -1,0 +1,123 @@
+{
+  "id": "falcon-perception",
+  "name": "Falcon Perception (TII)",
+  "category": "vision",
+  "usage": "Segmentation from a text query: instance masks for named objects or surfaces",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "tiiuae/Falcon-Perception"
+    },
+    {
+      "kind": "github",
+      "repo": "tiiuae/Falcon-Perception",
+      "role": "info"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0 (card tag)",
+      "source": "https://huggingface.co/tiiuae/Falcon-Perception",
+      "checked": "2026-11-15",
+      "note": "no LICENSE file in the Hugging Face repository"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/tiiuae/Falcon-Perception",
+      "checked": "2026-11-15"
+    },
+    "publisher": {
+      "value": "Technology Innovation Institute (tiiuae)",
+      "source": "https://huggingface.co/tiiuae/Falcon-Perception",
+      "checked": "2026-11-15"
+    },
+    "release_date": {
+      "value": "2026-02-22",
+      "source": "https://huggingface.co/tiiuae/Falcon-Perception",
+      "checked": "2026-11-15",
+      "note": "repository creation date; RL revision branch dated 19.08.2026"
+    },
+    "parameters_total_b": {
+      "value": 0.6,
+      "source": "https://huggingface.co/tiiuae/Falcon-Perception",
+      "checked": "2026-11-15"
+    },
+    "size_gb": {
+      "value": 2.53,
+      "source": "https://huggingface.co/tiiuae/Falcon-Perception",
+      "checked": "2026-11-15",
+      "note": "safetensors; 6 remote-code .py files not needed with mlx-vlm"
+    },
+    "formats": {
+      "value": "safetensors, plus remote-code .py",
+      "source": "https://huggingface.co/tiiuae/Falcon-Perception",
+      "checked": "2026-11-15"
+    },
+    "runtimes": {
+      "value": "mlx-vlm `falcon_perception` (v0.7.12, loads the official repository); pip `falcon-perception` 1.0.0 (PyTorch and MLX paths)",
+      "source": "https://github.com/Blaizzy/mlx-vlm",
+      "checked": "2026-11-15"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-15"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-15",
+      "scope": "Released 22.02.2026: last 6 months plus launch. Hacker News (no comment found), Hugging Face discussions, GitHub issues of tiiuae/Falcon-Perception. Reddit not readable. **Feedback thin.**",
+      "summary": "Early MLX memory leak fixed; server memory sizing issue; detection of small, occluded or reflective objects reported as unreliable.",
+      "feedback": "thin",
+      "verdict": "Promising open text-to-mask model; thin feedback"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "MLX batch inference leaked about 50 GB on Apple Silicon with 50–100 objects, fixed by PR #3 on 07.04.2026 ([#2, 02.04.2026](https://github.com/tiiuae/Falcon-Perception/issues/2)); the server tried to allocate 56 GB on 24 GB GPUs, KV-cache size had to be hard-coded ([#5, 05.04.2026](https://github.com/tiiuae/Falcon-Perception/issues/5)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://github.com/tiiuae/Falcon-Perception/issues/2",
+          "site": "github",
+          "date": "2026-04-02",
+          "label": "#2"
+        },
+        {
+          "url": "https://github.com/tiiuae/Falcon-Perception/issues/5",
+          "site": "github",
+          "date": "2026-04-05",
+          "label": "#5"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Prompt-based detection works \"only in some cases\" for small, occluded or reflective objects ([#25, 11.06.2026](https://github.com/tiiuae/Falcon-Perception/issues/25)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://github.com/tiiuae/Falcon-Perception/issues/25",
+          "site": "github",
+          "date": "2026-06-11",
+          "label": "#25"
+        }
+      ]
+    },
+    {
+      "sentiment": "neutral",
+      "text": "The Hugging Face main branch is not synced with a GitHub patch ([HF discussion #4, 12.05.2026](https://huggingface.co/tiiuae/Falcon-Perception/discussions/4)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://huggingface.co/tiiuae/Falcon-Perception/discussions/4",
+          "site": "huggingface",
+          "date": "2026-05-12",
+          "label": "HF #4"
+        }
+      ]
+    }
+  ]
+}

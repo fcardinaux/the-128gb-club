@@ -1,0 +1,133 @@
+{
+  "id": "qwen3-vl-reranker",
+  "name": "Qwen3-VL-Reranker 2B / 8B",
+  "category": "reranker",
+  "usage": "Multimodal reranker (text, images, screenshots, video)",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "Qwen/Qwen3-VL-Reranker-2B",
+      "note": "4.26 GB; plus scripts/qwen3_vl_reranker.py (Python helper)"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "Qwen/Qwen3-VL-Reranker-8B",
+      "role": "info",
+      "note": "17.53 GB"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "Qwen (Alibaba)",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2026-01-07",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "parameters_total_b": {
+      "value": {
+        "2B": 2.1,
+        "8B": 8.8
+      },
+      "source": "Hugging Face API, safetensors totals",
+      "checked": "2026-11-14"
+    },
+    "size_gb": {
+      "value": {
+        "2B": 4.26,
+        "8B": 17.53
+      },
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".safetensors, .py (helper script)",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "languages": {
+      "value": "30+ languages",
+      "source": "model card",
+      "checked": "2026-11-13"
+    },
+    "runtimes": {
+      "value": "sentence-transformers >= 5.4, transformers >= 4.57, vLLM; llama.cpp multimodal rerank since PR #29625 (22.10.2026)",
+      "source": "GitHub",
+      "checked": "2026-11-13"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "sizes",
+      "checked": "2026-11-13"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Promising partner of Qwen3-VL-Embedding; local multimodal serving only possible since late October 2026",
+      "summary": "Vendor: 2B MMEB-v2 75.1, 8B 79.2. llama.cpp could not pass images to /v1/rerank until PR #29625 (merged 22.10.2026). The 8B sentence-transformers packaging had a score-head path bug (open PR).",
+      "searched": "2026-11-13",
+      "scope": "Released 07.01.2026 (3–12 months): comments of the last 6 months plus launch. Hacker News comments (Algolia), Hugging Face discussions, GitHub issues of the runtimes; Reddit blocked (no r/LocalLLaMA feedback).",
+      "feedback": "thin"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "llama.cpp /v1/rerank only accepted plain strings, so images could not be passed; support merged later as PR #29625.",
+      "refs": [
+        {
+          "label": "llama.cpp #25921",
+          "date": "2026-07-20",
+          "url": "https://github.com/ggml-org/llama.cpp/issues/25921",
+          "site": "github"
+        },
+        {
+          "label": "llama.cpp PR #29625",
+          "date": "2026-09-29",
+          "url": "https://github.com/ggml-org/llama.cpp/pull/29625",
+          "site": "github"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "neutral",
+      "text": "At launch, chatllm.cpp (C++ local runtime) already supported the model.",
+      "refs": [
+        {
+          "label": "J22",
+          "date": "2026-01-10",
+          "url": "https://huggingface.co/Qwen/Qwen3-VL-Reranker-2B/discussions/7",
+          "site": "huggingface"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "neutral",
+      "text": "Open PR fixing the score-head path in modules.json of the 8B (sentence-transformers packaging bug).",
+      "refs": [
+        {
+          "label": "KennethEnevoldsen",
+          "date": "2026-10-11",
+          "url": "https://huggingface.co/Qwen/Qwen3-VL-Reranker-8B/discussions/11",
+          "site": "huggingface"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

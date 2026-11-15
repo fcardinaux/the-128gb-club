@@ -1,0 +1,124 @@
+{
+  "id": "map-anything-apache",
+  "name": "MapAnything, Apache variant (Meta)",
+  "category": "vision",
+  "usage": "Multi-view 3D reconstruction: metric points, depth, camera poses and intrinsics from one or more photos (stereo pairs included)",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "facebook/map-anything-apache"
+    },
+    {
+      "kind": "github",
+      "repo": "facebookresearch/map-anything",
+      "role": "info"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0 (card tag, GitHub README)",
+      "source": "https://huggingface.co/facebook/map-anything-apache",
+      "checked": "2026-11-15",
+      "note": "no LICENSE file; the tag was wrong until 04.02.2026 (GitHub #139). The non-Apache variants are CC BY-NC 4.0"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/facebook/map-anything-apache",
+      "checked": "2026-11-15"
+    },
+    "publisher": {
+      "value": "Meta (facebook)",
+      "source": "https://huggingface.co/facebook/map-anything-apache",
+      "checked": "2026-11-15"
+    },
+    "release_date": {
+      "value": "2025-09-08",
+      "source": "https://huggingface.co/facebook/map-anything-apache",
+      "checked": "2026-11-15",
+      "note": "repository creation; weights updated 04.02.2026"
+    },
+    "size_gb": {
+      "value": 4.91,
+      "source": "https://huggingface.co/facebook/map-anything-apache",
+      "checked": "2026-11-15",
+      "note": "safetensors; older weights in map-anything-apache-v1, 2.25 GB"
+    },
+    "formats": {
+      "value": "safetensors",
+      "source": "https://huggingface.co/facebook/map-anything-apache",
+      "checked": "2026-11-15"
+    },
+    "runtimes": {
+      "value": "PyTorch on MPS (PR #131, about March 2026); not on PyPI; an mlx-vlm port (PR #2400) was closed unmerged on 01.10.2026",
+      "source": "https://github.com/facebookresearch/map-anything",
+      "checked": "2026-11-15"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-15"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-15",
+      "scope": "Over 12 months old: comments since 15.05.2026. Hacker News, Hugging Face discussions, GitHub issues of facebookresearch/map-anything. Reddit not readable. **Feedback thin.**",
+      "summary": "Used in production as a calibration cross-check; one report of inconsistent metric scale between runs; a dependency conflict; licence tag fixed in February 2026.",
+      "feedback": "thin",
+      "verdict": "Only permissively licensed multi-view reconstruction model found; thin feedback"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "neutral",
+      "text": "\"Models like MapAnything/MoGe predict calibration params directly… We still calibrate manually on-site, but mainly to validate these models actually hold up.\" ([HN, 09.06.2026](https://news.ycombinator.com/item?id=48465090))",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48465090",
+          "site": "hacker-news",
+          "date": "2026-06-09",
+          "label": "Transload launch"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "With stereo visual-odometry poses fed in, metric scale inconsistent with a LiDAR map between runs; the maintainer says depth is metric and is investigating ([#168, 09.09.2026](https://github.com/facebookresearch/map-anything/issues/168)). NumPy conflict with the vggt-omega extra ([#160, 03.06.2026](https://github.com/facebookresearch/map-anything/issues/160)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://github.com/facebookresearch/map-anything/issues/168",
+          "site": "github",
+          "date": "2026-09-09",
+          "label": "#168"
+        },
+        {
+          "url": "https://github.com/facebookresearch/map-anything/issues/160",
+          "site": "github",
+          "date": "2026-06-03",
+          "label": "#160"
+        }
+      ]
+    },
+    {
+      "sentiment": "neutral",
+      "text": "Licence history: \"Apache? It is cc-by-nc-4.0!\" ([HF #1, 26.12.2025](https://huggingface.co/facebook/map-anything-apache/discussions/1)), fixed per [GitHub #139](https://github.com/facebookresearch/map-anything/issues/139) (04.02.2026).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://huggingface.co/facebook/map-anything-apache/discussions/1",
+          "site": "huggingface",
+          "date": "2025-12-26",
+          "label": "HF #1"
+        },
+        {
+          "url": "https://github.com/facebookresearch/map-anything/issues/139",
+          "site": "github",
+          "date": "2026-02-04",
+          "label": "#139"
+        }
+      ]
+    }
+  ]
+}

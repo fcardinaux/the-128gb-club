@@ -1,0 +1,34 @@
+# macOS
+.DS_Store
+._*
+
+# Python and uv
+__pycache__/
+*.pyc
+.venv/
+
+# Editors and local agent settings
+.vscode/
+.idea/
+.claude/
+
+# Secrets and local configuration
+.env
+.env.*
+
+# Private overlays (tools/model_compare.py --private): keep them in your own repository
+*-private.json
+*-private.schema.json
+
+# Safety: this repository holds metadata only, never model weights
+*.safetensors
+*.gguf
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.pickle
+*.onnx
+*.mlmodel
+*.mlpackage/

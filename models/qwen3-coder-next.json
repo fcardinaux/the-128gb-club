@@ -1,0 +1,173 @@
+{
+  "id": "qwen3-coder-next",
+  "name": "Qwen3-Coder-Next",
+  "category": "code",
+  "usage": "Code, large projects",
+  "sources": [
+    {
+      "kind": "ollama",
+      "tag": "qwen3-coder-next"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://ollama.com/library/qwen3-coder-next",
+      "checked": "2026-11-12"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://ollama.com/library/qwen3-coder-next",
+      "checked": "2026-11-12"
+    },
+    "release_date": {
+      "value": "2026-01-30",
+      "source": "https://ollama.com/library/qwen3-coder-next",
+      "checked": "2026-11-12",
+      "note": "30.01.2026"
+    },
+    "parameters_total_b": {
+      "value": 80,
+      "source": "https://huggingface.co/Qwen/Qwen3-Coder-Next",
+      "checked": "2026-11-14"
+    },
+    "parameters_active_b": {
+      "value": 3,
+      "source": "https://huggingface.co/Qwen/Qwen3-Coder-Next",
+      "checked": "2026-11-14"
+    },
+    "size_gb": {
+      "value": 51.7,
+      "source": "https://ollama.com/library/qwen3-coder-next",
+      "checked": "2026-11-12"
+    },
+    "formats": {
+      "value": "GGUF",
+      "source": "https://ollama.com/library/qwen3-coder-next",
+      "checked": "2026-11-12"
+    },
+    "runtimes": {
+      "value": "Ollama official qwen3-coder-next (tool-call parser rejects some long file writes, #18563 open); llama.cpp llama-server with GGUF (ggml-org); LM Studio (lmstudio-community GGUF and MLX 4/6/8-bit); mlx-lm with mlx-community builds (4-8 bit, bf16, mxfp4/8, nvfp4); vllm-mlx has qwen3_next MTP patch and Qwen3 parsers",
+      "source": "https://ollama.com/library/qwen3-coder-next, https://huggingface.co/ggml-org/Qwen3-Coder-Next-GGUF, https://huggingface.co/lmstudio-community/Qwen3-Coder-Next-GGUF, https://huggingface.co/mlx-community/Qwen3-Coder-Next-8bit, https://github.com/ollama/ollama/issues/18563",
+      "checked": "2026-11-14",
+      "note": "Ollama issue status from an earlier check (13.11.2026), not re-checked. vllm-mlx support inferred from its patch modules."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026. Sources: Hacker News comments, Hugging Face discussions, Ollama, llama.cpp and mlx-lm issues. **Reddit could not be read** (blocked for automated reading); summaries of Reddit threads by other sites were not used as evidence. Released 30.01.2026; window: since 13.05.2026 plus the launch discussion.",
+      "summary": "Fast, but overtaken by Qwen3.8-27B; no successor in the coder line. Weak case for downloading it.",
+      "feedback": "moderate",
+      "verdict": "Fast but overtaken by Qwen3.8-27B; **LICENSE file missing**"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "**Licence**: the card says Apache 2.0, but the LICENSE file is missing (404), also in the GGUF repository ([HF #52, 18.07.2026](https://huggingface.co/Qwen/Qwen3-Coder-Next/discussions/52); [HF #29, 11.02.2026](https://huggingface.co/Qwen/Qwen3-Coder-Next/discussions/29)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://huggingface.co/Qwen/Qwen3-Coder-Next/discussions/52",
+          "site": "huggingface",
+          "date": "2026-07-18",
+          "label": "HF #52"
+        },
+        {
+          "url": "https://huggingface.co/Qwen/Qwen3-Coder-Next/discussions/29",
+          "site": "huggingface",
+          "date": "2026-02-11",
+          "label": "HF #29"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Coder and Coder-Next seen as obsolete, Qwen3.6-35B-A3B recommended instead ([seanmcdirmid, 21.10.2026](https://news.ycombinator.com/item?id=50183994)); not as good as Qwen3.6-27B, though faster ([UncleOxidant, 08.07.2026](https://news.ycombinator.com/item?id=48834700)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50183994",
+          "site": "hacker-news",
+          "date": "2026-10-21",
+          "label": "seanmcdirmid"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=48834700",
+          "site": "hacker-news",
+          "date": "2026-07-08",
+          "label": "UncleOxidant"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "No thinking mode, so it has to go over its work several times ([Tade0, 03.11.2026](https://news.ycombinator.com/item?id=50350667)); ignores simple instructions ([HF #50, 18.06.2026](https://huggingface.co/Qwen/Qwen3-Coder-Next/discussions/50)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50350667",
+          "site": "hacker-news",
+          "date": "2026-11-03",
+          "label": "Tade0"
+        },
+        {
+          "url": "https://huggingface.co/Qwen/Qwen3-Coder-Next/discussions/50",
+          "site": "huggingface",
+          "date": "2026-06-18",
+          "label": "HF #50"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Ollama's tool-call parser rejects some long file writes ([ollama#18563, open](https://github.com/ollama/ollama/issues/18563)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://github.com/ollama/ollama/issues/18563",
+          "site": "github",
+          "label": "ollama#18563, open"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "60–80 tok/s on an M4 Max ([ttoinou, 21.02.2026](https://news.ycombinator.com/item?id=47096491); [LoganDark, 12.06.2026](https://news.ycombinator.com/item?id=48508826)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=47096491",
+          "site": "hacker-news",
+          "date": "2026-02-21",
+          "label": "ttoinou"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=48508826",
+          "site": "hacker-news",
+          "date": "2026-06-12",
+          "label": "LoganDark"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "The best results so far for one user ([Shorel, 13.06.2026](https://news.ycombinator.com/item?id=48520417)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48520417",
+          "site": "hacker-news",
+          "date": "2026-06-13",
+          "label": "Shorel"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "id": "flux.2-klein-4b",
+  "name": "FLUX.2 klein 4B",
+  "category": "image",
+  "usage": "Lightweight image",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "black-forest-labs/FLUX.2-klein-4B"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B",
+      "checked": "2026-11-12"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B",
+      "checked": "2026-11-12"
+    },
+    "publisher": {
+      "value": "black-forest-labs",
+      "source": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B",
+      "checked": "2026-11-12"
+    },
+    "release_date": {
+      "value": "2026-01-14",
+      "source": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B",
+      "checked": "2026-11-12",
+      "note": "14.01.2026"
+    },
+    "parameters_total_b": {
+      "value": 3.9,
+      "source": "https://huggingface.co/api/models/black-forest-labs/FLUX.2-klein-4B",
+      "checked": "2026-11-14",
+      "note": "safetensors total reported by the API"
+    },
+    "size_gb": {
+      "value": 23.7,
+      "source": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B",
+      "checked": "2026-11-12"
+    },
+    "formats": {
+      "value": "safetensors (Diffusers + single file)",
+      "source": "https://huggingface.co/black-forest-labs/FLUX.2-klein-4B",
+      "checked": "2026-11-12"
+    },
+    "languages": {
+      "value": "en (card metadata)",
+      "source": "https://huggingface.co/api/models/black-forest-labs/FLUX.2-klein-4B",
+      "checked": "2026-11-14"
+    },
+    "runtimes": {
+      "value": "mflux (txt2img, multi-image edit, quantization; ~4-5 s per image at q4 on M5 Max, mflux#817); ComfyUI native (docs tutorial); Draw Things (FLUX.2 [klein] series since 1.20260120.0, LoRA training since April 2026; community config flux-2-klein-4b-exact); stable-diffusion.cpp (Metal, docs/flux2.md); DiffSynth-Studio (inference and training since 19.01.2026); diffusers Flux2 pipeline. Official flux2 repo targets CUDA",
+      "source": "https://github.com/mflux-community/mflux (src/mflux/models/flux2/README.md, issue #817); https://docs.comfy.org/tutorials/flux/flux-2-klein; https://drawthings.ai/downloads/; https://github.com/leejet/stable-diffusion.cpp/blob/master/docs/flux2.md; https://github.com/modelscope/DiffSynth-Studio",
+      "checked": "2026-11-14",
+      "note": "No ComfyUI MPS bug found specific to klein (the 58 GiB allocation issue #17309 concerns FLUX.3). diffusers on MPS: no report found."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026. Sources: Hacker News comments, Hugging Face discussions, issues of mflux, ComfyUI, mlx-video and ComfyUI-WanVideoWrapper. **Reddit could not be read**; blogs and developers promoting their own engines are leads only. Released 15.01.2026; window: launch plus 13.05–13.11.2026. Most feedback is about the 9B; thin for the 4B.",
+      "summary": "Fastest image model on an M5 Max, good for editing; weak anatomy and spelling in text-to-image.",
+      "feedback": "thin",
+      "verdict": "~4–5 s/image on M5 Max (mflux); good for editing; weak anatomy and spelling"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "The Klein family is mainly for editing; in text-to-image it brings back the distorted bodies of the SDXL era ([vunderba, 24.07.2026](https://news.ycombinator.com/item?id=49038190), about the 9B).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49038190",
+          "site": "hacker-news",
+          "date": "2026-07-24",
+          "label": "vunderba"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "The 4B needs retries when exact spelling matters (blog test, lead only: [wiro.ai](https://wiro.ai/blog/flux-2-klein-base-4b-vs-9b-5-prompt-image-test/)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://wiro.ai/blog/flux-2-klein-base-4b-vs-9b-5-prompt-image-test/",
+          "site": "blog",
+          "label": "wiro.ai"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "**M5 Max 128 GB with mflux**: about 0.8–1.0 s per step at q4, about 4–5 s per image ([fxd0h, 03.10.2026](https://github.com/mflux-community/mflux/issues/817)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://github.com/mflux-community/mflux/issues/817",
+          "site": "github",
+          "date": "2026-10-03",
+          "label": "fxd0h"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Practically the best option on most consumer hardware ([Tenoke, 24.07.2026](https://news.ycombinator.com/item?id=49032727)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49032727",
+          "site": "hacker-news",
+          "date": "2026-07-24",
+          "label": "Tenoke"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Successor FLUX.3 Klein (gated, licence \"other\") judged very disappointing compared with Flux 2 Klein ([Thorentis, 16.10.2026](https://news.ycombinator.com/item?id=50125486)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50125486",
+          "site": "hacker-news",
+          "date": "2026-10-16",
+          "label": "Thorentis"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,210 @@
+{
+  "id": "qwen3-reranker",
+  "name": "Qwen3-Reranker 0.6B / 4B / 8B",
+  "category": "reranker",
+  "usage": "Reranker for RAG, text, 100+ languages",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "Qwen/Qwen3-Reranker-4B",
+      "note": "Recommended, 8.04 GB"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "Qwen/Qwen3-Reranker-0.6B",
+      "note": "1.19 GB"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "ggml-org/Qwen3-Reranker-0.6B-Q8_0-GGUF",
+      "note": "Official GGUF with classifier head, 0.64 GB"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "Qwen/Qwen3-Reranker-8B",
+      "role": "info",
+      "note": "16.38 GB, scores about the same as the 4B"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "Voodisss/Qwen3-Reranker-4B-GGUF-llama_cpp",
+      "role": "info",
+      "note": "Community GGUF that keeps the classifier head (llama.cpp #25447)"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "Qwen (Alibaba)",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2025-05-29 (0.6B, 8B), 2025-06-03 (4B)",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "parameters_total_b": {
+      "value": {
+        "4B": 4.0,
+        "0.6B": 0.6,
+        "8B": 8.2
+      },
+      "source": "Hugging Face API, safetensors totals",
+      "checked": "2026-11-14"
+    },
+    "size_gb": {
+      "value": {
+        "0.6B": 1.19,
+        "0.6B GGUF Q8_0": 0.64,
+        "4B": 8.04,
+        "8B": 16.38
+      },
+      "source": "Hugging Face API",
+      "checked": "2026-11-13",
+      "note": "safetensors unless stated"
+    },
+    "formats": {
+      "value": ".safetensors, .gguf",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "languages": {
+      "value": "100+ languages, EN/FR/DE included",
+      "source": "model card",
+      "checked": "2026-11-13"
+    },
+    "runtimes": {
+      "value": "llama.cpp llama-server --rerank (/v1/rerank); sentence-transformers >= 5.4 CrossEncoder on MPS; MLX with own code. Not Ollama (issue #3368 open)",
+      "source": "GitHub issues, model cards",
+      "checked": "2026-11-13"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "sizes",
+      "checked": "2026-11-13"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "De-facto open-weights reranker default; tooling pain (broken GGUFs, no Ollama, slow llama.cpp path)",
+      "summary": "Widely used on Macs, including the 0.6B in local agent pipelines. Vendor scores: 4B MMTEB-R 72.7, 8B 72.9, bge-reranker-v2-m3 58.4; MTEB maintainers could not reproduce Qwen's reranking scores. Most community GGUFs lack the classifier head and return scores near 0. llama.cpp decoder rerank is about 6x slower than necessary (open issue).",
+      "searched": "2026-11-13",
+      "scope": "Released 05–06.2025 (more than 12 months): comments since 13.05.2026. Hacker News comments (Algolia), Hugging Face discussions, GitHub issues of the runtimes; Reddit blocked (no r/LocalLLaMA feedback).",
+      "feedback": "moderate"
+    },
+    "speed": [
+      {
+        "machine": "Apple M5 Max, 128 GB",
+        "runtime": "MLX",
+        "quantisation": "0.6B 4-bit",
+        "value": "≈ 64 ms to first token, ≈ 594 ms for a 760-token prefill",
+        "measured_by": "web",
+        "url": "https://news.ycombinator.com/item?id=49918498",
+        "date": "2026-10-01"
+      }
+    ]
+  },
+  "comments": [
+    {
+      "sentiment": "positive",
+      "text": "Show HN author runs a whole agent pipeline locally on a MacBook with Qwen3-Reranker-0.6B.",
+      "refs": [
+        {
+          "label": "ymattia",
+          "date": "2026-10-16",
+          "url": "https://news.ycombinator.com/item?id=50120300",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "positive",
+      "text": "A team chose Qwen3-Reranker 0.6B and 4B as the base for a LoRA fine-tune scoring sigmoid(logit_yes - logit_no).",
+      "refs": [
+        {
+          "label": "trashhalo",
+          "date": "2026-06-11",
+          "url": "https://news.ycombinator.com/item?id=48493986",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "MTEB maintainers could not reproduce Qwen's reported reranking scores for 0.6B/4B/8B; implementation merged anyway.",
+      "refs": [
+        {
+          "label": "AyushM6",
+          "date": "2026-06-22",
+          "url": "https://huggingface.co/Qwen/Qwen3-Reranker-4B/discussions/12",
+          "site": "huggingface"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "neutral",
+      "text": "The prompt format must be followed exactly: the reference input closes an empty <think></think> block and scores only the yes/no logits.",
+      "refs": [
+        {
+          "label": "CyberNativeAI",
+          "date": "2026-10-03",
+          "url": "https://huggingface.co/Qwen/Qwen3-Reranker-4B/discussions/8",
+          "site": "huggingface"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "llama.cpp /v1/rerank returned ~1e-20 scores because the community GGUF lacked the classifier head; the Voodisss 4B GGUF works.",
+      "refs": [
+        {
+          "label": "llama.cpp #25447",
+          "date": "2026-07-08",
+          "url": "https://github.com/ggml-org/llama.cpp/issues/25447",
+          "site": "github"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "With --reranking on decoder models, llama.cpp copies full-vocab logits for every token, making the 0.6B about 6x slower; still open.",
+      "refs": [
+        {
+          "label": "llama.cpp #30422",
+          "date": "2026-10-12",
+          "url": "https://github.com/ggml-org/llama.cpp/issues/30422",
+          "site": "github"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "Users still wait for native reranking in Ollama; the feature request remains open.",
+      "refs": [
+        {
+          "label": "ollama #3368",
+          "date": "2026-07-23",
+          "url": "https://github.com/ollama/ollama/issues/3368#issuecomment-5055347102",
+          "site": "github"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

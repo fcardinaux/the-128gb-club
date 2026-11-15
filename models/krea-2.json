@@ -1,0 +1,83 @@
+{
+  "id": "krea-2",
+  "name": "Krea 2",
+  "category": "image",
+  "usage": "Image generation",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "krea/Krea-2-Turbo",
+      "role": "facts"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "krea/Krea-2-Raw",
+      "role": "facts"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Krea 2 Community License",
+      "source": "https://huggingface.co/krea/Krea-2-Turbo",
+      "checked": "2026-11-15"
+    },
+    "gated": {
+      "value": "yes (automatic approval)",
+      "source": "https://huggingface.co/krea/Krea-2-Turbo",
+      "checked": "2026-11-15"
+    },
+    "publisher": {
+      "value": "Krea",
+      "source": "https://huggingface.co/krea",
+      "checked": "2026-11-15"
+    },
+    "release_date": {
+      "value": "2026-06-18",
+      "source": "https://huggingface.co/krea/Krea-2-Turbo",
+      "checked": "2026-11-15"
+    },
+    "size_gb": {
+      "value": {
+        "Turbo": 61.95,
+        "Raw": 61.95
+      },
+      "source": "Hugging Face API, file sizes",
+      "checked": "2026-11-15"
+    },
+    "formats": {
+      "value": "safetensors",
+      "source": "https://huggingface.co/krea/Krea-2-Turbo/tree/main",
+      "checked": "2026-11-15"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-15",
+      "note": "a build of 100 GB or less (see research-method.md, Memory target)"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Top local score on an image benchmark",
+      "summary": "Praised on Hacker News; licence not Apache 2.0 or MIT.",
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026: Hacker News comments only, collected while researching other models.",
+      "feedback": "thin"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "positive",
+      "text": "Krea 2 scored 7/15 on the GenAI Showdown benchmark; commercial use allowed under $1 million ([vunderba, 20.09.2026](https://news.ycombinator.com/item?id=49776784)).",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49776784",
+          "site": "hacker-news",
+          "label": "vunderba",
+          "date": "2026-09-20"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

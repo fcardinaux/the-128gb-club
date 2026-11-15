@@ -1,0 +1,91 @@
+{
+  "id": "mineru2.5-pro",
+  "name": "MinerU2.5-Pro (OpenDataLab)",
+  "category": "ocr",
+  "usage": "OCR (complex documents)",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "opendatalab/MinerU2.5-Pro-2605-1.2B"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://huggingface.co/api/models/opendatalab/MinerU2.5-Pro-2605-1.2B",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/api/models/opendatalab/MinerU2.5-Pro-2605-1.2B",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "opendatalab",
+      "source": "https://huggingface.co/opendatalab/MinerU2.5-Pro-2605-1.2B",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2026-05-20",
+      "source": "https://huggingface.co/api/models/opendatalab/MinerU2.5-Pro-2605-1.2B",
+      "checked": "2026-11-13",
+      "note": "createdAt of the repository"
+    },
+    "parameters_total_b": {
+      "value": 1.2,
+      "source": "https://huggingface.co/api/models/opendatalab/MinerU2.5-Pro-2605-1.2B",
+      "checked": "2026-11-13"
+    },
+    "size_gb": {
+      "value": 2.3,
+      "source": "Hugging Face API, file sizes",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".safetensors",
+      "source": "https://huggingface.co/api/models/opendatalab/MinerU2.5-Pro-2605-1.2B",
+      "checked": "2026-11-13"
+    },
+    "languages": {
+      "value": "zh, en only in the card",
+      "source": "https://huggingface.co/opendatalab/MinerU2.5-Pro-2605-1.2B (model card)",
+      "checked": "2026-11-13",
+      "note": "French and German not listed; accents untested."
+    },
+    "runtimes": {
+      "value": "MinerU package backend vlm-mlx-engine on Apple Silicon (since MinerU 2.6.3, macOS >= 13.5) and mineru-vl-utils[mlx] (mlx-vlm); community MLX builds (OpenGryd 8bit, playstonex 4bit); transformers >= 4.56 backend (slower); vLLM/SGLang are CUDA. Community GGUFs exist (mradermacher, 42ailab)",
+      "source": "https://huggingface.co/opendatalab/MinerU2.5-Pro-2605-1.2B, https://newreleases.io/project/github/opendatalab/MinerU/release/mineru-2.6.3-released, https://huggingface.co/raoqu/mlx-mu",
+      "checked": "2026-11-14",
+      "note": "The MLX backend is documented for MinerU2.5 (2509); Pro keeps the same architecture, so it should load, but no official statement found. llama.cpp support for the GGUFs (vision projector) unverified. Not in Ollama (only community tb-etl/mineru-q4km, unclear which version). Community native C++/MLX port mlx-mu targets the 2605 Pro model."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026: Hacker News comments only (Algolia API). Reddit, Hugging Face discussions and runtime issues not read yet.",
+      "summary": "Small, Apache 2.0, a single safetensors file (no `.py`, unlike PaddleOCR-VL). Almost no feedback: read the Hugging Face discussions and test before deciding.",
+      "feedback": "none",
+      "verdict": "Almost no feedback; single safetensors file"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "positive",
+      "text": "Good experiences with MinerU and PaddleOCR-VL ([dcan, 14.08.2026](https://news.ycombinator.com/item?id=49298968)); version not stated.",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49298968",
+          "site": "hacker-news",
+          "date": "2026-08-14",
+          "label": "dcan"
+        }
+      ]
+    }
+  ]
+}

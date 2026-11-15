@@ -1,0 +1,294 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "model.schema.json",
+  "title": "Model record",
+  "description": "One AI model that can run locally: verifiable facts, web appraisals and summarised web comments. One file per model in models/.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "category",
+    "sources",
+    "facts",
+    "appraisals",
+    "comments"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9.-]*$",
+      "description": "Same as the file name without .json"
+    },
+    "name": {
+      "type": "string"
+    },
+    "category": {
+      "enum": [
+        "llm",
+        "code",
+        "vision",
+        "embeddings",
+        "reranker",
+        "guard",
+        "ocr",
+        "asr",
+        "tts",
+        "image",
+        "video",
+        "translation",
+        "music",
+        "chess",
+        "timeseries"
+      ]
+    },
+    "usage": {
+      "type": "string",
+      "description": "What it is for, in a few words"
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "kind"
+        ],
+        "properties": {
+          "kind": {
+            "enum": [
+              "huggingface",
+              "ollama",
+              "github",
+              "other"
+            ]
+          },
+          "repo": {
+            "type": "string",
+            "description": "Hugging Face repository or GitHub project"
+          },
+          "tag": {
+            "type": "string",
+            "description": "Ollama tag"
+          },
+          "note": {
+            "type": "string"
+          },
+          "role": {
+            "enum": [
+              "download",
+              "facts",
+              "info"
+            ],
+            "description": "download (default): the files to run the model; facts: official repository used for facts only; info: related, for information"
+          }
+        }
+      }
+    },
+    "facts": {
+      "type": "object",
+      "description": "Verifiable facts. Each value records where and when it was checked.",
+      "additionalProperties": false,
+      "properties": {
+        "licence": {
+          "$ref": "#/$defs/fact"
+        },
+        "gated": {
+          "$ref": "#/$defs/fact"
+        },
+        "publisher": {
+          "$ref": "#/$defs/fact"
+        },
+        "release_date": {
+          "$ref": "#/$defs/fact"
+        },
+        "parameters_total_b": {
+          "$ref": "#/$defs/fact"
+        },
+        "parameters_active_b": {
+          "$ref": "#/$defs/fact"
+        },
+        "size_gb": {
+          "$ref": "#/$defs/fact"
+        },
+        "formats": {
+          "$ref": "#/$defs/fact"
+        },
+        "languages": {
+          "$ref": "#/$defs/fact"
+        },
+        "runtimes": {
+          "$ref": "#/$defs/fact"
+        },
+        "fits_128gb": {
+          "$ref": "#/$defs/fact"
+        },
+        "provenance": {
+          "$ref": "#/$defs/fact",
+          "description": "For a third-party conversion: result of the checks of research-method.md, section Third-party conversions"
+        }
+      }
+    },
+    "appraisals": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "web": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "verdict": {
+              "type": "string",
+              "description": "One line for the comparison table"
+            },
+            "summary": {
+              "type": "string"
+            },
+            "searched": {
+              "$ref": "#/$defs/date"
+            },
+            "scope": {
+              "type": "string",
+              "description": "Release date, recency window and sources read"
+            },
+            "feedback": {
+              "enum": [
+                "none",
+                "thin",
+                "moderate",
+                "rich"
+              ]
+            }
+          }
+        },
+        "speed": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "machine",
+              "value"
+            ],
+            "properties": {
+              "machine": {
+                "type": "string"
+              },
+              "runtime": {
+                "type": "string"
+              },
+              "quantisation": {
+                "type": "string"
+              },
+              "value": {
+                "type": "string",
+                "description": "e.g. '24 tok/s', '13 s per image'"
+              },
+              "measured_by": {
+                "enum": [
+                  "web"
+                ]
+              },
+              "url": {
+                "type": "string"
+              },
+              "date": {
+                "$ref": "#/$defs/date"
+              }
+            }
+          }
+        }
+      }
+    },
+    "comments": {
+      "type": "array",
+      "description": "Web comments, in English, summarised in our own words (no quotes), with links and dates. One item may cite several sources.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "sentiment",
+          "text"
+        ],
+        "properties": {
+          "sentiment": {
+            "enum": [
+              "positive",
+              "negative",
+              "neutral"
+            ]
+          },
+          "text": {
+            "type": "string",
+            "description": "Markdown, with the links"
+          },
+          "refs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "url"
+              ],
+              "properties": {
+                "label": {
+                  "type": "string",
+                  "description": "Author or issue number"
+                },
+                "date": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "site": {
+                  "enum": [
+                    "hacker-news",
+                    "reddit",
+                    "huggingface",
+                    "github",
+                    "blog",
+                    "other"
+                  ]
+                }
+              }
+            }
+          },
+          "original_language": {
+            "type": "string",
+            "description": "Only when translated, e.g. 'fr'"
+          },
+          "searched": {
+            "$ref": "#/$defs/date"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "date": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "fact": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value"
+      ],
+      "properties": {
+        "value": {},
+        "source": {
+          "type": "string",
+          "description": "URL, API or git commit"
+        },
+        "checked": {
+          "$ref": "#/$defs/date"
+        },
+        "note": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

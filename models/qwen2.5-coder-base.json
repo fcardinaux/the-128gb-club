@@ -1,0 +1,182 @@
+{
+  "id": "qwen2.5-coder-base",
+  "name": "Qwen2.5-Coder base 0.5B / 1.5B / 7B (FIM)",
+  "category": "code",
+  "usage": "Code autocompletion (fill-in-the-middle) in the editor",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "ggml-org/Qwen2.5-Coder-7B-Q8_0-GGUF",
+      "note": "Recommended, 8.1 GB"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "ggml-org/Qwen2.5-Coder-1.5B-Q8_0-GGUF",
+      "note": "1.65 GB"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "ggml-org/Qwen2.5-Coder-0.5B-Q8_0-GGUF",
+      "note": "0.53 GB, draft model for the 7B"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "Qwen/Qwen2.5-Coder-7B",
+      "role": "facts",
+      "note": "Official base, 15.23 GB safetensors"
+    },
+    {
+      "kind": "ollama",
+      "tag": "qwen2.5-coder:7b-base",
+      "note": "Also 1.5b-base, 0.5b-base"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13",
+      "note": "The 3B is qwen-research: excluded"
+    },
+    "gated": {
+      "value": false,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "Qwen (Alibaba)",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2024-09-16 (7B), 2024-09-18 (1.5B), 2024-11-08 (0.5B)",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "parameters_total_b": {
+      "value": {
+        "7B": 7.6,
+        "1.5B": 1.5,
+        "0.5B": 0.5
+      },
+      "source": "Hugging Face API, GGUF totals",
+      "checked": "2026-11-14"
+    },
+    "size_gb": {
+      "value": {
+        "0.5B GGUF Q8_0": 0.53,
+        "1.5B GGUF Q8_0": 1.65,
+        "7B GGUF Q8_0": 8.1
+      },
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".gguf, .safetensors",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "languages": {
+      "value": "code; en (card metadata)",
+      "source": "https://huggingface.co/api/models/Qwen/Qwen2.5-Coder-7B",
+      "checked": "2026-11-14"
+    },
+    "runtimes": {
+      "value": "llama.cpp /infill (presets --fim-qwen-7b-default, --fim-qwen-1.5b-default), Ollama, MLX; editors llama.vscode, llama.vim, Continue, Twinny, Zed (qwen format), minuet.nvim",
+      "source": "ggml-org collection, Zed and Continue docs",
+      "checked": "2026-11-13"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "sizes",
+      "checked": "2026-11-13"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Still the default FIM model in llama.cpp, Continue and Zed docs; starting to feel dated",
+      "summary": "No FIM-trained successor: Qwen3.x was not pretrained for FIM (Sweep founder on HN). Recent comments few and mixed: useful 7B autocomplete, but the 1.5B makes many mistakes.",
+      "searched": "2026-11-13",
+      "scope": "Released 09–11.2024: comments of the last 6 months. Hacker News comments (Algolia), Hugging Face discussions, GitHub issues of the runtimes; Reddit blocked (no r/LocalLLaMA feedback).",
+      "feedback": "thin"
+    },
+    "speed": [
+      {
+        "machine": "Apple M5 Max, 40-core GPU",
+        "runtime": "llama.cpp",
+        "quantisation": "Llama-2-7B Q8_0 (same class, not this model)",
+        "value": "≈ 3,144 tok/s prompt, ≈ 72 tok/s generation",
+        "measured_by": "web",
+        "url": "https://github.com/ggml-org/llama.cpp/discussions/4167",
+        "date": "2026-11-13"
+      }
+    ]
+  },
+  "comments": [
+    {
+      "sentiment": "positive",
+      "text": "A 7B Qwen2.5 Coder is useful locally for autocomplete while programming.",
+      "refs": [
+        {
+          "label": "cogman10",
+          "date": "2026-09-04",
+          "url": "https://news.ycombinator.com/item?id=49564136",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "Questions recommending qwen2.5-coder-7b (09.2024) as a top coding model in 2026.",
+      "refs": [
+        {
+          "label": "bhelkey",
+          "date": "2026-08-28",
+          "url": "https://news.ycombinator.com/item?id=49482849",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "The 1.5B runs fine on old hardware with llama.cpp but makes many mistakes; the user stopped using it.",
+      "refs": [
+        {
+          "label": "testerius",
+          "date": "2026-10-13",
+          "url": "https://news.ycombinator.com/item?id=50072570",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "neutral",
+      "text": "In Zed, edit predictions did nothing with `prompt_format: infer`; setting `qwen` explicitly fixes it.",
+      "refs": [
+        {
+          "label": "zed #59092",
+          "date": "2026-06-16",
+          "url": "https://github.com/zed-industries/zed/issues/59092#issuecomment-4716292414",
+          "site": "github"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "neutral",
+      "text": "Sweep's founder: Qwen3 scores worse than Qwen2.5 for autocomplete because it was never pretrained for FIM (vendor).",
+      "refs": [
+        {
+          "label": "kevinlu1248",
+          "date": "2026-01-23",
+          "url": "https://news.ycombinator.com/item?id=46727316",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

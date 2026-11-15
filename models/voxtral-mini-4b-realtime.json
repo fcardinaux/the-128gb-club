@@ -1,0 +1,162 @@
+{
+  "id": "voxtral-mini-4b-realtime",
+  "name": "Voxtral Mini 4B Realtime (2602)",
+  "category": "asr",
+  "usage": "Real-time transcription",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "mistralai/Voxtral-Mini-4B-Realtime-2602"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://huggingface.co/mistralai/Voxtral-Mini-4B-Realtime-2602",
+      "checked": "2026-11-12"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/mistralai/Voxtral-Mini-4B-Realtime-2602",
+      "checked": "2026-11-12"
+    },
+    "publisher": {
+      "value": "mistralai",
+      "source": "https://huggingface.co/mistralai/Voxtral-Mini-4B-Realtime-2602",
+      "checked": "2026-11-12"
+    },
+    "release_date": {
+      "value": "2026-01-21",
+      "source": "https://huggingface.co/mistralai/Voxtral-Mini-4B-Realtime-2602",
+      "checked": "2026-11-12",
+      "note": "21.01.2026"
+    },
+    "parameters_total_b": {
+      "value": 4.4,
+      "source": "https://huggingface.co/api/models/mistralai/Voxtral-Mini-4B-Realtime-2602",
+      "checked": "2026-11-14"
+    },
+    "size_gb": {
+      "value": 17.7,
+      "source": "https://huggingface.co/mistralai/Voxtral-Mini-4B-Realtime-2602",
+      "checked": "2026-11-12"
+    },
+    "formats": {
+      "value": "safetensors",
+      "source": "https://huggingface.co/mistralai/Voxtral-Mini-4B-Realtime-2602",
+      "checked": "2026-11-12"
+    },
+    "languages": {
+      "value": "13 languages: en, fr, es, de, ru, zh, ja, it, pt, nl, ar, hi, ko",
+      "source": "https://huggingface.co/mistralai/Voxtral-Mini-4B-Realtime-2602 (model card)",
+      "checked": "2026-11-13",
+      "note": "No language hint: automatic detection is fragile (German mistaken for Portuguese in one report)."
+    },
+    "runtimes": {
+      "value": "mlx-audio (mlx-community 4-bit and fp16); voxtral.c (pure C, 'make mps' for Apple Silicon Metal); voxmlx (MLX port listed on the model card); transformers >= 5.2.0 native. vLLM nightly is the officially recommended runtime (CUDA). llama.cpp: streaming audio infrastructure for voxtral-realtime merged 15.10.2026 (PR #30629), CLI/server follow-ups in progress, not yet in the multimodal docs",
+      "source": "https://huggingface.co/mistralai/Voxtral-Mini-4B-Realtime-2602 (model card); https://github.com/antirez/voxtral.c; https://github.com/Neywa-Labs/mlx-audio (README); https://github.com/ggml-org/llama.cpp/pull/30629",
+      "checked": "2026-11-14",
+      "note": "The model card marks community ports as untested by Mistral. transformers on MPS unverified. Some community ports reported slow on Mac (HN, Feb 2026)."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026. Sources: Hacker News comments, Hugging Face discussions, issues of Ollama, QwenLM, resemble-ai/chatterbox and mlx-audio (now `Neywa-Labs/mlx-audio`). **Reddit could not be read.** Items from before 13.05.2026 that are not launch discussions are marked \"older\". Released 21.01.2026 (announced 04.02.2026); window: since 13.05.2026 plus the launch.",
+      "summary": "Good French and English streaming; language detection fragile, a risk for German; use an MLX runtime.",
+      "feedback": "moderate",
+      "verdict": "Good FR/EN streaming; fragile language detection (German); last open Voxtral"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "No language hint: **German** first transcribed as Portuguese; Italian mistaken for other languages ([HF #19, 12–16.02.2026](https://huggingface.co/mistralai/Voxtral-Mini-4B-Realtime-2602/discussions/19)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://huggingface.co/mistralai/Voxtral-Mini-4B-Realtime-2602/discussions/19",
+          "site": "huggingface",
+          "date": "2026-02-16",
+          "label": "HF #19"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "When the speaker switches language, it may translate instead of transcribing (French ↔ Spanish) ([HF #21, 13.02.2026](https://huggingface.co/mistralai/Voxtral-Mini-4B-Realtime-2602/discussions/21)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://huggingface.co/mistralai/Voxtral-Mini-4B-Realtime-2602/discussions/21",
+          "site": "huggingface",
+          "date": "2026-02-13",
+          "label": "HF #21"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Some community ports are slow on Mac ([refulgentis, 10.02.2026](https://news.ycombinator.com/item?id=46955514)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=46955514",
+          "site": "hacker-news",
+          "date": "2026-02-10",
+          "label": "refulgentis"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Voxtral 3 is API-only: this is the last open version ([T0mSIlver, 21.10.2026](https://news.ycombinator.com/item?id=50178093)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50178093",
+          "site": "hacker-news",
+          "date": "2026-10-21",
+          "label": "T0mSIlver"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Over 95 % success in English, **French** and Spanish ([HF #21, 14.02.2026](https://huggingface.co/mistralai/Voxtral-Mini-4B-Realtime-2602/discussions/21)); impressive results on poor-quality audio in French and English ([blobinabottle, 04.02.2026](https://news.ycombinator.com/item?id=46890192)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://huggingface.co/mistralai/Voxtral-Mini-4B-Realtime-2602/discussions/21",
+          "site": "huggingface",
+          "date": "2026-02-14",
+          "label": "HF #21"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=46890192",
+          "site": "hacker-news",
+          "date": "2026-02-04",
+          "label": "blobinabottle"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "macOS dictation app via MLX: a dramatic improvement over Whisper ([T0mSIlver, 25.02.2026](https://news.ycombinator.com/item?id=47149479)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=47149479",
+          "site": "hacker-news",
+          "date": "2026-02-25",
+          "label": "T0mSIlver"
+        }
+      ]
+    }
+  ]
+}

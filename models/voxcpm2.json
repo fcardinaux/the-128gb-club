@@ -1,0 +1,143 @@
+{
+  "id": "voxcpm2",
+  "name": "VoxCPM2 (OpenBMB)",
+  "category": "tts",
+  "usage": "Speech synthesis: voice design from a description, cloning, 30 languages",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "openbmb/VoxCPM2"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "mlx-community/VoxCPM2-bf16"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0 (card; no LICENSE file)",
+      "source": "https://huggingface.co/openbmb/VoxCPM2",
+      "checked": "2026-11-15"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/openbmb/VoxCPM2",
+      "checked": "2026-11-15"
+    },
+    "publisher": {
+      "value": "OpenBMB",
+      "source": "https://huggingface.co/openbmb/VoxCPM2",
+      "checked": "2026-11-15"
+    },
+    "release_date": {
+      "value": "2026-04-03",
+      "source": "https://huggingface.co/openbmb/VoxCPM2",
+      "checked": "2026-11-15"
+    },
+    "parameters_total_b": {
+      "value": 2,
+      "source": "https://huggingface.co/openbmb/VoxCPM2",
+      "checked": "2026-11-15"
+    },
+    "size_gb": {
+      "value": 4.96,
+      "source": "https://huggingface.co/openbmb/VoxCPM2, https://huggingface.co/mlx-community/VoxCPM2-bf16",
+      "checked": "2026-11-15"
+    },
+    "formats": {
+      "value": "official: safetensors + audiovae.pth + .py tokenizer; mlx-community bf16: safetensors only",
+      "source": "https://huggingface.co/openbmb/VoxCPM2, https://huggingface.co/mlx-community/VoxCPM2-bf16",
+      "checked": "2026-11-15"
+    },
+    "languages": {
+      "value": "30 languages including French and German (card tags)",
+      "source": "https://huggingface.co/openbmb/VoxCPM2",
+      "checked": "2026-11-15"
+    },
+    "runtimes": {
+      "value": "mlx-audio (native voxcpm2 model; loader fixed in issues #649 and #736); official voxcpm package (CUDA, MPS)",
+      "source": "https://github.com/Neywa-Labs/mlx-audio",
+      "checked": "2026-11-15"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-15"
+    },
+    "provenance": {
+      "value": "strong for the language model: 2,290,004,544 bf16 parameters, the exact count of the official model.safetensors; the 93.8 M fp32 parameters of the audio VAE come from the official audiovae.pth (no safetensors upstream)",
+      "source": "https://huggingface.co/mlx-community/VoxCPM2-bf16",
+      "checked": "2026-11-15",
+      "note": "uploaded 08.04.2026 by the author of mlx-audio PR #641 (VoxCPM2 support, merged 30.04.2026); base_model openbmb/VoxCPM2; 3,557 downloads, no discussion"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-15",
+      "scope": "Released 03.04.2026: comments since 15.05.2026 plus the launch discussions. Hacker News comments, Hugging Face discussions, VoxCPM and mlx-audio issues. Reddit unreadable (HTTP 403). **Feedback moderate to thin**; no independent French data.",
+      "summary": "Quality called very good; in one small independent German test, fewer word errors than Qwen3-TTS and Chatterbox Multilingual; cloned speech sometimes too fast; early MPS noise on M5 fixed.",
+      "feedback": "thin",
+      "verdict": "Best German WER in one small test; voice design; M5 MPS bug fixed"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "positive",
+      "text": "Third-party benchmark on 10 FLEURS pairs per language: German word error rate 3.8 % against 10.8 % for Qwen3-TTS Base and 5.2 % for Chatterbox Multilingual; speaker similarity 0.73 against 0.78 for Chatterbox ([HF #17, 02.07.2026](https://huggingface.co/openbmb/VoxCPM2/discussions/17), [soniqo.audio](https://www.soniqo.audio/blog/voice-cloning-benchmarks)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://huggingface.co/openbmb/VoxCPM2/discussions/17",
+          "site": "huggingface",
+          "date": "2026-07-02",
+          "label": "HF #17"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Quality called incredibly good, but cloned speech sometimes comes out two to three times too fast; changing the seed helped ([HF #3, 08.04–14.09.2026](https://huggingface.co/openbmb/VoxCPM2/discussions/3)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://huggingface.co/openbmb/VoxCPM2/discussions/3",
+          "site": "huggingface",
+          "date": "2026-04-08",
+          "label": "HF #3"
+        }
+      ]
+    },
+    {
+      "sentiment": "neutral",
+      "text": "Cross-lingual cloning keeps an accent; naming the target language in the control instruction largely removes it ([HF #14, 14.05.2026](https://huggingface.co/openbmb/VoxCPM2/discussions/14)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://huggingface.co/openbmb/VoxCPM2/discussions/14",
+          "site": "huggingface",
+          "date": "2026-05-14",
+          "label": "HF #14"
+        }
+      ]
+    },
+    {
+      "sentiment": "neutral",
+      "text": "Noise on an M5 Mac with MPS in bf16, fixed in a later version ([VoxCPM #301, 10–19.05.2026](https://github.com/OpenBMB/VoxCPM/issues/301)); a LoRA voice adapter trained on it for an assistant ([HN, 09.09.2026](https://news.ycombinator.com/item?id=49623246)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://github.com/OpenBMB/VoxCPM/issues/301",
+          "site": "github",
+          "date": "2026-05-10",
+          "label": "VoxCPM #301"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=49623246",
+          "site": "hacker-news",
+          "date": "2026-09-09",
+          "label": "HN"
+        }
+      ]
+    }
+  ]
+}

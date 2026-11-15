@@ -1,0 +1,187 @@
+{
+  "id": "gpt-oss-120b",
+  "name": "gpt-oss-120b",
+  "category": "llm",
+  "usage": "General, reasoning",
+  "sources": [
+    {
+      "kind": "ollama",
+      "tag": "gpt-oss:120b"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://ollama.com/library/gpt-oss",
+      "checked": "2026-11-12"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://ollama.com/library/gpt-oss",
+      "checked": "2026-11-12"
+    },
+    "release_date": {
+      "value": "2025-08-04",
+      "source": "https://ollama.com/library/gpt-oss",
+      "checked": "2026-11-12",
+      "note": "04.08.2025"
+    },
+    "parameters_total_b": {
+      "value": 117,
+      "source": "https://huggingface.co/openai/gpt-oss-120b",
+      "checked": "2026-11-14"
+    },
+    "parameters_active_b": {
+      "value": 5.1,
+      "source": "https://huggingface.co/openai/gpt-oss-120b",
+      "checked": "2026-11-14"
+    },
+    "size_gb": {
+      "value": 65.4,
+      "source": "https://ollama.com/library/gpt-oss",
+      "checked": "2026-11-12"
+    },
+    "formats": {
+      "value": "GGUF",
+      "source": "https://ollama.com/library/gpt-oss",
+      "checked": "2026-11-12"
+    },
+    "runtimes": {
+      "value": "Ollama official gpt-oss:120b (65 GB, local); llama.cpp llama-server with GGUF (ggml-org, MXFP4); LM Studio (lmstudio-community GGUF and MLX-8bit); mlx-lm with mlx-community builds (MXFP4-Q8, MXFP4-Q4, 4bit); vllm-mlx has a gpt_oss/harmony parser. Needs the harmony chat format, handled by these runtimes",
+      "source": "https://ollama.com/library/gpt-oss/tags, https://huggingface.co/ggml-org/gpt-oss-120b-GGUF, https://huggingface.co/lmstudio-community/gpt-oss-120b-GGUF, https://huggingface.co/mlx-community/gpt-oss-120b-MXFP4-Q8, https://vllm-mlx.is-a.dev/guides/model-registry/",
+      "checked": "2026-11-14",
+      "note": "Open runtime issues for gpt-oss on Mac were not searched. vllm-mlx support is inferred from its parser modules, not from a supported-models list."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14",
+      "note": "largest file set ≤ 100 GB"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Released in August 2025, so more than 12 months old: comments from the last 6 months only (since 13.05.2026). Searched on 13.11.2026: Hacker News comments (Algolia API); 98 matching comments, the relevant ones below. r/LocalLLaMA and Hugging Face discussions not read yet.",
+      "summary": "Good for its time, but by late 2026 users find it weaker than Qwen3.8-27B, especially for code and tool use.",
+      "feedback": "moderate",
+      "verdict": "Mixed"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "Outperformed by newer, smaller models: most recent 27B models beat it ([Art9681, 25.08.2026](https://news.ycombinator.com/item?id=49436170)); Qwen3.8 27B is clearly better at coding ([kennywinker, 12.09.2026](https://news.ycombinator.com/item?id=49676994)); only 5B active parameters and ≈ 13 months older than Qwen3.8 ([ac29, 12.09.2026](https://news.ycombinator.com/item?id=49678007)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49436170",
+          "site": "hacker-news",
+          "date": "2026-08-25",
+          "label": "Art9681"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=49676994",
+          "site": "hacker-news",
+          "date": "2026-09-12",
+          "label": "kennywinker"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=49678007",
+          "site": "hacker-news",
+          "date": "2026-09-12",
+          "label": "ac29"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Mediocre results and clear underperformance in one user's own evaluations ([shard972, 24.09.2026](https://news.ycombinator.com/item?id=49825770)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49825770",
+          "site": "hacker-news",
+          "date": "2026-09-24",
+          "label": "shard972"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Prone to overthinking: 3–10k tokens of reasoning per turn ([nostrebored, 03.09.2026](https://news.ycombinator.com/item?id=49556894)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49556894",
+          "site": "hacker-news",
+          "date": "2026-09-03",
+          "label": "nostrebored"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Tool calls announced but never made, thinking blocks never closed, loops ([LoganDark, 19.08.2026](https://news.ycombinator.com/item?id=49359217), [24.09.2026](https://news.ycombinator.com/item?id=49829591)). Caveat: this was on Cerebras, a cloud provider; it may not apply to Ollama.",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49359217",
+          "site": "hacker-news",
+          "date": "2026-08-19",
+          "label": "LoganDark"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=49829591",
+          "site": "hacker-news",
+          "date": "2026-09-24"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Still very useful ([0xbadcafebee, 19.08.2026](https://news.ycombinator.com/item?id=49362704)); close to the frontier when it was released ([Philpax, 28.08.2026](https://news.ycombinator.com/item?id=49481096)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49362704",
+          "site": "hacker-news",
+          "date": "2026-08-19",
+          "label": "0xbadcafebee"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=49481096",
+          "site": "hacker-news",
+          "date": "2026-08-28",
+          "label": "Philpax"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Answered a simple reasoning question correctly, like other models ([epihelix, 25.09.2026](https://news.ycombinator.com/item?id=49840038)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49840038",
+          "site": "hacker-news",
+          "date": "2026-09-25",
+          "label": "epihelix"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Still chosen by a maker of 128 GB local-AI boxes as the larger model for harder tasks ([moezee1, 28.09.2026](https://news.ycombinator.com/item?id=49873613)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49873613",
+          "site": "hacker-news",
+          "date": "2026-09-28",
+          "label": "moezee1"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "id": "ltx-2.3",
+  "name": "LTX 2.3 (Lightricks)",
+  "category": "video",
+  "usage": "Fast video with sound",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "Lightricks/LTX-2.3",
+      "role": "facts"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "Lightricks/LTX-2.3-fp8",
+      "role": "facts"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "LTX-2 Community License Agreement",
+      "source": "https://huggingface.co/Lightricks/LTX-2.3",
+      "checked": "2026-11-15"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/Lightricks/LTX-2.3",
+      "checked": "2026-11-15"
+    },
+    "publisher": {
+      "value": "Lightricks",
+      "source": "https://huggingface.co/Lightricks",
+      "checked": "2026-11-15"
+    },
+    "release_date": {
+      "value": "2026-03-04",
+      "source": "https://huggingface.co/Lightricks/LTX-2.3",
+      "checked": "2026-11-15"
+    },
+    "size_gb": {
+      "value": {
+        "22B checkpoint (bf16)": 46.1,
+        "fp8 repository": 58.68
+      },
+      "source": "Hugging Face API, file sizes",
+      "checked": "2026-11-15",
+      "note": "the main repository (156 GB) holds three 22B checkpoints, LoRAs and upscalers; one checkpoint is needed at a time"
+    },
+    "formats": {
+      "value": "safetensors",
+      "source": "https://huggingface.co/Lightricks/LTX-2.3/tree/main",
+      "checked": "2026-11-15"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-15",
+      "note": "a build of 100 GB or less (see research-method.md, Memory target)"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Preferred to Wan 2.2 for fast local video",
+      "summary": "Praised on Hacker News; licence not Apache 2.0 or MIT.",
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026: Hacker News comments only, collected while researching other models.",
+      "feedback": "thin"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "positive",
+      "text": "LTX Video 2.3, or even an older WAN, could easily handle such a task ([vunderba, 15.05.2026](https://news.ycombinator.com/item?id=48155014)).",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48155014",
+          "site": "hacker-news",
+          "label": "vunderba",
+          "date": "2026-05-15"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

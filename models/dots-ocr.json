@@ -1,0 +1,89 @@
+{
+  "id": "dots-ocr",
+  "name": "dots.ocr and dots.mocr (rednote)",
+  "category": "ocr",
+  "usage": "OCR (document parsing)",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "dots-studio/dots.ocr"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "dots-studio/dots.mocr"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "MIT plus an additional licence agreement",
+      "source": "https://huggingface.co/dots-studio/dots.ocr",
+      "checked": "2026-11-15",
+      "note": "the agreement adds prohibited uses (unauthorised digitisation of publications, extraction of sensitive personal data), a duty to migrate to revised versions within 90 days, Chinese law and arbitration in Hangzhou"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/dots-studio/dots.ocr",
+      "checked": "2026-11-15"
+    },
+    "publisher": {
+      "value": "rednote (Xingyin Information Technology)",
+      "source": "https://huggingface.co/dots-studio/dots.ocr",
+      "checked": "2026-11-15"
+    },
+    "release_date": {
+      "value": "2025-07-30",
+      "source": "https://huggingface.co/dots-studio/dots.ocr",
+      "checked": "2026-11-15",
+      "note": "dots.mocr: 19.03.2026"
+    },
+    "size_gb": {
+      "value": 6.1,
+      "source": "https://huggingface.co/dots-studio/dots.ocr",
+      "checked": "2026-11-15"
+    },
+    "formats": {
+      "value": "safetensors; .py model code",
+      "source": "https://huggingface.co/dots-studio/dots.ocr",
+      "checked": "2026-11-15"
+    },
+    "languages": {
+      "value": "card tags: en, zh, multilingual",
+      "source": "https://huggingface.co/dots-studio/dots.ocr",
+      "checked": "2026-11-15"
+    },
+    "runtimes": {
+      "value": "mlx-vlm (model folder dots_ocr; mlx-community dots.mocr builds); llama.cpp (ggml-org dots.ocr GGUF)",
+      "source": "https://github.com/Blaizzy/mlx-vlm/tree/main/mlx_vlm/models, https://huggingface.co/ggml-org/dots.ocr-GGUF",
+      "checked": "2026-11-15"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-15"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-15",
+      "scope": "Hacker News comments since 15.05.2026. Not researched further: excluded for its licence.",
+      "summary": "Ranked below Chandra and GLM-OCR by one user.",
+      "feedback": "thin",
+      "verdict": "Extra licence agreement on top of MIT"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "Tested with many OCR models: Chandra most accurate, GLM-OCR close; PaddleOCR, dots.ocr and DeepSeek-OCR significantly worse ([phenomen, 24.08.2026](https://news.ycombinator.com/item?id=49421088)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49421088",
+          "site": "hacker-news",
+          "date": "2026-08-24",
+          "label": "phenomen"
+        }
+      ]
+    }
+  ]
+}

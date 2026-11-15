@@ -1,0 +1,158 @@
+{
+  "id": "t0-gamma",
+  "name": "t0-gamma (The Forecasting Company)",
+  "category": "timeseries",
+  "usage": "Time-series forecasting: most accurate Apache model, official MLX",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "theforecastingcompany/t0-gamma"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0 (LICENSE and NOTICE files)",
+      "source": "https://huggingface.co/theforecastingcompany/t0-gamma",
+      "checked": "2026-11-15"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/theforecastingcompany/t0-gamma",
+      "checked": "2026-11-15"
+    },
+    "publisher": {
+      "value": "The Forecasting Company",
+      "source": "https://huggingface.co/theforecastingcompany/t0-gamma",
+      "checked": "2026-11-15"
+    },
+    "release_date": {
+      "value": "2026-10-12",
+      "source": "https://huggingface.co/theforecastingcompany/t0-gamma",
+      "checked": "2026-11-15"
+    },
+    "parameters_total_b": {
+      "value": 0.256,
+      "source": "https://huggingface.co/theforecastingcompany/t0-gamma",
+      "checked": "2026-11-15"
+    },
+    "size_gb": {
+      "value": 1.02,
+      "source": "https://huggingface.co/theforecastingcompany/t0-gamma",
+      "checked": "2026-11-15"
+    },
+    "formats": {
+      "value": "safetensors; no .py",
+      "source": "https://huggingface.co/theforecastingcompany/t0-gamma",
+      "checked": "2026-11-15"
+    },
+    "runtimes": {
+      "value": "pip `tfc-t0[mlx]` (official MLX, Apple GPU) or `tfc-t0[torch]` (≥ 0.6.1); no DataFrame input yet (issue #19); covariates past and future; 21 quantiles",
+      "source": "https://huggingface.co/theforecastingcompany/t0-gamma",
+      "checked": "2026-11-15"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-15"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-15",
+      "scope": "Released 12.10.2026: all comments since release. Hacker News comments, Hugging Face discussions (none), GitHub issues of tfc-t0. Reddit not found. **Feedback very thin**; the TS-Arena score is the only independent evidence.",
+      "summary": "Best accuracy among plain Apache models on both benchmarks; called the leader by one commenter; one month old, small company, no DataFrame input yet.",
+      "feedback": "thin",
+      "verdict": "Most accurate Apache model; official MLX; very new"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "neutral",
+      "text": "Benchmarks (leads, not user feedback): TS-Arena 61.6 over 5 weeks (rank 6) on 14.11.2026, a live benchmark where forecasts are submitted before the data exists, mostly electricity data, higher is better ([TS-Arena](https://ts-arena.live)); GIFT-Eval relative CRPS / MASE 0.452 / 0.661, recalculated from the published result files, not the official ranking, lower is better ([results](https://github.com/SalesforceAIResearch/gift-eval/tree/main/results)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://ts-arena.live",
+          "site": "other",
+          "date": "2026-11-14",
+          "label": "TS-Arena"
+        },
+        {
+          "url": "https://github.com/SalesforceAIResearch/gift-eval/tree/main/results",
+          "site": "github",
+          "date": "2026-11-15",
+          "label": "GIFT-Eval results"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Common to all forecasting foundation models: practitioners report they often do not beat simple baselines on their own data: TimesFM about ARIMA level while bigger and slower ([magimas, 31.03.2026](https://news.ycombinator.com/item?id=47583870)); seasonal naive usually wins for e-commerce ([jc4p, 19.10.2026](https://news.ycombinator.com/item?id=50155295)); one XGBoost model per series still wins ([niltecedu, 19.10.2026](https://news.ycombinator.com/item?id=50156050)); XGBoost and LightGBM beat transformers on blood glucose ([articulatepang, 14.11.2026](https://news.ycombinator.com/item?id=50498722)). The benefit is many series without building one model each ([logancbrown, 19.10.2026](https://news.ycombinator.com/item?id=50152506)). Backtest against a simple baseline first.",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=47583870",
+          "site": "hacker-news",
+          "date": "2026-03-31",
+          "label": "magimas"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=50155295",
+          "site": "hacker-news",
+          "date": "2026-10-19",
+          "label": "jc4p"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=50156050",
+          "site": "hacker-news",
+          "date": "2026-10-19",
+          "label": "niltecedu"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=50498722",
+          "site": "hacker-news",
+          "date": "2026-11-14",
+          "label": "articulatepang"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=50152506",
+          "site": "hacker-news",
+          "date": "2026-10-19",
+          "label": "logancbrown"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Called \"the leader\", with Timestral close behind ([rubenfiszel, 19.10.2026](https://news.ycombinator.com/item?id=50152944)); a t0 author says win rates against Timestral are tight and advises trying both, vendor comment ([GeoffNN, 19.10.2026](https://news.ycombinator.com/item?id=50151727)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50152944",
+          "site": "hacker-news",
+          "date": "2026-10-19",
+          "label": "rubenfiszel"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=50151727",
+          "site": "hacker-news",
+          "date": "2026-10-19",
+          "label": "GeoffNN, vendor"
+        }
+      ]
+    },
+    {
+      "sentiment": "neutral",
+      "text": "A user running it on CPU asks for pandas DataFrame input ([tfc-t0 #19, 11.11.2026](https://github.com/theforecastingcompany/tfc-t0/issues/19)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://github.com/theforecastingcompany/tfc-t0/issues/19",
+          "site": "github",
+          "date": "2026-11-11",
+          "label": "#19"
+        }
+      ]
+    }
+  ]
+}

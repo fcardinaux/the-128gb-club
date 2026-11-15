@@ -1,0 +1,110 @@
+{
+  "id": "sensenova-si-1.3",
+  "name": "SenseNova-SI-1.3 (Qwen3-VL-8B)",
+  "category": "vision",
+  "usage": "Spatial questions on images (distances, layout, relative position), fine-tuned from Qwen3-VL-8B",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "sensenova/SenseNova-SI-1.3-Qwen3-VL-8B"
+    },
+    {
+      "kind": "github",
+      "repo": "OpenSenseNova/SenseNova-SI",
+      "role": "info"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0 (card tag)",
+      "source": "https://huggingface.co/sensenova/SenseNova-SI-1.3-Qwen3-VL-8B",
+      "checked": "2026-11-15",
+      "note": "no LICENSE file; base Qwen3-VL-8B is Apache 2.0"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/sensenova/SenseNova-SI-1.3-Qwen3-VL-8B",
+      "checked": "2026-11-15"
+    },
+    "publisher": {
+      "value": "SenseTime (sensenova)",
+      "source": "https://huggingface.co/sensenova/SenseNova-SI-1.3-Qwen3-VL-8B",
+      "checked": "2026-11-15"
+    },
+    "release_date": {
+      "value": "2026-04-10",
+      "source": "https://huggingface.co/sensenova/SenseNova-SI-1.3-Qwen3-VL-8B",
+      "checked": "2026-11-15",
+      "note": "repository creation date"
+    },
+    "parameters_total_b": {
+      "value": 8,
+      "source": "https://huggingface.co/sensenova/SenseNova-SI-1.3-Qwen3-VL-8B",
+      "checked": "2026-11-15"
+    },
+    "size_gb": {
+      "value": 17.55,
+      "source": "https://huggingface.co/sensenova/SenseNova-SI-1.3-Qwen3-VL-8B",
+      "checked": "2026-11-15",
+      "note": "safetensors; its only .py is an upload script"
+    },
+    "formats": {
+      "value": "safetensors",
+      "source": "https://huggingface.co/sensenova/SenseNova-SI-1.3-Qwen3-VL-8B",
+      "checked": "2026-11-15"
+    },
+    "runtimes": {
+      "value": "Qwen3-VL architecture: mlx-vlm `qwen3_vl`, Transformers; community GGUF (mmproj not checked)",
+      "source": "https://huggingface.co/sensenova/SenseNova-SI-1.3-Qwen3-VL-8B",
+      "checked": "2026-11-15"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-15"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-15",
+      "scope": "Released 10.04.2026: last 6 months plus launch. Hacker News (no comment on this model), Hugging Face discussions (none), GitHub issues of OpenSenseNova/SenseNova-SI. Reddit not readable. **Feedback thin.**",
+      "summary": "No user report on this model; the card itself warns of overfitting and language shortcuts; general comments say vision-language models remain weak at spatial reasoning.",
+      "feedback": "thin",
+      "verdict": "Spatially fine-tuned Qwen3-VL; untested by users"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "General comments on vision-language models: \"In general llms are weak with spatial reasoning. This seems to be an unsolved problem.\" ([HN, 02.10.2026](https://news.ycombinator.com/item?id=49928768)); \"When put to the test in real-world environment, the capabilities don't look as impressive as benchmarks.\" ([HN, 04.10.2026](https://news.ycombinator.com/item?id=49953304)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49928768",
+          "site": "hacker-news",
+          "date": "2026-10-02",
+          "label": "spatial reasoning"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=49953304",
+          "site": "hacker-news",
+          "date": "2026-10-04",
+          "label": "benchmarks vs real world"
+        }
+      ]
+    },
+    {
+      "sentiment": "neutral",
+      "text": "Users discuss reproducing the VSI-Bench numbers ([SenseNova-SI #15, 08.01.2026](https://github.com/OpenSenseNova/SenseNova-SI/issues/15), launch period of an earlier version). The model card mentions overfitting and \"language shortcuts\".",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://github.com/OpenSenseNova/SenseNova-SI/issues/15",
+          "site": "github",
+          "date": "2026-01-08",
+          "label": "#15"
+        }
+      ]
+    }
+  ]
+}

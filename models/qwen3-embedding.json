@@ -1,0 +1,108 @@
+{
+  "id": "qwen3-embedding",
+  "name": "Qwen3-Embedding",
+  "category": "embeddings",
+  "usage": "Text embeddings (search, retrieval, memory for assistants)",
+  "sources": [
+    {
+      "kind": "ollama",
+      "tag": "qwen3-embedding"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://ollama.com/library/qwen3-embedding",
+      "checked": "2026-11-12",
+      "note": "Apache 2.0 (on HF; no licence in the Ollama manifest)"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://ollama.com/library/qwen3-embedding",
+      "checked": "2026-11-12"
+    },
+    "release_date": {
+      "value": "2025-06-03",
+      "source": "https://ollama.com/library/qwen3-embedding",
+      "checked": "2026-11-12",
+      "note": "03.06.2025"
+    },
+    "parameters_total_b": {
+      "value": 7.6,
+      "source": "https://huggingface.co/api/models/Qwen/Qwen3-Embedding-8B",
+      "checked": "2026-11-14",
+      "note": "8B, the size of the default Ollama tag"
+    },
+    "size_gb": {
+      "value": 4.7,
+      "source": "https://ollama.com/library/qwen3-embedding",
+      "checked": "2026-11-12",
+      "note": "8B variant"
+    },
+    "formats": {
+      "value": "GGUF",
+      "source": "https://ollama.com/library/qwen3-embedding",
+      "checked": "2026-11-12"
+    },
+    "runtimes": {
+      "value": "Ollama official qwen3-embedding; llama.cpp llama-server --embedding --pooling last (official Qwen GGUF); sentence-transformers >= 2.7 (transformers >= 4.51) on MPS; MLX via mlx-community builds (0.6B/4B/8B, 4bit-DWQ, mxfp8); TEI and vLLM >= 0.8.5 documented (CUDA/CPU)",
+      "source": "https://ollama.com/library/qwen3-embedding, https://huggingface.co/Qwen/Qwen3-Embedding-8B-GGUF, https://huggingface.co/Qwen/Qwen3-Embedding-8B, https://huggingface.co/mlx-community/Qwen3-Embedding-8B-mxfp8",
+      "checked": "2026-11-14",
+      "note": "MPS for sentence-transformers is the usual PyTorch path; no first-hand report found. The MLX package used by the mlx-community builds (mlx-embeddings presumably) not confirmed on the card. A 2025 GGUF issue required adding the EOS token manually (llama.cpp #14234); current status not checked."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026. Sources: Hacker News comments, Hugging Face discussions, Ollama, llama.cpp and mlx-lm issues. **Reddit could not be read** (blocked for automated reading); summaries of Reddit threads by other sites were not used as evidence. Released 03.06.2025; window: since 13.05.2026. **Feedback very thin.**",
+      "summary": "Still the reference, no successor.",
+      "feedback": "thin",
+      "verdict": "Still the reference, no successor; very thin feedback"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "8B gives NaN vectors in FP16 for some texts; BF16 fixes it; not seen on macOS ([HF #21](https://huggingface.co/Qwen/Qwen3-Embedding-8B/discussions/21), before the window).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://huggingface.co/Qwen/Qwen3-Embedding-8B/discussions/21",
+          "site": "huggingface",
+          "label": "HF #21"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Vectors change between runtime versions: pin the runtime or re-embed everything ([HF 0.6B #60, 12.06.2026](https://huggingface.co/Qwen/Qwen3-Embedding-0.6B/discussions/60)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://huggingface.co/Qwen/Qwen3-Embedding-0.6B/discussions/60",
+          "site": "huggingface",
+          "date": "2026-06-12",
+          "label": "HF 0.6B #60"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Still the usual choice for local search and RAG; 32K context ([donhardman, 17.09.2026](https://news.ycombinator.com/item?id=49739903)). No newer Qwen text-embedding family.",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49739903",
+          "site": "hacker-news",
+          "date": "2026-09-17",
+          "label": "donhardman"
+        }
+      ]
+    }
+  ]
+}

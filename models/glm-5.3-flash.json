@@ -1,0 +1,146 @@
+{
+  "id": "glm-5.3-flash",
+  "name": "GLM-5.3-Flash",
+  "category": "llm",
+  "usage": "General and code, large MoE (1–2-bit)",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "zai-org/GLM-5.3-Flash",
+      "role": "facts",
+      "note": "official, 328 GB; a 1–2-bit GGUF (e.g. unsloth) would be needed"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "MIT",
+      "source": "https://huggingface.co/api/models/zai-org/GLM-5.3-Flash",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/api/models/zai-org/GLM-5.3-Flash",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "zai-org",
+      "source": "https://huggingface.co/zai-org/GLM-5.3-Flash",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2026-08-25",
+      "source": "https://huggingface.co/api/models/zai-org/GLM-5.3-Flash",
+      "checked": "2026-11-13",
+      "note": "createdAt of the repository"
+    },
+    "parameters_total_b": {
+      "value": 321.3,
+      "source": "https://huggingface.co/api/models/zai-org/GLM-5.3-Flash",
+      "checked": "2026-11-13"
+    },
+    "parameters_active_b": {
+      "value": 18,
+      "source": "https://huggingface.co/zai-org/GLM-5.3-Flash",
+      "checked": "2026-11-14"
+    },
+    "size_gb": {
+      "value": 328.4,
+      "source": "https://huggingface.co/api/models/zai-org/GLM-5.3-Flash",
+      "checked": "2026-11-13",
+      "note": "whole official repository"
+    },
+    "formats": {
+      "value": ".safetensors",
+      "source": "https://huggingface.co/api/models/zai-org/GLM-5.3-Flash",
+      "checked": "2026-11-13"
+    },
+    "runtimes": {
+      "value": "llama.cpp llama-server with GGUF (ggml-org, arch glm5-next; Q2_K_S 110 GB, Q2_K 134 GB, MTP sidecar, vision mmproj Q8_0); DwarfStar (lists GLM 5.3 Flash, 96 GB+, --mtp); MLX builds (mlx-community 4bit, pipenetwork 4/6/8-bit; too large at 4-bit for 128 GB). Ollama: cloud tag only",
+      "source": "https://huggingface.co/ggml-org/GLM-5.3-Flash-GGUF, https://github.com/antirez/ds4 (README), https://huggingface.co/mlx-community/GLM-5.3-Flash-4bit, https://ollama.com/library/glm-5.3-flash/tags",
+      "checked": "2026-11-14",
+      "note": "Only Q2_K_S (110 GB) is plausible on 128 GB; leaves little room for context. LM Studio not checked (no lmstudio-community repo found). mlx-lm support inferred from the mlx-community conversion, not tested."
+    },
+    "fits_128gb": {
+      "value": false,
+      "source": "size_gb",
+      "checked": "2026-11-14",
+      "note": "official weights 328 GB; the smallest GGUF (Q2_K_S, 110 GB) leaves almost no room for context"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026: Hacker News comments only (Algolia API). Reddit, Hugging Face discussions and runtime issues not read yet.",
+      "summary": "Well regarded as an API model, close to Sonnet for some users. Locally it only fits on 128 GB at 1–2 bits, with less margin than DeepSeek V4-Flash. Thin local feedback.",
+      "feedback": "thin",
+      "verdict": "Close to Sonnet as an API model; locally 93–109 GB, tighter than DeepSeek; thin local feedback"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "Compared with GLM-5.3/flash, Sonnet seems lazier but follows prompts better ([disgruntledphd2, 12.11.2026](https://news.ycombinator.com/item?id=50468259)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50468259",
+          "site": "hacker-news",
+          "date": "2026-11-12",
+          "label": "disgruntledphd2"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Flash models such as GLM 5.3 Flash and DS 4.1 Flash 1017 judged very good, very fast and very cheap ([rheisen_, 12.11.2026](https://news.ycombinator.com/item?id=50470173)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50470173",
+          "site": "hacker-news",
+          "date": "2026-11-12",
+          "label": "rheisen_"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Little difference found between Sonnet and GLM-5.3/flash ([disgruntledphd2, 12.11.2026](https://news.ycombinator.com/item?id=50468259)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50468259",
+          "site": "hacker-news",
+          "date": "2026-11-12",
+          "label": "disgruntledphd2"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Used together with DeepSeek V4.1 Flash for cross-validation ([joehuangsweden, 13.11.2026](https://news.ycombinator.com/item?id=50476424)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50476424",
+          "site": "hacker-news",
+          "date": "2026-11-13",
+          "label": "joehuangsweden"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Listed with DeepSeek V4 Flash among the large MoE models for 128 GB machines: 320B parameters, 18B active ([Tepix, 26.08.2026](https://news.ycombinator.com/item?id=49454403)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49454403",
+          "site": "hacker-news",
+          "date": "2026-08-26",
+          "label": "Tepix"
+        }
+      ]
+    }
+  ]
+}

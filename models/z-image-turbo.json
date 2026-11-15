@@ -1,0 +1,154 @@
+{
+  "id": "z-image-turbo",
+  "name": "Z-Image Turbo",
+  "category": "image",
+  "usage": "Fast image",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "Tongyi-MAI/Z-Image-Turbo"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+      "checked": "2026-11-12"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+      "checked": "2026-11-12"
+    },
+    "publisher": {
+      "value": "Tongyi-MAI",
+      "source": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+      "checked": "2026-11-12"
+    },
+    "release_date": {
+      "value": "2025-11-25",
+      "source": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+      "checked": "2026-11-12",
+      "note": "25.11.2025"
+    },
+    "parameters_total_b": {
+      "value": 6.2,
+      "source": "https://huggingface.co/api/models/Tongyi-MAI/Z-Image-Turbo",
+      "checked": "2026-11-14"
+    },
+    "size_gb": {
+      "value": 32.9,
+      "source": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+      "checked": "2026-11-12"
+    },
+    "formats": {
+      "value": "safetensors (Diffusers)",
+      "source": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+      "checked": "2026-11-12"
+    },
+    "languages": {
+      "value": "en, zh; bilingual text rendering",
+      "source": "https://huggingface.co/Tongyi-MAI/Z-Image-Turbo",
+      "checked": "2026-11-14"
+    },
+    "runtimes": {
+      "value": "mflux (~12-14 s per 1024 image on M5 Max, mflux#817); ComfyUI native (docs tutorial; a Dec 2025 Mac garbage-output report #11231 was solved by a fresh Python env; 399 s per image on a 24 GB M5 at launch per HN); Draw Things (since 1.20251207.0, imported models run in BF16 since May 2026); stable-diffusion.cpp (Metal, Comfy-Org or GGUF); DiffSynth-Studio; diffusers ZImagePipeline (worked on a Mac per #11231)",
+      "source": "https://github.com/mflux-community/mflux (issue #817); https://docs.comfy.org/tutorials/image/z-image/z-image-turbo; https://github.com/Comfy-Org/ComfyUI/issues/11231; https://drawthings.ai/downloads/; https://github.com/leejet/stable-diffusion.cpp/blob/master/docs/z_image.md; https://github.com/Tongyi-MAI/Z-Image",
+      "checked": "2026-11-14",
+      "note": "The diffusers-on-Mac evidence is one comment in #11231. Device used there not stated explicitly."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026. Sources: Hacker News comments, Hugging Face discussions, issues of mflux, ComfyUI, mlx-video and ComfyUI-WanVideoWrapper. **Reddit could not be read**; blogs and developers promoting their own engines are leads only. Released 27.11.2025; window: launch thread plus 13.05–13.11.2026.",
+      "summary": "Still a favourite a year later; fast on an M5 Max with recent mflux; occasional missing letters.",
+      "feedback": "moderate",
+      "verdict": "Still a favourite; ~13 s/image on M5 Max 128 GB (mflux); occasionally drops a letter"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "Weak outside photo portraits, showing how limited it is ([AuryGlenz, 17.01.2026](https://news.ycombinator.com/item?id=46655687)); drifts to Chinese people and text with context ([reactordev, 06.12.2025](https://news.ycombinator.com/item?id=46176963)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=46655687",
+          "site": "hacker-news",
+          "date": "2026-01-17",
+          "label": "AuryGlenz"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=46176963",
+          "site": "hacker-news",
+          "date": "2025-12-06",
+          "label": "reactordev"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Text good, but occasionally drops a letter ([accrual, 07.12.2025](https://news.ycombinator.com/item?id=46178360)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=46178360",
+          "site": "hacker-news",
+          "date": "2025-12-07",
+          "label": "accrual"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Slow on Macs at launch: 399 s per image on a 24 GB M5 MacBook Pro in ComfyUI ([aleyan, 06.12.2025](https://news.ycombinator.com/item?id=46176998)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=46176998",
+          "site": "hacker-news",
+          "date": "2025-12-06",
+          "label": "aleyan"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Has replaced one user's stock photo subscriptions ([pwython, 24.06.2026](https://news.ycombinator.com/item?id=48661315)); FLUX.3 Klein surprisingly worse than Z-Image Turbo ([vunderba, 17.10.2026](https://news.ycombinator.com/item?id=50127055)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48661315",
+          "site": "hacker-news",
+          "date": "2026-06-24",
+          "label": "pwython"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=50127055",
+          "site": "hacker-news",
+          "date": "2026-10-17",
+          "label": "vunderba"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "**M5 Max 128 GB with mflux**: about 1.4–1.5 s per step at 1024², so about 12–14 s per image ([fxd0h, 03.10.2026](https://github.com/mflux-community/mflux/issues/817)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://github.com/mflux-community/mflux/issues/817",
+          "site": "github",
+          "date": "2026-10-03",
+          "label": "fxd0h"
+        }
+      ]
+    }
+  ]
+}

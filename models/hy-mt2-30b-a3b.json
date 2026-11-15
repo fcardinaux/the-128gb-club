@@ -1,0 +1,113 @@
+{
+  "id": "hy-mt2-30b-a3b",
+  "name": "Hy-MT2-30B-A3B",
+  "category": "translation",
+  "usage": "Translation, larger MoE variant (3B active)",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "tencent/Hy-MT2-30B-A3B"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "tencent/Hy-MT2-30B-A3B-GGUF",
+      "role": "info"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://huggingface.co/api/models/tencent/Hy-MT2-30B-A3B",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/api/models/tencent/Hy-MT2-30B-A3B",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "tencent",
+      "source": "https://huggingface.co/tencent/Hy-MT2-30B-A3B",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2026-05-11",
+      "source": "https://huggingface.co/api/models/tencent/Hy-MT2-30B-A3B",
+      "checked": "2026-11-13",
+      "note": "createdAt of the repository"
+    },
+    "parameters_total_b": {
+      "value": 30.1,
+      "source": "https://huggingface.co/api/models/tencent/Hy-MT2-30B-A3B",
+      "checked": "2026-11-13"
+    },
+    "parameters_active_b": {
+      "value": 3,
+      "source": "https://huggingface.co/tencent/Hy-MT2-30B-A3B",
+      "checked": "2026-11-14",
+      "note": "from the model name (A3B)"
+    },
+    "size_gb": {
+      "value": 60.1,
+      "source": "Hugging Face API, file sizes",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".py, .safetensors",
+      "source": "https://huggingface.co/api/models/tencent/Hy-MT2-30B-A3B",
+      "checked": "2026-11-13"
+    },
+    "languages": {
+      "value": "33 languages, same list as Hy-MT2-7B; includes en, fr, de, it",
+      "source": "https://huggingface.co/tencent/Hy-MT2-30B-A3B (model card)",
+      "checked": "2026-11-13",
+      "note": "Same list and gaps as Hy-MT2-7B (no Romansh, no Swiss German, many EU languages missing)."
+    },
+    "runtimes": {
+      "value": "llama.cpp llama-server with official GGUF (tencent, arch hy_v3, Q4_K_M 18.2 GB, Q8_0 32 GB; needs build with PR #25395, merged 13.07.2026); Ollama only via hf.co/tencent/Hy-MT2-30B-A3B-GGUF or community maternion/hy-mt2; LM Studio (GGUF, link only); MLX only community builds with a bundled hy_v3.py adapter (QwQbb 4/8-bit, tested on M5 Max 128 GB): stock mlx-lm has no hy_v3 (PR #1211 closed unmerged)",
+      "source": "https://huggingface.co/tencent/Hy-MT2-30B-A3B-GGUF, https://github.com/ggml-org/llama.cpp/pull/25395, https://huggingface.co/QwQbb/Hy-MT2-30B-A3B-MLX-4bit, https://github.com/ml-explore/mlx-lm/pull/1211, https://ollama.com/search?q=hy-mt",
+      "checked": "2026-11-14",
+      "note": "PR #25395 was written for Hy3; that the Hy-MT2 30B GGUF loads with it is inferred from the shared hy_v3 arch, not from a test report. dawncr0w oQ*-MLX builds (oMLX format) exist; their runtime not checked. vLLM/SGLang/transformers >= 5.6.0 documented for CUDA, not Mac."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14",
+      "note": "largest file set ≤ 100 GB"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Same as the 7B; fast (3B active)",
+      "summary": "Larger variant of Hy-MT2-7B, for when the 7B is not good enough.",
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026: Hacker News comments (Algolia API). Reddit, Hugging Face discussions and runtime issues not read.",
+      "feedback": "thin"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "neutral",
+      "text": "Technical comment on its 1.25-bit variant; no hands-on report on translation quality ([HN, 48991840](https://news.ycombinator.com/item?id=48991840)).",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48991840",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "positive",
+      "text": "The authors' paper claims it beats strong open models; no per-language tables in the summaries found (authors' claim, not user feedback) ([arXiv 2605.22064](https://arxiv.org/pdf/2605.22064)).",
+      "refs": [
+        {
+          "url": "https://arxiv.org/pdf/2605.22064",
+          "site": "other",
+          "label": "Hy-MT2 paper"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

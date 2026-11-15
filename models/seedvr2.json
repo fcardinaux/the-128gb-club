@@ -1,0 +1,153 @@
+{
+  "id": "seedvr2",
+  "name": "SeedVR2 3B / 7B (numz safetensors repack)",
+  "category": "image",
+  "usage": "Upscaling and restoration of real-world degradations, one step, no prompt",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "numz/SeedVR2_comfyUI",
+      "note": "Repo 60.1 GB; the 3B fp16 (6.78), 7B fp16 (16.48) and VAE (0.5) files make ≈ 23.8 GB; the repo mflux uses"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "ByteDance-Seed/SeedVR2-7B",
+      "role": "facts",
+      "note": "Official, .pth only"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "Comfy-Org/SeedVR2",
+      "role": "info",
+      "note": "For ComfyUI's native node, 113 GB in all"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "ByteDance Seed; numz repack",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2025-06 (ICLR 2026)",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "parameters_total_b": {
+      "value": "3 / 7",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "size_gb": {
+      "value": 23.8,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13",
+      "note": "3B fp16, 7B fp16 and VAE files only (the repository holds more)"
+    },
+    "formats": {
+      "value": ".safetensors",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "languages": {
+      "value": "n/a (no text input)",
+      "source": "model card",
+      "checked": "2026-11-14"
+    },
+    "runtimes": {
+      "value": "mflux (mflux-upscale-seedvr2, MLX, native on the Mac); ComfyUI native node; numz custom node buggy on MPS",
+      "source": "mflux README, GitHub",
+      "checked": "2026-11-13"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size",
+      "checked": "2026-11-13"
+    },
+    "provenance": {
+      "value": "consistent: the fp16 files are exactly half of ByteDance's fp32 .pth files (7B 16.48 / 32.96 GB, 3B 6.78 / 13.57 GB, VAE 0.50 / 1.00 GB, differences of a few tens of kB = pickle overhead); no conversion script or hash published",
+      "source": "https://huggingface.co/numz/SeedVR2_comfyUI",
+      "checked": "2026-11-15",
+      "note": "maintained by the authors of the ComfyUI-SeedVR2 node (about 3,000 GitHub stars); base_model ByteDance-Seed/SeedVR2-3B and -7B; about 789,000 downloads; the card says Apache 2.0 at the top and MIT for the code at the end"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Community default upscaler; prefer mflux on the Mac",
+      "summary": "Presented by mflux as the best upscaling model. On an M5 Max 128 GB the numz ComfyUI node hit five MPS bugs (fixes supplied); a ComfyUI update broke it in 11.2026 and the maintainer points to the native node. Video upscaling is memory-hungry.",
+      "searched": "2026-11-13",
+      "scope": "Released 06.2025 (more than 12 months): comments since 13.05.2026. Hacker News comments, Hugging Face discussions, GitHub issues; Reddit blocked.",
+      "feedback": "moderate"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "positive",
+      "text": "Generate video locally with LTX 2.3 or WAN, then upscale with SeedVR2.",
+      "refs": [
+        {
+          "label": "vunderba",
+          "date": "2026-05-15",
+          "url": "https://news.ycombinator.com/item?id=48155014",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "On an M5 Max 128 GB, the SeedVR2 3B runner on MPS bf16 hit five bugs (three crashes, two silent numerical failures); fixes supplied.",
+      "refs": [
+        {
+          "label": "numz #600",
+          "date": "2026-06-28",
+          "url": "https://github.com/numz/ComfyUI-SeedVR2_VideoUpscaler/issues/600",
+          "site": "github"
+        },
+        {
+          "label": "numz #599",
+          "date": "2026-06-27",
+          "url": "https://github.com/numz/ComfyUI-SeedVR2_VideoUpscaler/issues/599",
+          "site": "github"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "neutral",
+      "text": "The latest ComfyUI update broke the numz nodes; the maintainer advises ComfyUI's native SeedVR2 implementation.",
+      "refs": [
+        {
+          "label": "HF numz #6",
+          "date": "2026-11-05",
+          "url": "https://huggingface.co/numz/SeedVR2_comfyUI/discussions/6",
+          "site": "huggingface"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "On a 16 GB CUDA GPU, native 7B/3B int8 video upscaling 360p→1080p ran out of memory beyond ~3-second clips.",
+      "refs": [
+        {
+          "label": "Comfy-Org/SeedVR2 #7",
+          "date": "2026-07-23",
+          "url": "https://huggingface.co/Comfy-Org/SeedVR2/discussions/7",
+          "site": "huggingface"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

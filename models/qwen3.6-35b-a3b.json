@@ -1,0 +1,194 @@
+{
+  "id": "qwen3.6-35b-a3b",
+  "name": "Qwen3.6-35B-A3B",
+  "category": "llm",
+  "usage": "General, fast everyday model",
+  "sources": [
+    {
+      "kind": "ollama",
+      "tag": "qwen3.6:35b-a3b-q8_0"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://ollama.com/library/qwen3.6",
+      "checked": "2026-11-12"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://ollama.com/library/qwen3.6",
+      "checked": "2026-11-12"
+    },
+    "release_date": {
+      "value": "2026-04-15",
+      "source": "https://ollama.com/library/qwen3.6",
+      "checked": "2026-11-12",
+      "note": "15.04.2026 (HF)"
+    },
+    "parameters_total_b": {
+      "value": 36.0,
+      "source": "https://huggingface.co/api/models/Qwen/Qwen3.6-35B-A3B",
+      "checked": "2026-11-14"
+    },
+    "parameters_active_b": {
+      "value": 3,
+      "source": "https://huggingface.co/Qwen/Qwen3.6-35B-A3B",
+      "checked": "2026-11-14"
+    },
+    "size_gb": {
+      "value": 38.7,
+      "source": "https://ollama.com/library/qwen3.6",
+      "checked": "2026-11-12"
+    },
+    "formats": {
+      "value": "GGUF (+ vision projector)",
+      "source": "https://ollama.com/library/qwen3.6",
+      "checked": "2026-11-12"
+    },
+    "runtimes": {
+      "value": "Ollama official qwen3.6:35b-a3b (broken tool calls give HTTP 500, #16383 open); llama.cpp llama-server with GGUF + vision mmproj (ggml-org, also MTP GGUF); LM Studio (lmstudio-community GGUF and MLX 4/6/8-bit); mlx-lm/mlx-vlm with mlx-community builds (4-8 bit, bf16, mxfp4/8, nvfp4, DWQ, MTP)",
+      "source": "https://ollama.com/library/qwen3.6, https://huggingface.co/ggml-org/Qwen3.6-35B-A3B-GGUF, https://huggingface.co/lmstudio-community/Qwen3.6-35B-A3B-MLX-8bit, https://huggingface.co/mlx-community/Qwen3.6-35B-A3B-8bit, https://github.com/ollama/ollama/issues/16383",
+      "checked": "2026-11-14",
+      "note": "Ollama issue status from an earlier check (13.11.2026), not re-checked. Which MLX package handles vision for the mlx-community builds not confirmed."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026. Sources: Hacker News comments, Hugging Face discussions, Ollama, llama.cpp and mlx-lm issues. **Reddit could not be read** (blocked for automated reading); summaries of Reddit threads by other sites were not used as evidence. Released 15.04.2026; window: since 13.05.2026 plus the launch discussion.",
+      "summary": "Fast everyday model, Haiku level, good vision; weak for agentic coding. No comment on French or German. Users wait for a Qwen3.8 version of the 35B-A3B ([ch_sm, 04.11.2026](https://news.ycombinator.com/item?id=50370244)).",
+      "feedback": "moderate",
+      "verdict": "Fast everyday model (Haiku level), good vision; weak for agentic coding, tool-call errors"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "Not really useful as a coding model; Qwen3.8 27B is the minimum for that ([ekidd, 03.10.2026](https://news.ycombinator.com/item?id=49944552)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49944552",
+          "site": "hacker-news",
+          "date": "2026-10-03",
+          "label": "ekidd"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Tool mistakes in agents: edits files in the wrong folders ([tripzilch, 23.09.2026](https://news.ycombinator.com/item?id=49815895)); failed often enough in OpenClaw to be unusable ([sweetjuly, 21.10.2026](https://news.ycombinator.com/item?id=50188449)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49815895",
+          "site": "hacker-news",
+          "date": "2026-09-23",
+          "label": "tripzilch"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=50188449",
+          "site": "hacker-news",
+          "date": "2026-10-21",
+          "label": "sweetjuly"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Less precise than Gemma 4 26B for structured extraction: more creative and verbose, less exact ([zkmon, 30.04.2026](https://news.ycombinator.com/item?id=47962051)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=47962051",
+          "site": "hacker-news",
+          "date": "2026-04-30",
+          "label": "zkmon"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Ollama: broken tool calls give HTTP 500, bug open ([ollama#16383, 01.06.2026](https://github.com/ollama/ollama/issues/16383)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://github.com/ollama/ollama/issues/16383",
+          "site": "github",
+          "date": "2026-06-01",
+          "label": "ollama#16383"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Both much faster and much more capable than Haiku, used every day ([sznio, 24.09.2026](https://news.ycombinator.com/item?id=49837523)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49837523",
+          "site": "hacker-news",
+          "date": "2026-09-24",
+          "label": "sznio"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "About 90 tok/s on an M3 Max (Q6, MLX) ([seanmcdirmid, 14.09.2026](https://news.ycombinator.com/item?id=49690588)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49690588",
+          "site": "hacker-news",
+          "date": "2026-09-14",
+          "label": "seanmcdirmid"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Everyday writing: e-mails, messages, tickets ([LeBit, 24.09.2026](https://news.ycombinator.com/item?id=49836240)); good for coding and translations ([embedding-shape, 20.05.2026](https://news.ycombinator.com/item?id=48206909)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49836240",
+          "site": "hacker-news",
+          "date": "2026-09-24",
+          "label": "LeBit"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=48206909",
+          "site": "hacker-news",
+          "date": "2026-05-20",
+          "label": "embedding-shape"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Vision much better than gemma4-26b-a4b ([jwr, 18.05.2026](https://news.ycombinator.com/item?id=48182721)); OCR of faded and handwritten receipts ([nullc, 29.06.2026](https://news.ycombinator.com/item?id=48717401)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48182721",
+          "site": "hacker-news",
+          "date": "2026-05-18",
+          "label": "jwr"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=48717401",
+          "site": "hacker-news",
+          "date": "2026-06-29",
+          "label": "nullc"
+        }
+      ]
+    }
+  ]
+}

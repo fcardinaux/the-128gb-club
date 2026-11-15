@@ -1,0 +1,107 @@
+{
+  "id": "mellum2-base",
+  "name": "Mellum2-12B-A2.5B-Base",
+  "category": "code",
+  "usage": "Code completion (FIM), fast MoE",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "JetBrains/Mellum2-12B-A2.5B-Base",
+      "note": "24.3 GB safetensors; GGUF only from third parties"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "JetBrains",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2026-05-26",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "parameters_total_b": {
+      "value": 12,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "parameters_active_b": {
+      "value": 2.5,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "size_gb": {
+      "value": 24.3,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".safetensors",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "languages": {
+      "value": "code; en (card metadata)",
+      "source": "https://huggingface.co/api/models/JetBrains/Mellum2-12B-A2.5B-Base",
+      "checked": "2026-11-14"
+    },
+    "runtimes": {
+      "value": "vLLM (card); llama.cpp detects its FIM tokens; Metal NaN bug fixed 16.10.2026 (PR #30584)",
+      "source": "GitHub",
+      "checked": "2026-11-13"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size",
+      "checked": "2026-11-13"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Promising on paper (FIM-trained, fast MoE), no autocomplete reports yet",
+      "summary": "Trained with a 50 % FIM rate (technical report); vendor HumanEval 41.5, no FIM benchmark. One HN user runs it as a sub-agent, not for completion.",
+      "searched": "2026-11-13",
+      "scope": "Released 05.2026: all comments since release. Hacker News comments (Algolia), Hugging Face discussions, GitHub issues of the runtimes; Reddit blocked (no r/LocalLLaMA feedback).",
+      "feedback": "thin"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "neutral",
+      "text": "Runs Mellum 12B Q8 as a sub-agent next to a Qwen 27B (not for autocomplete).",
+      "refs": [
+        {
+          "label": "lloyd-christmas",
+          "date": "2026-06-16",
+          "url": "https://news.ycombinator.com/item?id=48550218",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "Mellum2.1 GGUF (Q8_0, Q6_K, Q4_K_M) produced NaN on Metal; fixed by PR #30584 the next day.",
+      "refs": [
+        {
+          "label": "llama.cpp #30579",
+          "date": "2026-10-15",
+          "url": "https://github.com/ggml-org/llama.cpp/issues/30579",
+          "site": "github"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

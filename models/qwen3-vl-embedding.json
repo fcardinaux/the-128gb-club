@@ -1,0 +1,83 @@
+{
+  "id": "qwen3-vl-embedding",
+  "name": "Qwen3-VL-Embedding (2B, 8B)",
+  "category": "embeddings",
+  "usage": "Search images and text by meaning",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "Qwen/Qwen3-VL-Embedding-2B"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "Qwen/Qwen3-VL-Embedding-8B"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://huggingface.co/api/models/Qwen/Qwen3-VL-Embedding-2B",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/api/models/Qwen/Qwen3-VL-Embedding-2B",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "Qwen",
+      "source": "https://huggingface.co/Qwen/Qwen3-VL-Embedding-2B",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2026-01-07",
+      "source": "https://huggingface.co/api/models/Qwen/Qwen3-VL-Embedding-2B",
+      "checked": "2026-11-13",
+      "note": "createdAt of the repository"
+    },
+    "parameters_total_b": {
+      "value": 2.1,
+      "source": "https://huggingface.co/api/models/Qwen/Qwen3-VL-Embedding-2B",
+      "checked": "2026-11-13"
+    },
+    "size_gb": {
+      "value": {
+        "2B": 4.3,
+        "8B": 16.3
+      },
+      "source": "Hugging Face API, file sizes",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".py, .safetensors",
+      "source": "https://huggingface.co/api/models/Qwen/Qwen3-VL-Embedding-2B",
+      "checked": "2026-11-13"
+    },
+    "languages": {
+      "value": "30+ languages",
+      "source": "https://huggingface.co/Qwen/Qwen3-VL-Embedding-8B",
+      "checked": "2026-11-14"
+    },
+    "runtimes": {
+      "value": "sentence-transformers (official library tag; text and image) or own Qwen3VLEmbedder script with transformers >= 4.57, qwen-vl-utils, torch 2.8 (MPS unverified); MLX via mlx-embeddings with mlx-community 2B builds only (4-8 bit, bf16, mxfp/nvfp4), 8B only community (jedisct1, nkamiy); llama.cpp: community GGUFs, text mode with --embeddings --pooling last, images need mtmd; a crash report (#18910) closed stale. Ollama: community tags only (e.g. charaf/qwen3-vl-embedding-8b)",
+      "source": "https://huggingface.co/Qwen/Qwen3-VL-Embedding-8B, https://huggingface.co/mlx-community/Qwen3-VL-Embedding-2B-8bit, https://huggingface.co/batiai/Qwen3-VL-Embedding-8B-GGUF, https://github.com/ggml-org/llama.cpp/issues/18910, https://ollama.com/search?q=qwen3-vl-embedding",
+      "checked": "2026-11-14",
+      "note": "Image embeddings through llama.cpp or Ollama are not confirmed; a Jina article says upstream llama.cpp lacks multimodal embedding output (other model). vLLM/SGLang examples are CUDA. Thin evidence for any Mac run."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026: Hacker News comments only (Algolia API). Reddit, Hugging Face discussions and runtime issues not read yet. Removed on 15.11.2026: a remark that Qwen3-VL-Embedding is the newest Qwen embedding family, not user feedback.",
+      "summary": "No feedback yet. Useful only if the assistant must search photos or scanned documents by meaning; otherwise Qwen3-Embedding is enough.",
+      "feedback": "none",
+      "verdict": "No feedback"
+    }
+  },
+  "comments": []
+}

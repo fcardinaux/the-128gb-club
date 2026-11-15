@@ -1,0 +1,222 @@
+{
+  "id": "deepseek-v4-flash-0731",
+  "name": "DeepSeek V4-Flash-0731",
+  "category": "llm",
+  "usage": "General and code, large MoE (2-bit)",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "deepseek-ai/DeepSeek-V4-Flash-0731",
+      "role": "facts",
+      "note": "official weights, 167 GB, too large"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "antirez/deepseek-v4-gguf",
+      "note": "2-bit, 86.7 GB, plus MTP file 3.8 GB, for DwarfStar"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "antirez/deepseek-v4-gguf",
+      "note": "mixed 2/4-bit, 97.6 GB, for DwarfStar"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "unsloth/DeepSeek-V4-Flash-0731-GGUF",
+      "note": "UD-IQ2_M, 90.9 GB, for llama.cpp"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "MIT",
+      "source": "https://huggingface.co/api/models/deepseek-ai/DeepSeek-V4-Flash-0731",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/api/models/deepseek-ai/DeepSeek-V4-Flash-0731",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "deepseek-ai",
+      "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash-0731",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2026-07-31",
+      "source": "https://huggingface.co/api/models/deepseek-ai/DeepSeek-V4-Flash-0731",
+      "checked": "2026-11-13",
+      "note": "createdAt of the repository"
+    },
+    "parameters_total_b": {
+      "value": 304.2,
+      "source": "https://huggingface.co/api/models/deepseek-ai/DeepSeek-V4-Flash-0731",
+      "checked": "2026-11-13"
+    },
+    "parameters_active_b": {
+      "value": 13,
+      "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Flash",
+      "checked": "2026-11-14",
+      "note": "284B total and 13B activated in the card"
+    },
+    "size_gb": {
+      "value": {
+        "antirez GGUF 2-bit": 86.7,
+        "antirez GGUF mixed 2/4-bit": 97.6,
+        "unsloth GGUF UD-IQ2_M": 90.9
+      },
+      "source": "Hugging Face API, file sizes",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".py, .safetensors",
+      "source": "https://huggingface.co/api/models/deepseek-ai/DeepSeek-V4-Flash-0731",
+      "checked": "2026-11-13"
+    },
+    "runtimes": {
+      "value": "DwarfStar (ds4, Metal-first, own GGUF files, beta, 96 GB+); llama.cpp llama-server with GGUF (ggml-org, unsloth UD-IQ2_M); LM Studio (lmstudio-community GGUF); MLX low-bit builds in mlx-community (2.4bit-mixed, OptiQ-2bit). Ollama: official library has only cloud tags (V4.1 Flash, V4 Pro); local only via community frob/deepseek-v4-flash-0731",
+      "source": "https://github.com/antirez/ds4 (README), https://huggingface.co/ggml-org/DeepSeek-V4-Flash-0731-GGUF, https://huggingface.co/unsloth/DeepSeek-V4-Flash-0731-GGUF, https://huggingface.co/lmstudio-community/DeepSeek-V4-Flash-0731-GGUF, https://huggingface.co/mlx-community/DeepSeek-V4-Flash-0731-2.4bit-mixed, https://ollama.com/search?q=deepseek-v4",
+      "checked": "2026-11-14",
+      "note": "DwarfStar README names V4 Flash and a Flash 0731 checkpoint but fetches its own files with download_model.sh; that antirez/deepseek-v4-gguf is the same source is unverified. Whether the community Ollama tag runs well locally, and whether stock mlx-lm loads the 0731 MLX builds, are unverified. A newer V4.1-Flash-1017 exists on HF (ggml-org, mlx-community, unsloth)."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14",
+      "note": "largest file set ≤ 100 GB"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "V4 Flash released 22.04.2026, checkpoint 0731 on 31.07.2026: comments since 13.05.2026 plus the launch. Hacker News comments only; Reddit and Hugging Face discussions not read.",
+      "summary": "The strongest model that fits on 128 GB according to many Mac users, at the cost of a 2-bit quant and most of the memory. Test it against Qwen3.8-27B.",
+      "feedback": "moderate",
+      "verdict": "Leading local model on 128 GB Macs in mid-2026, 14–30 tok/s; barely fits"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "A 128 GB Mac only just fits it ([pornel, 16.06.2026](https://news.ycombinator.com/item?id=48563585)); 128 GB is too little for a good quantisation ([cmrdporcupine, 23.07.2026](https://news.ycombinator.com/item?id=49020516)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48563585",
+          "site": "hacker-news",
+          "date": "2026-06-16",
+          "label": "pornel"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=49020516",
+          "site": "hacker-news",
+          "date": "2026-07-23",
+          "label": "cmrdporcupine"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Still produces a malformed tool call from time to time ([kamranjon, 14.07.2026](https://news.ycombinator.com/item?id=48913036)); a lot of fan noise on a MacBook Pro M5 Max ([reverius42, 31.07.2026](https://news.ycombinator.com/item?id=49120467)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48913036",
+          "site": "hacker-news",
+          "date": "2026-07-14",
+          "label": "kamranjon"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=49120467",
+          "site": "hacker-news",
+          "date": "2026-07-31",
+          "label": "reverius42"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "An M5 Max 128 GB Mac Studio owner settled on Qwen models instead ([fzxu22, 05.11.2026](https://news.ycombinator.com/item?id=50385925)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50385925",
+          "site": "hacker-news",
+          "date": "2026-11-05",
+          "label": "fzxu22"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "No vision in the 2-bit text build ([kamranjon, 12.06.2026](https://news.ycombinator.com/item?id=48503585)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48503585",
+          "site": "hacker-news",
+          "date": "2026-06-12",
+          "label": "kamranjon"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Used as the main model for everything on an M4 Max 128 GB MacBook Pro with DwarfStar ([kamranjon, 12.06.2026](https://news.ycombinator.com/item?id=48503585)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48503585",
+          "site": "hacker-news",
+          "date": "2026-06-12",
+          "label": "kamranjon"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "~24 tok/s generation, ~200 tok/s prefill on an M4 Max 128 GB; better at long tool-calling tasks than GPT-4-class models ([jumploops, 13.06.2026](https://news.ycombinator.com/item?id=48510866)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48510866",
+          "site": "hacker-news",
+          "date": "2026-06-13",
+          "label": "jumploops"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Pretty good speed and coding ability on a Mac Studio 128 GB ([davedx, 19.10.2026](https://news.ycombinator.com/item?id=50148812)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50148812",
+          "site": "hacker-news",
+          "date": "2026-10-19",
+          "label": "davedx"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Even at 2-bit, among the best local models one user has benchmarked ([spottedmarley, 14.08.2026](https://news.ycombinator.com/item?id=49298258)); results far better than usual for a 2-bit quantisation ([Catloafdev, 17.09.2026](https://news.ycombinator.com/item?id=49741914)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49298258",
+          "site": "hacker-news",
+          "date": "2026-08-14",
+          "label": "spottedmarley"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=49741914",
+          "site": "hacker-news",
+          "date": "2026-09-17",
+          "label": "Catloafdev"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "id": "granite-guardian-4.1",
+  "name": "Granite Guardian 4.1 8B",
+  "category": "guard",
+  "usage": "Guard for agents: harm, jailbreak, groundedness, function calls; custom criteria",
+  "sources": [
+    {
+      "kind": "ollama",
+      "tag": "granite4.1-guardian:8b",
+      "note": "Q8_0 8.9 GB, q4_K_M 5.1 GB"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "ibm-granite/granite-guardian-4.1-8b",
+      "role": "facts",
+      "note": "16.76 GB safetensors"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "IBM",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2026-04-16",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "parameters_total_b": {
+      "value": 8,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "size_gb": {
+      "value": 16.76,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".safetensors, .gguf",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "languages": {
+      "value": "English only",
+      "source": "model card",
+      "checked": "2026-11-13"
+    },
+    "runtimes": {
+      "value": "official Ollama tag, llama.cpp, LM Studio, transformers, vLLM",
+      "source": "Ollama, model card",
+      "checked": "2026-11-13"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size",
+      "checked": "2026-11-13"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Strongest feature set for agents (custom criteria, function-call checks); English only; almost no user reports",
+      "summary": "Vendor: OOD safety F1 0.79, FC Reward Bench 0.79. HN mentions only.",
+      "searched": "2026-11-13",
+      "scope": "Released 04.2026 (3–12 months): last 6 months plus launch. Hacker News comments (Algolia), Hugging Face discussions, GitHub issues of the runtimes; Reddit blocked (no r/LocalLLaMA feedback).",
+      "feedback": "thin"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "neutral",
+      "text": "Cited as IBM's model to protect agents; the commenter wants research confirming it works before stacking more LLM layers.",
+      "refs": [
+        {
+          "label": "HN comment",
+          "date": "2026-06-10",
+          "url": "https://news.ycombinator.com/item?id=48479770",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

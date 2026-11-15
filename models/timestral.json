@@ -1,0 +1,70 @@
+{
+  "id": "timestral",
+  "name": "Timestral 5M–209M (Mistral)",
+  "category": "timeseries",
+  "usage": "Time-series forecasting",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "mistralai/Timestral-209M"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "\"Modified MIT\" (LICENSE file): no rights for a user whose organisation has revenue above $20M per month; GitHub code Apache 2.0",
+      "source": "https://huggingface.co/mistralai/Timestral-209M",
+      "checked": "2026-11-15"
+    },
+    "release_date": {
+      "value": "2026-10-14",
+      "source": "https://huggingface.co/mistralai/Timestral-209M",
+      "checked": "2026-11-15"
+    },
+    "size_gb": {
+      "value": 0.84,
+      "source": "https://huggingface.co/mistralai/Timestral-209M",
+      "checked": "2026-11-15"
+    },
+    "formats": {
+      "value": "safetensors",
+      "source": "https://huggingface.co/mistralai/Timestral-209M",
+      "checked": "2026-11-15"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-15",
+      "note": "a build of 100 GB or less (see research-method.md, Memory target)"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-15",
+      "scope": "Checked on 15.11.2026 while researching time-series forecasting models: Hugging Face metadata, licence files, TS-Arena and GIFT-Eval results, Hacker News comments. Not researched further.",
+      "summary": "Best open-weight score on TS-Arena (62.6) and GIFT-Eval (0.446); did not beat AutoARIMA on noisy power prices for one user.",
+      "feedback": "thin",
+      "verdict": "Most accurate open model, but modified MIT licence"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "Did not beat AutoARIMA baselines on noisy power-price series ([dcl, 20.10.2026](https://news.ycombinator.com/item?id=50164262)); the weights licence differs from the Apache 2.0 code ([pquerna, 19.10.2026](https://news.ycombinator.com/item?id=50152509)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50164262",
+          "site": "hacker-news",
+          "date": "2026-10-20",
+          "label": "dcl"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=50152509",
+          "site": "hacker-news",
+          "date": "2026-10-19",
+          "label": "pquerna"
+        }
+      ]
+    }
+  ]
+}

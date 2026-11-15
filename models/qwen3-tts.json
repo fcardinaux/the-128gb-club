@@ -1,0 +1,188 @@
+{
+  "id": "qwen3-tts",
+  "name": "Qwen3-TTS (CustomVoice, Base, VoiceDesign, Tokenizer)",
+  "category": "tts",
+  "usage": "Speech synthesis: ready-made voices, cloning, voice design, codec",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "Qwen/Qwen3-TTS-12Hz-1.7B-Base"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "Qwen/Qwen3-TTS-Tokenizer-12Hz"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "Qwen/Qwen3-TTS-12Hz-1.7B-VoiceDesign"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "checked": "2026-11-12"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "checked": "2026-11-12"
+    },
+    "publisher": {
+      "value": "Qwen",
+      "source": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "checked": "2026-11-12"
+    },
+    "release_date": {
+      "value": "2026-01-21",
+      "source": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "checked": "2026-11-12",
+      "note": "21.01.2026"
+    },
+    "parameters_total_b": {
+      "value": {
+        "CustomVoice": 1.92,
+        "Base": 1.93,
+        "Tokenizer": 0.17
+      },
+      "source": "Hugging Face API, safetensors totals",
+      "checked": "2026-11-14"
+    },
+    "size_gb": {
+      "value": {
+        "CustomVoice": 4.5,
+        "Base": 4.5,
+        "Tokenizer": 0.7
+      },
+      "source": "Hugging Face API, file sizes",
+      "checked": "2026-11-12"
+    },
+    "formats": {
+      "value": "safetensors",
+      "source": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice",
+      "checked": "2026-11-12"
+    },
+    "languages": {
+      "value": "10 languages: zh, en, ja, ko, de, fr, ru, pt, es, it; all three variants",
+      "source": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice (model card)",
+      "checked": "2026-11-13",
+      "note": "CustomVoice has 9 preset voices covering combinations of gender, age, language and dialect: check how many sound natural in French and German. Cross-language cloning carries the accent over: use a reference recording in each language."
+    },
+    "runtimes": {
+      "value": "mlx-audio (CustomVoice, VoiceDesign, Base cloning; mlx-community conversions); official qwen-tts package on MPS with device_map='mps' and bfloat16 (users on M3 Ultra and M4 Pro, CPU stalls, issue #69); vLLM-Omni through vllm-metal on PyTorch-MPS (documented for Qwen3-TTS-12Hz-0.6B-CustomVoice, quantized models not supported). Base cloning degenerates when ref_text does not cover the whole reference clip (mlx-audio#921, reproduced with the official PyTorch code too)",
+      "source": "https://github.com/Neywa-Labs/mlx-audio (README, issue #921); https://github.com/QwenLM/Qwen3-TTS (README, issue #69); https://github.com/vllm-project/vllm-metal/blob/main/docs/omni.md",
+      "checked": "2026-11-14",
+      "note": "vllm-metal documents only the 0.6B CustomVoice; the 1.7B CustomVoice and Base there are unverified. flash-attn, recommended in the README, is CUDA-only."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026. Sources: Hacker News comments, Hugging Face discussions, issues of Ollama, QwenLM, resemble-ai/chatterbox and mlx-audio (now `Neywa-Labs/mlx-audio`). **Reddit could not be read.** Items from before 13.05.2026 that are not launch discussions are marked \"older\". Released 21.01.2026; window: since 13.05.2026 plus the launch. No feedback on the Tokenizer itself. Variants: CustomVoice has 9 preset voices and instruction or emotion control; Base clones voices but takes no instructions ([HF CustomVoice #28, 20.02.2026](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice/discussions/28)).",
+      "summary": "Excellent cloning on MLX; slow; accent carries over across languages; clone in each language from a reference in that language.",
+      "feedback": "moderate",
+      "verdict": "Qwen3-TTS: good; slow; preset voices with tone control"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "Cross-language cloning keeps the original accent; the speaker sometimes changes ([QwenLM/Qwen3-TTS#134, 29.01.2026](https://github.com/QwenLM/Qwen3-TTS/issues/134); [#80, 14.02.2026](https://github.com/QwenLM/Qwen3-TTS/issues/80)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://github.com/QwenLM/Qwen3-TTS/issues/134",
+          "site": "github",
+          "date": "2026-01-29",
+          "label": "QwenLM/Qwen3-TTS#134"
+        },
+        {
+          "url": "https://github.com/QwenLM/Qwen3-TTS/issues/80",
+          "site": "github",
+          "date": "2026-02-14",
+          "label": "#80"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Slow, not practical for real time ([rhdunn, 23.09.2026](https://news.ycombinator.com/item?id=49820470)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49820470",
+          "site": "hacker-news",
+          "date": "2026-09-23",
+          "label": "rhdunn"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "mlx-audio: Base cloning produces garbage when `ref_text` does not match the whole reference clip ([mlx-audio#921, 28.08.2026](https://github.com/Neywa-Labs/mlx-audio/issues/921)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://github.com/Neywa-Labs/mlx-audio/issues/921",
+          "site": "github",
+          "date": "2026-08-28",
+          "label": "mlx-audio#921"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "One team switched to Chatterbox, found more predictable and reliable ([HF CustomVoice #28, 20.02.2026](https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice/discussions/28)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://huggingface.co/Qwen/Qwen3-TTS-12Hz-1.7B-CustomVoice/discussions/28",
+          "site": "huggingface",
+          "date": "2026-02-20",
+          "label": "HF CustomVoice #28"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Used almost daily for voice cloning with mlx-audio ([rahimnathwani, 21.07.2026](https://news.ycombinator.com/item?id=48986493)); another user is fully convinced by its voice cloning ([jsemrau, 07.07.2026](https://news.ycombinator.com/item?id=48825291)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48986493",
+          "site": "hacker-news",
+          "date": "2026-07-21",
+          "label": "rahimnathwani"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=48825291",
+          "site": "hacker-news",
+          "date": "2026-07-07",
+          "label": "jsemrau"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "**German**: worked well in a German test ([MacNCheese23, 23.09.2026](https://news.ycombinator.com/item?id=49821085)). Nothing on French.",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49821085",
+          "site": "hacker-news",
+          "date": "2026-09-23",
+          "label": "MacNCheese23"
+        }
+      ]
+    }
+  ]
+}

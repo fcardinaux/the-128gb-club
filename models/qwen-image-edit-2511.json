@@ -1,0 +1,136 @@
+{
+  "id": "qwen-image-edit-2511",
+  "name": "Qwen-Image-Edit-2511",
+  "category": "image",
+  "usage": "Image editing",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "Qwen/Qwen-Image-Edit-2511"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://huggingface.co/Qwen/Qwen-Image-Edit-2511",
+      "checked": "2026-11-12"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/Qwen/Qwen-Image-Edit-2511",
+      "checked": "2026-11-12"
+    },
+    "publisher": {
+      "value": "Qwen",
+      "source": "https://huggingface.co/Qwen/Qwen-Image-Edit-2511",
+      "checked": "2026-11-12"
+    },
+    "release_date": {
+      "value": "2025-12-17",
+      "source": "https://huggingface.co/Qwen/Qwen-Image-Edit-2511",
+      "checked": "2026-11-12",
+      "note": "17.12.2025"
+    },
+    "parameters_total_b": {
+      "value": 20.4,
+      "source": "https://huggingface.co/api/models/Qwen/Qwen-Image-Edit-2511",
+      "checked": "2026-11-14",
+      "note": "safetensors total reported by the API"
+    },
+    "size_gb": {
+      "value": 57.7,
+      "source": "https://huggingface.co/Qwen/Qwen-Image-Edit-2511",
+      "checked": "2026-11-12"
+    },
+    "formats": {
+      "value": "safetensors (Diffusers)",
+      "source": "https://huggingface.co/Qwen/Qwen-Image-Edit-2511",
+      "checked": "2026-11-12"
+    },
+    "languages": {
+      "value": "en, zh; renders text in both",
+      "source": "https://huggingface.co/api/models/Qwen/Qwen-Image-Edit-2511",
+      "checked": "2026-11-14"
+    },
+    "runtimes": {
+      "value": "mflux ('qwen-image-edit-2511', ~15.5 GB text encoder incl. vision part); ComfyUI native (docs tutorial); Draw Things (since 1.20251223.0); stable-diffusion.cpp (needs --model-args qwen_image_zero_cond_t=true, else quality drops; Metal; Comfy-Org or unsloth GGUF); DiffSynth-Studio; diffusers QwenImageEditPlusPipeline; vLLM-Omni Day-0 (CUDA path)",
+      "source": "https://github.com/mflux-community/mflux (model_config.py, issue #298); https://docs.comfy.org/tutorials/image/qwen/qwen-image-edit-2511; https://drawthings.ai/downloads/; https://github.com/leejet/stable-diffusion.cpp/blob/master/docs/qwen_image_edit.md; https://github.com/QwenLM/Qwen-Image",
+      "checked": "2026-11-14",
+      "note": "No Mac user report found for this exact model. diffusers on MPS untested by any report found."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026. Sources: Hacker News comments, Hugging Face discussions, issues of mflux, ComfyUI, mlx-video and ComfyUI-WanVideoWrapper. **Reddit could not be read**; blogs and developers promoting their own engines are leads only. Released 23.12.2025; window: launch plus 13.05–13.11.2026. Feedback thin.",
+      "summary": "Still one of the two best local editors, last Apache version; little Mac data.",
+      "feedback": "thin",
+      "verdict": "Still one of the two best local editors, last Apache version; thin feedback"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "Text and object transfer weaker than version 2509 ([HF #6, 24.12.2025](https://huggingface.co/Qwen/Qwen-Image-Edit-2511/discussions/6)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://huggingface.co/Qwen/Qwen-Image-Edit-2511/discussions/6",
+          "site": "huggingface",
+          "date": "2025-12-24",
+          "label": "HF #6"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Multi-image edits: identity drift at full CFG; the 4-step Lightning LoRA is clean ([HF #30, 03.05.2026](https://huggingface.co/Qwen/Qwen-Image-Edit-2511/discussions/30)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://huggingface.co/Qwen/Qwen-Image-Edit-2511/discussions/30",
+          "site": "huggingface",
+          "date": "2026-05-03",
+          "label": "HF #30"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Boogu-Image Edit (Apache 2.0) judged much better ([woadwarrior01, 22.06.2026](https://news.ycombinator.com/item?id=48634277)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48634277",
+          "site": "hacker-news",
+          "date": "2026-06-22",
+          "label": "woadwarrior01"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Qwen Edit and Klein probably still the best at editing ([kroaton, 21.07.2026](https://news.ycombinator.com/item?id=48999071)); Qwen-Edit still does the job well ([vunderba, 22.06.2026](https://news.ycombinator.com/item?id=48632009)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48999071",
+          "site": "hacker-news",
+          "date": "2026-07-21",
+          "label": "kroaton"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=48632009",
+          "site": "hacker-news",
+          "date": "2026-06-22",
+          "label": "vunderba"
+        }
+      ]
+    }
+  ]
+}

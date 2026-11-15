@@ -1,0 +1,149 @@
+{
+  "id": "moge-3",
+  "name": "MoGe-3 ViT-L (Microsoft), MLX port",
+  "category": "vision",
+  "usage": "Monocular 3D geometry: metric point map, depth, surface normals and camera intrinsics from one photo",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "mlx-community/moge-3-vitl-mlx-fp32"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "Ruicheng/moge-3-vitl",
+      "role": "facts",
+      "note": ".pt only"
+    },
+    {
+      "kind": "github",
+      "repo": "microsoft/MoGe",
+      "role": "info"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "OzzyGT/MoGe_2_ViTL",
+      "role": "info",
+      "note": "MoGe-2 ViT-L (without the normal head) as fp16 safetensors, MIT with LICENSE and NOTICE; converted from Ruicheng/moge-2-vitl revision 39c4d5e9; 326.2 M parameters, 652,471,190 bytes, half of the official 1,305,030,700-byte fp32 model.pt (consistent); uploader is a Hugging Face diffusers team member; 42 downloads; checked 15.11.2026"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "MIT (card tag)",
+      "source": "https://huggingface.co/mlx-community/moge-3-vitl-mlx-fp32",
+      "checked": "2026-11-15",
+      "note": "no LICENSE file in either repository; the official code is MIT"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/mlx-community/moge-3-vitl-mlx-fp32",
+      "checked": "2026-11-15"
+    },
+    "publisher": {
+      "value": "Microsoft (weights); MLX port by mlx-community",
+      "source": "https://huggingface.co/Ruicheng/moge-3-vitl",
+      "checked": "2026-11-15"
+    },
+    "release_date": {
+      "value": "2026-08-18",
+      "source": "https://huggingface.co/Ruicheng/moge-3-vitl",
+      "checked": "2026-11-15",
+      "note": "official repository; MLX port created 02.09.2026"
+    },
+    "size_gb": {
+      "value": 1.48,
+      "source": "https://huggingface.co/mlx-community/moge-3-vitl-mlx-fp32",
+      "checked": "2026-11-15",
+      "note": "fp32 safetensors; a ViT-g port is 5.00 GB"
+    },
+    "formats": {
+      "value": "safetensors (MLX port); official repository .pt only",
+      "source": "https://huggingface.co/mlx-community/moge-3-vitl-mlx-fp32",
+      "checked": "2026-11-15"
+    },
+    "runtimes": {
+      "value": "mlx-vlm `moge3` (PR #2171, merged 05.09.2026; v0.7.12). The official code says \"macOS is not supported\" (FlexGEMM/Triton)",
+      "source": "https://github.com/Blaizzy/mlx-vlm/pull/2171",
+      "checked": "2026-11-15"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-15"
+    },
+    "provenance": {
+      "value": "consistent: 370.3 M fp32 parameters; 1,481,204,170 bytes against 1,481,333,394 for the official model.pt (pickle overhead); converted with mlx-vlm (PR #2171, merged by a maintainer); fp32 check against PyTorch reported by the port author: identical masks, under 0.2 % median depth error",
+      "source": "https://huggingface.co/mlx-community/moge-3-vitl-mlx-fp32",
+      "checked": "2026-11-15",
+      "note": "uploaded 02.09.2026 by an mlx-community member; no base_model in the card; 140 downloads, no discussion"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-15",
+      "scope": "Released 18.08.2026: all comments since release. Hacker News, Hugging Face discussions (model-card PRs only), GitHub issues of microsoft/MoGe and mlx-vlm. Reddit not readable. **Feedback thin.**",
+      "summary": "Edge refinement can amplify depth errors; an independent reproduction falls far short of the paper on KITTI (outdoor), better on indoor sets; one user prefers MoGe-2 normals.",
+      "feedback": "thin",
+      "verdict": "Useful one-photo geometry on Mac via MLX; metric accuracy disputed outdoors"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "neutral",
+      "text": "\"Models like MapAnything/MoGe predict calibration params directly… We still calibrate manually on-site, but mainly to validate these models actually hold up.\" ([HN, 09.06.2026](https://news.ycombinator.com/item?id=48465090))",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48465090",
+          "site": "hacker-news",
+          "date": "2026-06-09",
+          "label": "Transload launch"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "\"Quality is not as good as described\"; the refinement \"improves some edges, but it also amplifies depth errors\" ([MoGe #171, 13–16.10.2026](https://github.com/microsoft/MoGe/issues/171)). Independent reproduction of ViT-L far below the paper on KITTI (δ1 55.3 against 85.1), better on NYUv2 and ETH3D; maintainers investigating ([#173, 21.10.2026](https://github.com/microsoft/MoGe/issues/173)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://github.com/microsoft/MoGe/issues/171",
+          "site": "github",
+          "date": "2026-10-13",
+          "label": "#171"
+        },
+        {
+          "url": "https://github.com/microsoft/MoGe/issues/173",
+          "site": "github",
+          "date": "2026-10-21",
+          "label": "#173"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Normals worse than `moge-2-vitl-normal` for one user ([#163, 03.09.2026](https://github.com/microsoft/MoGe/issues/163)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://github.com/microsoft/MoGe/issues/163",
+          "site": "github",
+          "date": "2026-09-03",
+          "label": "#163"
+        }
+      ]
+    },
+    {
+      "sentiment": "neutral",
+      "text": "MLX port: the reviewer says \"lgtm\"; under 0.2 % median depth difference against PyTorch, self-reported by the port author ([mlx-vlm PR #2171, 05.09.2026](https://github.com/Blaizzy/mlx-vlm/pull/2171)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://github.com/Blaizzy/mlx-vlm/pull/2171",
+          "site": "github",
+          "date": "2026-09-05",
+          "label": "PR #2171"
+        }
+      ]
+    }
+  ]
+}

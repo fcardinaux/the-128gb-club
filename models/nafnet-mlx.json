@@ -1,0 +1,89 @@
+{
+  "id": "nafnet-mlx",
+  "name": "NAFNet MLX (SIDD denoise, GoPro deblur)",
+  "category": "image",
+  "usage": "Photo denoising and deblurring",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "mlx-community/NAFNet-SIDD-width64",
+      "note": "Denoise, 0.46 GB"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "mlx-community/NAFNet-GoPro-width64",
+      "note": "Deblur, 0.27 GB"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "MIT",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "megvii (NAFNet); mlx-community conversion",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2026-06-04 (conversion)",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "parameters_total_b": {
+      "value": {
+        "SIDD": 0.116,
+        "GoPro": 0.068
+      },
+      "source": "Hugging Face API, safetensors totals",
+      "checked": "2026-11-14"
+    },
+    "size_gb": {
+      "value": 0.73,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".safetensors",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "languages": {
+      "value": "n/a (no text input)",
+      "source": "model card",
+      "checked": "2026-11-14"
+    },
+    "runtimes": {
+      "value": "MLX; the nafnet-mlx Python port has no licence and 0 stars (immature)",
+      "source": "GitHub",
+      "checked": "2026-11-13"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size",
+      "checked": "2026-11-13"
+    },
+    "provenance": {
+      "value": "weak to medium: the card says the weights are the official megvii-research releases converted to MLX, with PyTorch-vs-MLX parity of about 1e-6 on a real image, self-reported; the official weights are on Google Drive, so no size or hash comparison was possible; 116.0 M (SIDD) and 67.9 M (GoPro) fp32 parameters",
+      "source": "https://huggingface.co/mlx-community/NAFNet-SIDD-width64",
+      "checked": "2026-11-15",
+      "note": "uploaded 04.06.2026 by one person (mlx-community member); runtime package nafnet_mlx not found in a reviewed repository; 58 and 80 downloads"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "No feedback; niche MLX conversion",
+      "summary": "Classic denoise/deblur network converted to MLX; runtime immature.",
+      "searched": "2026-11-13",
+      "scope": "Conversion 06.2026: all comments. Hacker News comments, Hugging Face discussions, GitHub issues; Reddit blocked.",
+      "feedback": "none"
+    }
+  },
+  "comments": []
+}

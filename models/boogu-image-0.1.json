@@ -1,0 +1,151 @@
+{
+  "id": "boogu-image-0.1",
+  "name": "Boogu-Image 0.1 (Turbo, Edit, Base)",
+  "category": "image",
+  "usage": "Image generation and editing",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "Boogu/Boogu-Image-0.1-Edit",
+      "note": "Edit variant"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "Boogu/Boogu-Image-0.1-Edit-Turbo",
+      "note": "faster variant"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "Boogu/Boogu-Image-0.1-Turbo",
+      "role": "info"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "Boogu/Boogu-Image-0.1-Base",
+      "role": "info"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://huggingface.co/api/models/Boogu/Boogu-Image-0.1-Edit",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/api/models/Boogu/Boogu-Image-0.1-Edit",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "Boogu",
+      "source": "https://huggingface.co/Boogu/Boogu-Image-0.1-Edit",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2026-06-16",
+      "source": "https://huggingface.co/api/models/Boogu/Boogu-Image-0.1-Edit",
+      "checked": "2026-11-13",
+      "note": "createdAt of the repository"
+    },
+    "parameters_total_b": {
+      "value": 10.3,
+      "source": "https://huggingface.co/api/models/Boogu/Boogu-Image-0.1-Edit",
+      "checked": "2026-11-13"
+    },
+    "size_gb": {
+      "value": 38.6,
+      "source": "Hugging Face API, file sizes",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".py, .safetensors",
+      "source": "https://huggingface.co/api/models/Boogu/Boogu-Image-0.1-Edit",
+      "checked": "2026-11-13"
+    },
+    "languages": {
+      "value": "en, zh (prompts)",
+      "source": "https://huggingface.co/api/models/Boogu/Boogu-Image-0.1-Edit",
+      "checked": "2026-11-14"
+    },
+    "runtimes": {
+      "value": "mflux (Turbo only: Boogu/Boogu-Image-0.1-Turbo, 'mflux-generate-boogu'); ComfyUI native since June 2026 (docs tutorial; on an M1 Max the fp8 build fails on MPS, bf16 works, ~70 s per Turbo image); stable-diffusion.cpp (Base, Turbo and Edit, Metal; uses Comfy-Org files and a Qwen3-VL GGUF text encoder); DiffSynth-Studio (T2I and edit; README says replace 'cuda' with 'mps'); diffusers custom pipeline from the card (BooguImageTurboPipeline, comment 'switch to mps'). Official repo assumes CUDA and flash-attn",
+      "source": "https://github.com/mflux-community/mflux (src/mflux/models/boogu/README.md); https://docs.comfy.org/tutorials/image/boogu/boogu-image-0.1; https://lilting.ch/en/articles/boogu-image-m1-max-comfyui; https://github.com/leejet/stable-diffusion.cpp/blob/master/docs/boogu_image.md; https://huggingface.co/Boogu/Boogu-Image-0.1-Turbo",
+      "checked": "2026-11-14",
+      "note": "The M1 Max report is a single blog post. mflux does not cover Base, Edit or Edit-Turbo. The card says Draw Things can import it; Draw Things release notes do not mention Boogu, so unverified. diffusers and DiffSynth on MPS untested by any report found."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026: Hacker News comments only (Algolia API). Reddit, Hugging Face discussions and runtime issues not read yet.",
+      "summary": "Divided opinions. One of the few recent Apache 2.0 image models; worth a side-by-side test against Qwen-Image-2512 and Qwen-Image-Edit-2511.",
+      "feedback": "moderate",
+      "verdict": "Divided: the Edit variant judged much better than Qwen-Edit by one user, very poor by another"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "Judged very poor: not better than its contemporaries in any respect ([SV_BubbleTime, 20.09.2026](https://news.ycombinator.com/item?id=49781048)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49781048",
+          "site": "hacker-news",
+          "date": "2026-09-20",
+          "label": "SV_BubbleTime"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Outputs can look artificial ([vunderba, 20.09.2026](https://news.ycombinator.com/item?id=49776784)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49776784",
+          "site": "hacker-news",
+          "date": "2026-09-20",
+          "label": "vunderba"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Edit variant: judged very good, clearly better than Flux.2 Klein 9B and Qwen-Edit ([woadwarrior01, 22.06.2026](https://news.ycombinator.com/item?id=48634277)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48634277",
+          "site": "hacker-news",
+          "date": "2026-06-22",
+          "label": "woadwarrior01"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Scored 6/15 on the GenAI Showdown text-to-image benchmark, against 4/15 for Qwen-Image 1.0/2512, with good coherence ([vunderba, 20.09.2026](https://news.ycombinator.com/item?id=49776784)); later called underrated and quite decent ([vunderba, 17.10.2026](https://news.ycombinator.com/item?id=50127184)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49776784",
+          "site": "hacker-news",
+          "date": "2026-09-20",
+          "label": "vunderba"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=50127184",
+          "site": "hacker-news",
+          "date": "2026-10-17",
+          "label": "vunderba"
+        }
+      ]
+    }
+  ]
+}

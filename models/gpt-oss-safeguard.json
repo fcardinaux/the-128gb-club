@@ -1,0 +1,121 @@
+{
+  "id": "gpt-oss-safeguard",
+  "name": "gpt-oss-safeguard 20b",
+  "category": "guard",
+  "usage": "Policy-driven safety reasoning (bring your own policy)",
+  "sources": [
+    {
+      "kind": "ollama",
+      "tag": "gpt-oss-safeguard:20b",
+      "note": "14 GB; 120b: 65 GB"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "openai/gpt-oss-safeguard-20b",
+      "role": "facts",
+      "note": "13.76 GB MXFP4"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "OpenAI (ROOST partner)",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2025-10-29",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "parameters_total_b": {
+      "value": 21,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "parameters_active_b": {
+      "value": 3.6,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "size_gb": {
+      "value": 13.76,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".safetensors (MXFP4)",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "runtimes": {
+      "value": "official Ollama tag, LM Studio, llama.cpp; harmony format required",
+      "source": "Ollama, model card",
+      "checked": "2026-11-13"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size",
+      "checked": "2026-11-13"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Flexible policy-based guard; liked for injection policies on web content; slow",
+      "summary": "Users like writing a policy (e.g. prompt-injection techniques) and running it on web fetch and search results only. Reasoning makes it take seconds. Chat-template bug with tool calls.",
+      "searched": "2026-11-13",
+      "scope": "Released 10.2025 (more than 12 months): comments since 13.05.2026. Hacker News comments (Algolia), Hugging Face discussions, GitHub issues of the runtimes; Reddit blocked (no r/LocalLLaMA feedback).",
+      "feedback": "thin"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "positive",
+      "text": "Dedicated prompt-injection models were limited; gets good results from gpt-oss-safeguard with a policy describing injection techniques, run on web fetch and search results.",
+      "refs": [
+        {
+          "label": "HN comment",
+          "date": "2026-10-19",
+          "url": "https://news.ycombinator.com/item?id=50147437",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "positive",
+      "text": "Uses gpt-oss-safeguard-20b for moderation tasks, via a hosted API.",
+      "refs": [
+        {
+          "label": "HN comment",
+          "date": "2026-09-23",
+          "url": "https://news.ycombinator.com/item?id=49819683",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "The chat template raises a TypeError on an assistant message with content null and tool_calls, the normal shape in agent loops; fix proposed.",
+      "refs": [
+        {
+          "label": "HF discussion #8",
+          "date": "2026-07-27",
+          "url": "https://huggingface.co/openai/gpt-oss-safeguard-20b/discussions/8",
+          "site": "huggingface"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

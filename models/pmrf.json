@@ -1,0 +1,75 @@
+{
+  "id": "pmrf",
+  "name": "PMRF blind face restoration",
+  "category": "image",
+  "usage": "Face restoration for old or degraded photos",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "ohayonguy/PMRF_blind_face_image_restoration",
+      "note": "0.92 GB safetensors, no .py"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "MIT",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "Ohayon et al. (ICLR 2025)",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2024-10-03",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "parameters_total_b": {
+      "value": 0.23,
+      "source": "https://huggingface.co/api/models/ohayonguy/PMRF_blind_face_image_restoration",
+      "checked": "2026-11-14"
+    },
+    "size_gb": {
+      "value": 0.92,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".safetensors",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "languages": {
+      "value": "n/a (no text input)",
+      "source": "model card",
+      "checked": "2026-11-14"
+    },
+    "runtimes": {
+      "value": "PMRF GitHub code (MIT); ComfyUI-PMRF node is AGPL-3.0 (last updated 2024); MPS not verified",
+      "source": "GitHub",
+      "checked": "2026-11-13"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size",
+      "checked": "2026-11-13"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "No feedback; permissive alternative to CodeFormer",
+      "summary": "CodeFormer has a non-commercial licence (S-Lab) and GFPGAN ships .pth weights only; PMRF is MIT with safetensors. Identity drift is a risk with every face model.",
+      "searched": "2026-11-13",
+      "scope": "Released 10.2024: last 6 months. Hacker News comments, Hugging Face discussions, GitHub issues; Reddit blocked.",
+      "feedback": "none"
+    }
+  },
+  "comments": []
+}

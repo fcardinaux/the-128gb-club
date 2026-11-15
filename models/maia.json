@@ -1,0 +1,283 @@
+{
+  "id": "maia",
+  "name": "Maia chess (Maia-2, Maia-3)",
+  "category": "chess",
+  "usage": "Human-like chess engine: predicts the move a player of a given rating would play; sparring partner, training",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "shermansiu/maia2-rapid",
+      "note": "Third-party safetensors conversion, 93 MB; source checkpoint hash equals the official one in CSSLab/maia2 model.py; original/model.pt is a pickle file"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "shermansiu/maia2-blitz",
+      "note": "Same, blitz version, 93 MB"
+    },
+    {
+      "kind": "github",
+      "repo": "CSSLab/maia2",
+      "role": "facts",
+      "note": "Official code and model, MIT; .pt on Google Drive"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "UofTCSSLab/Maia3-79M",
+      "role": "info",
+      "note": "Maia-3, AGPLv3 (card text), .pt only, 316 MB; also Maia3-23M (51a0145a8178, 92 MB) and Maia3-5M (b6559de2398d, 21 MB). Exception needed"
+    },
+    {
+      "kind": "github",
+      "repo": "CSSLab/maia3",
+      "role": "info",
+      "note": "AGPL-3.0 code, UCI executables maia3-5m/23m/79m"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Maia-2: MIT (weights and code); Maia-3: AGPL-3.0; Maia 1: GPL-3.0",
+      "source": "Hugging Face API card_data, GitHub LICENSE files, PyPI",
+      "checked": "2026-11-13",
+      "note": "Maia-3 weight licence questioned in open issues maia3#8, #11, #12, no answer"
+    },
+    "gated": {
+      "value": false,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "CSSLab, University of Toronto (Maia-2 conversion: Sherman Siu, third party)",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "Maia-2: NeurIPS 2024 (package 0.11.0, 15.07.2026); Maia-3: 17.05.2026 (HF)",
+      "source": "GitHub, PyPI, HF",
+      "checked": "2026-11-13"
+    },
+    "parameters_total_b": {
+      "value": {
+        "Maia-2": 0.023,
+        "Maia-3": 0.079
+      },
+      "source": "Hugging Face API (shermansiu/maia2-rapid); model name (UofTCSSLab/Maia3-79M)",
+      "checked": "2026-11-14"
+    },
+    "size_gb": {
+      "value": 0.093,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13",
+      "note": "Maia-2 safetensors, per variant. Maia-3: 0.021 (5M), 0.092 (23M), 0.316 (79M)"
+    },
+    "formats": {
+      "value": "Maia-2 conversion: .safetensors (+ .pt excluded); Maia-3: .pt only; Maia 1: .pb.gz",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "languages": {
+      "value": "n/a (chess positions)",
+      "source": "model card",
+      "checked": "2026-11-14"
+    },
+    "runtimes": {
+      "value": "Maia-2: Python package maia2 (MIT, MPS/CPU) with a ~10-line adapter to load the safetensors; no official UCI engine. Maia-3: official UCI executables (Nibbler, En Croissant, Cute Chess)",
+      "source": "GitHub READMEs",
+      "checked": "2026-11-13"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "sizes",
+      "checked": "2026-11-13"
+    },
+    "provenance": {
+      "value": "strong (Maia-2 copies): provenance.json gives the Google Drive source URL and the sha256 of the official checkpoint; tensors and the three model outputs checked equal with torch.equal; only the DataParallel 'module.' prefix removed",
+      "source": "https://huggingface.co/shermansiu/maia2-rapid",
+      "checked": "2026-11-15",
+      "note": "uploader affiliated with the University of Waterloo on Hugging Face; 25–32 downloads; the repository also holds original/model.pt (pickle); runtime chessnets or the official maia2 package"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Well-liked human-like reference engine; Maia-3 best but AGPL, tactical blindness and UCI bugs; Maia-2 weak openings",
+      "summary": "Maia predicts human moves (Maia-3 57.1 % move match vs 52.0 % for Maia-2, vendor). Players enjoy it as a sparring partner. Maia-2 was not trained on the first 5 plies, so its openings are poor (the website uses an opening book). Recent Maia-3 issues: misses simple tactics, fixed seed, monotonous weak play at high Elo locally, AGPL friction.",
+      "searched": "2026-11-13",
+      "scope": "Last 6 months plus launch discussions. HN comments, GitHub issues of CSSLab repos, HF discussions, TalkChess. Reddit and Lichess forum blocked.",
+      "feedback": "moderate"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "positive",
+      "text": "Launch post by the developer: Maia predicts the exact human move over 50 % of the time; meant as a sparring partner and teaching aid.",
+      "refs": [
+        {
+          "label": "reidmcy (Show HN)",
+          "date": "2020-12-01",
+          "url": "https://news.ycombinator.com/item?id=25268658",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "positive",
+      "text": "A 1560-rated player found it a real pleasure to play against, with human-like habits such as dropping pieces in complex exchanges.",
+      "refs": [
+        {
+          "label": "sabujp",
+          "date": "2021-01-17",
+          "url": "https://news.ycombinator.com/item?id=25813731",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "positive",
+      "text": "Use it to find the mistakes a player at a given level would make and turn them into exercises; the developer says this is one of the goals.",
+      "refs": [
+        {
+          "label": "PeterisP",
+          "date": "2021-01-17",
+          "url": "https://news.ycombinator.com/item?id=25810726",
+          "site": "hacker-news"
+        },
+        {
+          "label": "reidmcy",
+          "date": "2021-01-17",
+          "url": "https://news.ycombinator.com/item?id=25813083",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "Maia-2 shuffles knights back and forth in the opening; CSSLab: the first 5 plies were excluded from training.",
+      "refs": [
+        {
+          "label": "maia2#5",
+          "date": "2025-07-17",
+          "url": "https://github.com/CSSLab/maia2/issues/5",
+          "site": "github"
+        },
+        {
+          "label": "maia2#13",
+          "date": "2026-01-15",
+          "url": "https://github.com/CSSLab/maia2/issues/13",
+          "site": "github"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "neutral",
+      "text": "Maia-2 training could not run outside CUDA on a Mac; fixed in July 2026, the README now lists Apple MPS.",
+      "refs": [
+        {
+          "label": "maia2#8",
+          "date": "2025-09-16",
+          "url": "https://github.com/CSSLab/maia2/issues/8",
+          "site": "github"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "positive",
+      "text": "Maia-3 launch: an effective drop-in replacement for the Leela Chess Zero model that outperformed the best existing LC0 model.",
+      "refs": [
+        {
+          "label": "free_bip",
+          "date": "2026-05-27",
+          "url": "https://news.ycombinator.com/item?id=48298645",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "Maia-3 fails to predict what most players would play once a simple tactic (mate in 2) is on the board.",
+      "refs": [
+        {
+          "label": "maia3#5",
+          "date": "2026-05-27",
+          "url": "https://github.com/CSSLab/maia3/issues/5",
+          "site": "github"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "Maia-3 79M locally in En Croissant at Elo 2600 gave monotonous, weak play, unlike maiachess.com at the same level.",
+      "refs": [
+        {
+          "label": "maia3#15",
+          "date": "2026-10-04",
+          "url": "https://github.com/CSSLab/maia3/issues/15",
+          "site": "github"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "Maia-3 seed always 42 (identical games after restart), play collapses above Elo 2800, 'cp' scores are not centipawns.",
+      "refs": [
+        {
+          "label": "maia3#17",
+          "date": "2026-11-05",
+          "url": "https://github.com/CSSLab/maia3/issues/17",
+          "site": "github"
+        },
+        {
+          "label": "maia3#19",
+          "date": "2026-11-05",
+          "url": "https://github.com/CSSLab/maia3/issues/19",
+          "site": "github"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "The AGPL licence makes Maia-3 harder for others to use; several open issues ask CSSLab to clarify the checkpoint licence, unanswered.",
+      "refs": [
+        {
+          "label": "HF Maia3-79M #1",
+          "date": "2026-06-20",
+          "url": "https://huggingface.co/UofTCSSLab/Maia3-79M/discussions/1",
+          "site": "huggingface"
+        },
+        {
+          "label": "maia3#8",
+          "date": "2026-07-15",
+          "url": "https://github.com/CSSLab/maia3/issues/8",
+          "site": "github"
+        },
+        {
+          "label": "maia3#11",
+          "date": "2026-08-20",
+          "url": "https://github.com/CSSLab/maia3/issues/11",
+          "site": "github"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "positive",
+      "text": "Human-oriented analysis is better served by Maia's approach (a net trained on human moves) than by tuning Stockfish.",
+      "refs": [
+        {
+          "label": "tsoj",
+          "date": "2026-09-10",
+          "url": "https://news.ycombinator.com/item?id=49643564",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

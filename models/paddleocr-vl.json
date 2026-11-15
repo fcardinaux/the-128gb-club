@@ -1,0 +1,127 @@
+{
+  "id": "paddleocr-vl",
+  "name": "PaddleOCR-VL (1.0 and 1.6)",
+  "category": "ocr",
+  "usage": "OCR (complex documents)",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "PaddlePaddle/PaddleOCR-VL"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "PaddlePaddle/PaddleOCR-VL-1.6"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6",
+      "checked": "2026-11-12"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6",
+      "checked": "2026-11-12"
+    },
+    "publisher": {
+      "value": "PaddlePaddle",
+      "source": "https://huggingface.co/PaddlePaddle/PaddleOCR-VL",
+      "checked": "2026-11-12"
+    },
+    "release_date": {
+      "value": "2025-10-16",
+      "source": "https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6",
+      "checked": "2026-11-12",
+      "note": "16.10.2025"
+    },
+    "parameters_total_b": {
+      "value": 0.96,
+      "source": "https://huggingface.co/api/models/PaddlePaddle/PaddleOCR-VL",
+      "checked": "2026-11-14"
+    },
+    "size_gb": {
+      "value": 1.9,
+      "source": "https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6",
+      "checked": "2026-11-12"
+    },
+    "formats": {
+      "value": "safetensors; `.pdiparams`, `.pdmodel`; 4 `.py`",
+      "source": "https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6",
+      "checked": "2026-11-12"
+    },
+    "languages": {
+      "value": "\"multilingual\" (card of version 1.6: en, zh, multilingual; no detailed list)",
+      "source": "https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6 (model card)",
+      "checked": "2026-11-13",
+      "note": "French and German not listed explicitly."
+    },
+    "runtimes": {
+      "value": "PaddleOCR package (paddleocr[doc-parser] >= 3.4) with backend mlx-vlm-server (mlx-vlm >= 0.3.11; official Apple Silicon guide, verified on M4); mlx-vlm with mlx-community builds (PaddleOCR-VL 4-8 bit, bf16; also 1.5); llama.cpp llama-server + mmproj (support PR #18825 covers 0.9B and 1.5; official GGUF for 1.5/1.6); transformers element-level only. Ollama: community tags only (MedAIBase/PaddleOCR-VL)",
+      "source": "https://www.paddleocr.ai/latest/version3.x/pipeline_usage/PaddleOCR-VL-Apple-Silicon.html, https://huggingface.co/PaddlePaddle/PaddleOCR-VL, https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6-GGUF, https://huggingface.co/mlx-community/PaddleOCR-VL-8bit, https://ollama.com/search?q=paddleocr",
+      "checked": "2026-11-14",
+      "note": "The official Apple Silicon guide now uses PaddleOCR-VL-1.6 as its example; running the original 0.9B the same way is likely but unverified. Native PaddlePaddle inference on macOS not checked (cards point Mac users to Docker or MLX)."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026. Sources: Hacker News comments, Hugging Face discussions, issues of Ollama, QwenLM, resemble-ai/chatterbox and mlx-audio (now `Neywa-Labs/mlx-audio`). **Reddit could not be read.** Items from before 13.05.2026 that are not launch discussions are marked \"older\". 1.0 released 16.10.2025, 1.6 released 27.05.2026. **Feedback thin.**",
+      "summary": "Few reports; prefer version 1.6 over 1.0; nothing on French or German.",
+      "feedback": "thin",
+      "verdict": "Thin feedback; MLX build used on Mac; repetition loops; prefer 1.6"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "1.6 GGUF drops empty table cells ([HF #1, 19.08.2026](https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6/discussions/1)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.6/discussions/1",
+          "site": "huggingface",
+          "date": "2026-08-19",
+          "label": "HF #1"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "1.0 repeats tokens forever on some forms ([HF #73, 03.03.2026, older](https://huggingface.co/PaddlePaddle/PaddleOCR-VL/discussions/73)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://huggingface.co/PaddlePaddle/PaddleOCR-VL/discussions/73",
+          "site": "huggingface",
+          "date": "2026-03-03",
+          "label": "HF #73, older"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Used on Mac as an MLX 8-bit build ([dandaka, 21.08.2026](https://news.ycombinator.com/item?id=49387167)); good experiences with MinerU and PaddleOCR-VL ([dcan, 14.08.2026](https://news.ycombinator.com/item?id=49298968)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49387167",
+          "site": "hacker-news",
+          "date": "2026-08-21",
+          "label": "dandaka"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=49298968",
+          "site": "hacker-news",
+          "date": "2026-08-14",
+          "label": "dcan"
+        }
+      ]
+    }
+  ]
+}

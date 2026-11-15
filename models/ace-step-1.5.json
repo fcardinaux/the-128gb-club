@@ -1,0 +1,130 @@
+{
+  "id": "ace-step-1.5",
+  "name": "ACE-Step 1.5 XL (Comfy-Org repack)",
+  "category": "music",
+  "usage": "Full songs with vocals and lyrics (50+ languages, FR/DE included), covers, repaint, add a track, extract stems, continue",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "Comfy-Org/ACE-Step-1.5",
+      "note": "safetensors files; repo 63 GB in all"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "ACE-Step/Ace-Step1.5",
+      "role": "facts",
+      "note": "Official, MIT; also needs silence_latent.pt and Python code"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13",
+      "note": "Comfy-Org tag; upstream ACE-Step is MIT; both allowed"
+    },
+    "gated": {
+      "value": false,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "ACE Studio / StepFun (ACE-Step); Comfy-Org repack",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2026-01-23 (1.5), XL 2026-04",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "size_gb": {
+      "value": 29.86,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".safetensors",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "languages": {
+      "value": "50+ languages for lyrics and prompts",
+      "source": "https://huggingface.co/ACE-Step/Ace-Step1.5",
+      "checked": "2026-11-14"
+    },
+    "runtimes": {
+      "value": "ComfyUI native (MPS); the official app with native MLX also needs pickle files and custom Python code",
+      "source": "research 13.11.2026",
+      "checked": "2026-11-13"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size",
+      "checked": "2026-11-13"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Best compliant open song model; far from Suno",
+      "summary": "Easy to run locally and liked, but musicality well below commercial services; vocals sometimes correct but lifeless.",
+      "searched": "2026-11-13",
+      "scope": "Hacker News comments, Hugging Face discussions, GitHub issues; Reddit not read.",
+      "feedback": "moderate"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "positive",
+      "text": "Praised as great and, at 1.5B parameters, very easy to run locally.",
+      "refs": [
+        {
+          "label": "falloon",
+          "date": "2026-02-17",
+          "url": "https://news.ycombinator.com/item?id=47051106",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "Musicality judged far below commercial services; a big gap to Suno.",
+      "refs": [
+        {
+          "label": "Rochus",
+          "date": "2026-02-09",
+          "url": "https://news.ycombinator.com/item?id=46952916",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "neutral",
+      "text": "Uses ACE-Step via ComfyUI on a Mac; renders mean 5–10 min of heat.",
+      "refs": [
+        {
+          "label": "vorticalbox",
+          "date": "2026-04-16",
+          "url": "https://news.ycombinator.com/item?id=47791107",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "positive",
+      "text": "M4 Max: an 8 s clip in 15 s.",
+      "refs": [
+        {
+          "label": "sawfwair",
+          "date": "2026-07-30",
+          "url": "https://news.ycombinator.com/item?id=49112047",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

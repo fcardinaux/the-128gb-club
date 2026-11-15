@@ -1,0 +1,135 @@
+{
+  "id": "birefnet",
+  "name": "BiRefNet (Comfy-Org repack, with Lucida v7)",
+  "category": "image",
+  "usage": "Background removal with a clean alpha mask",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "Comfy-Org/BiRefNet",
+      "note": "birefnet.safetensors 0.44 GB + lucida.safetensors 0.89 GB, no .py"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "ZhengPeng7/BiRefNet",
+      "role": "facts",
+      "note": "Official repo, needs .py (trust_remote_code)"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "MIT",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13",
+      "note": "Author confirms MIT for the weights (HF #23)"
+    },
+    "gated": {
+      "value": false,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "Peng Zheng (BiRefNet); Comfy-Org repack; Lucida by egeorcun",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "BiRefNet 07.2024; Comfy-Org repo 27.04.2026",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "parameters_total_b": {
+      "value": 0.22,
+      "source": "https://huggingface.co/api/models/ZhengPeng7/BiRefNet",
+      "checked": "2026-11-14"
+    },
+    "size_gb": {
+      "value": 1.33,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".safetensors",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "languages": {
+      "value": "n/a (no text input)",
+      "source": "model card",
+      "checked": "2026-11-14"
+    },
+    "runtimes": {
+      "value": "ComfyUI native 'Remove Background' node; rembg; transformers with the official repo",
+      "source": "ComfyUI source, HN",
+      "checked": "2026-11-13"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size",
+      "checked": "2026-11-13"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Reference open background remover, licence confirmed MIT",
+      "summary": "Most-cited open model for background removal; users pick it for photos (rembg) and found it better than SAM 3 for cut-outs. Lucida v7 (included) targets illustrations and logos but its single developer had regressions.",
+      "searched": "2026-11-13",
+      "scope": "BiRefNet 2024 (last 6 months); Lucida 07.2026 (all comments). Hacker News comments, Hugging Face discussions, GitHub issues; Reddit blocked.",
+      "feedback": "moderate"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "positive",
+      "text": "Recommends rembg for local background removal, with the birefnet model for photos and toonout for illustrations.",
+      "refs": [
+        {
+          "label": "vunderba",
+          "date": "2026-08-24",
+          "url": "https://news.ycombinator.com/item?id=49427056",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "neutral",
+      "text": "The author confirms the Hugging Face weights may be used freely under the MIT licence, while noting uncertainty about the training data.",
+      "refs": [
+        {
+          "label": "HF discussion #23",
+          "date": "2026-11-04",
+          "url": "https://huggingface.co/ZhengPeng7/BiRefNet/discussions/23",
+          "site": "huggingface"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "neutral",
+      "text": "At SAM 3's launch, BiRefNet v2 was still slightly better for cutting out children's drawings.",
+      "refs": [
+        {
+          "label": "Benjamin_Dobell",
+          "date": "2025-11-19",
+          "url": "https://news.ycombinator.com/item?id=45986203",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "Lucida almost always leaves smears and leftovers in ComfyUI; the v13 fix regressed and was reverted to v7.",
+      "refs": [
+        {
+          "label": "HF lucida #1",
+          "date": "2026-07-20",
+          "url": "https://huggingface.co/egeorcun/lucida/discussions/1",
+          "site": "huggingface"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

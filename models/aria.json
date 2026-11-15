@@ -1,0 +1,95 @@
+{
+  "id": "aria",
+  "name": "Aria medium (EleutherAI, piano)",
+  "category": "music",
+  "usage": "Expressive solo-piano continuation of own MIDI; real-time MLX demo",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "loubb/aria-medium-base",
+      "note": "author's account (EleutherAI Aria)"
+    },
+    {
+      "kind": "github",
+      "repo": "EleutherAI/aria",
+      "role": "facts",
+      "note": "aria package, Apache 2.0, native MLX"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "EleutherAI (Louis Bradshaw)",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2025-06-05 (updated 2026-04-13)",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "parameters_total_b": {
+      "value": 1,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "size_gb": {
+      "value": 2.63,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".safetensors (+ custom .py code)",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "languages": {
+      "value": "n/a (MIDI, no text input)",
+      "source": "model card",
+      "checked": "2026-11-14"
+    },
+    "runtimes": {
+      "value": "aria package: native MLX, real-time CoreMIDI demo",
+      "source": "research 13.11.2026",
+      "checked": "2026-11-13"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size",
+      "checked": "2026-11-13"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "No user reports",
+      "summary": "Category comment: small MIDI LMs for piano autocomplete can be no better than a Markov model.",
+      "searched": "2026-11-13",
+      "scope": "Hacker News comments, Hugging Face discussions; Reddit not read.",
+      "feedback": "none"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "Category: piano autocomplete with a small MIDI language model gave results no better, or worse, than a simple Markov model.",
+      "refs": [
+        {
+          "label": "rajivayyangar",
+          "date": "2026-08-20",
+          "url": "https://news.ycombinator.com/item?id=49377995",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

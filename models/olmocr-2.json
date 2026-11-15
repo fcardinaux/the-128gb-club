@@ -1,0 +1,92 @@
+{
+  "id": "olmocr-2",
+  "name": "olmOCR-2 7B (AllenAI)",
+  "category": "ocr",
+  "usage": "OCR (faithful reading, English)",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "allenai/olmOCR-2-7B-1025"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "mlx-community/olmOCR-2-7B-1025-mlx-8bit"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0 (card; no LICENSE file in the weights repository)",
+      "source": "https://huggingface.co/allenai/olmOCR-2-7B-1025, https://github.com/allenai/olmocr/blob/main/LICENSE",
+      "checked": "2026-11-15",
+      "note": "The licence is stated twice in the card (metadata and a 'License and use' section) and the olmOCR code on GitHub has an Apache 2.0 LICENSE file; base model Qwen2.5-VL-7B-Instruct is Apache 2.0. The card adds: \"intended for research and educational use in accordance with Ai2's Responsible Use Guidelines\" (https://allenai.org/responsible-use). Apache 2.0 itself sets no such limit; the sentence states the publisher's intent."
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/allenai/olmOCR-2-7B-1025",
+      "checked": "2026-11-15"
+    },
+    "publisher": {
+      "value": "AllenAI",
+      "source": "https://huggingface.co/allenai/olmOCR-2-7B-1025",
+      "checked": "2026-11-15"
+    },
+    "release_date": {
+      "value": "2025-10-06",
+      "source": "https://huggingface.co/allenai/olmOCR-2-7B-1025",
+      "checked": "2026-11-15"
+    },
+    "size_gb": {
+      "value": {
+        "bf16 (official)": 16.6,
+        "MLX 8-bit (mlx-community)": 9.46
+      },
+      "source": "https://huggingface.co/allenai/olmOCR-2-7B-1025, https://huggingface.co/mlx-community/olmOCR-2-7B-1025-mlx-8bit",
+      "checked": "2026-11-15"
+    },
+    "formats": {
+      "value": "safetensors",
+      "source": "https://huggingface.co/allenai/olmOCR-2-7B-1025",
+      "checked": "2026-11-15"
+    },
+    "languages": {
+      "value": "card: en",
+      "source": "https://huggingface.co/allenai/olmOCR-2-7B-1025",
+      "checked": "2026-11-15",
+      "note": "built on Qwen2.5-VL; French and German untested"
+    },
+    "runtimes": {
+      "value": "mlx-vlm (mlx-community olmOCR-2-7B-1025 builds, 4- and 8-bit); GGUF (lmstudio-community, bartowski); vLLM",
+      "source": "https://huggingface.co/mlx-community/olmOCR-2-7B-1025-mlx-8bit, https://huggingface.co/lmstudio-community/olmOCR-2-7B-1025-GGUF",
+      "checked": "2026-11-15"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-15"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-15",
+      "scope": "Released 06.10.2025 (over 12 months): comments since 15.05.2026 only. Hacker News comments, Hugging Face discussions. Reddit not found. **Feedback thin.**",
+      "summary": "Most faithful of five models in one side-by-side test on a hard scan; English only according to its card.",
+      "feedback": "thin",
+      "verdict": "Most faithful in one test; English only; intended for research and education"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "positive",
+      "text": "Same hard low-resolution scan of a legal form through five models: faithfulness order olmOCR-2, Qianfan-OCR, PaddleOCR-VL, HunyuanOCR, Unlimited-OCR; olmOCR-2 and Qianfan-OCR stayed faithful ([rhirae, HF #3 of Unlimited-OCR, 25.06.2026](https://huggingface.co/baidu/Unlimited-OCR/discussions/3)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://huggingface.co/baidu/Unlimited-OCR/discussions/3",
+          "site": "huggingface",
+          "date": "2026-06-25",
+          "label": "rhirae, HF #3"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "id": "qwen-image-2512",
+  "name": "Qwen-Image-2512",
+  "category": "image",
+  "usage": "Quality image, text in images",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "Qwen/Qwen-Image-2512"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://huggingface.co/Qwen/Qwen-Image-2512",
+      "checked": "2026-11-12"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/Qwen/Qwen-Image-2512",
+      "checked": "2026-11-12"
+    },
+    "publisher": {
+      "value": "Qwen",
+      "source": "https://huggingface.co/Qwen/Qwen-Image-2512",
+      "checked": "2026-11-12"
+    },
+    "release_date": {
+      "value": "2025-12-30",
+      "source": "https://huggingface.co/Qwen/Qwen-Image-2512",
+      "checked": "2026-11-12",
+      "note": "30.12.2025"
+    },
+    "parameters_total_b": {
+      "value": 20.4,
+      "source": "https://huggingface.co/api/models/Qwen/Qwen-Image-2512",
+      "checked": "2026-11-14",
+      "note": "safetensors total reported by the API"
+    },
+    "size_gb": {
+      "value": 57.7,
+      "source": "https://huggingface.co/Qwen/Qwen-Image-2512",
+      "checked": "2026-11-12"
+    },
+    "formats": {
+      "value": "safetensors (Diffusers)",
+      "source": "https://huggingface.co/Qwen/Qwen-Image-2512",
+      "checked": "2026-11-12"
+    },
+    "languages": {
+      "value": "en, zh; renders text in both",
+      "source": "https://huggingface.co/api/models/Qwen/Qwen-Image-2512",
+      "checked": "2026-11-14"
+    },
+    "runtimes": {
+      "value": "mflux (default 'qwen-image' model is now Qwen/Qwen-Image-2512; text encoder stays bf16, ~14 GB); ComfyUI native (docs tutorial); Draw Things (Official Models since 1.20260105.0); stable-diffusion.cpp (Qwen Image, Metal, Comfy-Org files or GGUF); DiffSynth-Studio (Qwen-Image family); diffusers QwenImagePipeline; vLLM-Omni Day-0 (CUDA path)",
+      "source": "https://github.com/mflux-community/mflux (model_config.py, src/mflux/models/qwen/README.md, issue #825); https://docs.comfy.org/tutorials/image/qwen/qwen-image-2512; https://drawthings.ai/downloads/; https://github.com/leejet/stable-diffusion.cpp/blob/master/docs/qwen_image.md; https://github.com/QwenLM/Qwen-Image",
+      "checked": "2026-11-14",
+      "note": "sd.cpp docs list Qwen-Image weights generally, not 2512 by name; that it works with 2512 is likely but unverified. MPS bugs found in ComfyUI/diffusers concern Qwen-Image 2.1, not 2512. Mac speed data thin."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026. Sources: Hacker News comments, Hugging Face discussions, issues of mflux, ComfyUI, mlx-video and ComfyUI-WanVideoWrapper. **Reddit could not be read**; blogs and developers promoting their own engines are leads only. Released 31.12.2025; window: launch plus 13.05–13.11.2026. Mac feedback thin.",
+      "summary": "Good prompt understanding, last Apache 2.0 Qwen-Image; mixed reports on spelling and artifacts; heavy (20B).",
+      "feedback": "thin",
+      "verdict": "Good adherence, last Apache Qwen-Image; mixed reports on spelling and artifacts; heavy"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "Could not spell correctly; letters were often garbled ([ranger_danger, 10.02.2026](https://news.ycombinator.com/item?id=46962927)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=46962927",
+          "site": "hacker-news",
+          "date": "2026-02-10",
+          "label": "ranger_danger"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Grid pattern in dark areas ([HF #10, 02.01.2026](https://huggingface.co/Qwen/Qwen-Image-2512/discussions/10)); VAE high-frequency artifacts, 40 GB at FP16 ([SV_BubbleTime, 10.02.2026](https://news.ycombinator.com/item?id=46963112)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://huggingface.co/Qwen/Qwen-Image-2512/discussions/10",
+          "site": "huggingface",
+          "date": "2026-01-02",
+          "label": "HF #10"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=46963112",
+          "site": "hacker-news",
+          "date": "2026-02-10",
+          "label": "SV_BubbleTime"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Looks more artificial (more \"AI\") than Z-Image Turbo ([CamperBob2, 17.01.2026](https://news.ycombinator.com/item?id=46655786)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=46655786",
+          "site": "hacker-news",
+          "date": "2026-01-17",
+          "label": "CamperBob2"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Successor Qwen-Image 2.1 scores better (7/15 against 4/15) but is non-commercial ([vunderba, 20.09.2026](https://news.ycombinator.com/item?id=49780215)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49780215",
+          "site": "hacker-news",
+          "date": "2026-09-20",
+          "label": "vunderba"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "With Z-Image and Flux.2, far ahead of SDXL on complex scenes ([vunderba, 20.05.2026](https://news.ycombinator.com/item?id=48201311)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48201311",
+          "site": "hacker-news",
+          "date": "2026-05-20",
+          "label": "vunderba"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "id": "deepseek-v4.1-flash-1017",
+  "name": "DeepSeek V4.1-Flash-1017",
+  "category": "llm",
+  "usage": "General and code, very large MoE; on 128 GB only with SSD streaming or 1-bit",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "role": "facts",
+      "note": "official weights, 510 GB (FP8/FP4/I8), plus .py files"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "antirez/deepseek-v4.1-flash-gguf",
+      "note": "IQ2_XXS-Q2_K, 366 GB (152 GiB weights + 189 GiB Engram tables), for DwarfStar with SSD streaming"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "unsloth/DeepSeek-V4.1-Flash-1017-GGUF",
+      "note": "UD-IQ1_S, 233 GB (122 GB weights + 111 GB Engram file with extension .gguf_file), for llama.cpp"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "ISTA-DASLab/DeepSeek-V4.1-Flash-1017-GSQ-RCO-GGUF",
+      "role": "info",
+      "note": "IQ1_M 121 GB / IQ2_XXS 138 GB, plus 111 GB Engram file; llama.cpp >= b11870"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "deepseek-ai/DeepSeek-V4.1-Flash",
+      "role": "info",
+      "note": "V4.1-Flash of 10.09.2026; 1017 is a minor update of it"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "MIT",
+      "source": "https://huggingface.co/api/models/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "checked": "2026-11-14",
+      "note": "cardData and LICENSE file"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/api/models/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "checked": "2026-11-14"
+    },
+    "publisher": {
+      "value": "deepseek-ai",
+      "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "checked": "2026-11-14"
+    },
+    "release_date": {
+      "value": "2026-10-17",
+      "source": "https://huggingface.co/api/models/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "checked": "2026-11-14",
+      "note": "createdAt of the repository; minor update of V4.1-Flash (10.09.2026)"
+    },
+    "parameters_total_b": {
+      "value": 763.2,
+      "source": "https://huggingface.co/api/models/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "checked": "2026-11-14",
+      "note": "552B backbone plus 196B Engram n-gram tables (Unsloth guide); activated parameters not stated; 384 experts, 6 active per token"
+    },
+    "size_gb": {
+      "value": {
+        "official safetensors": 510.3,
+        "antirez IQ2_XXS-Q2_K": 365.7,
+        "unsloth UD-IQ1_S": 233,
+        "ISTA-DASLab IQ1_M": 231.3
+      },
+      "source": "Hugging Face API, file sizes",
+      "checked": "2026-11-14",
+      "note": "GGUF sizes include the Engram tables, which are read from disk (mmap)"
+    },
+    "formats": {
+      "value": ".py, .safetensors (official); .gguf and .gguf_file (Unsloth Engram)",
+      "source": "https://huggingface.co/api/models/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "checked": "2026-11-14"
+    },
+    "languages": {
+      "value": "multilingual (not detailed in the card); built-in vision",
+      "source": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "checked": "2026-11-14"
+    },
+    "runtimes": {
+      "value": "DwarfStar (ds4, Metal, vision; on 128 GB only with --ssd-streaming; open issues #1235 checksum, #1335 stuck read, #1330 Metal memory growth); llama.cpp since PR #31086 (open #31385 Flash-1017 GGUF problems, #30944 output corruption with cached prefix); MLX: mlx-community oQ2.5e (423 GB) or a pruned community build; Ollama: cloud tags only; Strata (MIT; separate DeepSeek engine with Metal, CUDA, HIP and Strix Halo builds; experts streamed from the SSD; ISTA-DASLab 1.75–2.25 bpw sets of 239–274 GB on disk)",
+      "source": "https://github.com/antirez/ds4/blob/main/docs/MODELS.md, https://github.com/ggml-org/llama.cpp/pull/31086, https://unsloth.ai/docs/models/deepseek-v4.1-flash, https://github.com/Niko1221/Strata/blob/main/docs/DEEPSEEK_MAC.md",
+      "checked": "2026-11-14",
+      "note": "llama.cpp performance on Metal with the Engram mmap, and the 2-bit SSD-streaming speed on an M5 Max 128 GB, are unverified. Strata's own measurement on an M5 Max 128 GB (2.00 bpw, build 0.2.7.1, another model loaded at the same time): 15–18 tok/s on a short question, a 3,000-token prompt in about 11 s, about 68 GB of experts kept in memory; context above 32K not measured (checked 15.11.2026)"
+    },
+    "fits_128gb": {
+      "value": false,
+      "source": "size_gb",
+      "checked": "2026-11-14",
+      "note": "no build is resident in 128 GB; runs with SSD streaming (DwarfStar 2-bit) or at 1 bit (Unsloth UD-IQ1_S, ISTA-DASLab IQ1_M); the Engram tables are always read from disk"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Praised as much better than V4, mostly through APIs; on 128 GB only by SSD streaming or 1-bit",
+      "summary": "Users find it far better than V4 Flash and close to frontier models on well-defined tasks, but nearly all of that is API use. Local reports on 128 GB Macs are few: usable but behind Codex and Claude, coherent at 1 bit, some looping at 2 bit. No local report on tool calling.",
+      "searched": "2026-11-14",
+      "scope": "Released 17.10.2026: all comments since release. Hacker News comments (Algolia API), Hugging Face discussions, GitHub issues (ds4, llama.cpp); Reddit blocked.",
+      "feedback": "thin"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "positive",
+      "text": "Feels much better than V4 Flash ([liuliu, 07.11.2026](https://news.ycombinator.com/item?id=50405607)); far better than V4, with about twice the parameters, and on par with Opus 5.5 on well-defined tasks, local or API not stated ([sjbzbeiks, 07.11.2026](https://news.ycombinator.com/item?id=50408642)).",
+      "searched": "2026-11-14",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50405607",
+          "site": "hacker-news",
+          "date": "2026-11-07",
+          "label": "liuliu"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=50408642",
+          "site": "hacker-news",
+          "date": "2026-11-07",
+          "label": "sjbzbeiks"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Found a community Ollama build of 0731 almost useless; very happy with the Unsloth GGUF of 1017 for coding, quantisation and hardware not stated ([ericpruitt, 07.11.2026](https://news.ycombinator.com/item?id=50409154)).",
+      "searched": "2026-11-14",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50409154",
+          "site": "hacker-news",
+          "date": "2026-11-07",
+          "label": "ericpruitt"
+        }
+      ]
+    },
+    {
+      "sentiment": "neutral",
+      "text": "Tested V4 and V4.1 Flash locally on an M5 Mac Studio with 128 GB: both useful, but they need steering and retries and are well behind Codex and Claude ([davedx, 12.11.2026](https://news.ycombinator.com/item?id=50470346)).",
+      "searched": "2026-11-14",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50470346",
+          "site": "hacker-news",
+          "date": "2026-11-12",
+          "label": "davedx"
+        }
+      ]
+    },
+    {
+      "sentiment": "neutral",
+      "text": "An IQ1 quant was coherent and of good quality once the runtime settings were fixed; a reply reports looping with a Q2 build ([latentsea and ferroman, 09–11.11.2026](https://news.ycombinator.com/item?id=50422422)).",
+      "searched": "2026-11-14",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50422422",
+          "site": "hacker-news",
+          "date": "2026-11-09",
+          "label": "latentsea, ferroman"
+        }
+      ]
+    },
+    {
+      "sentiment": "neutral",
+      "text": "Runs on 128 GB and more with Unsloth's SSD offloading, no figures ([selcuka, 06.11.2026](https://news.ycombinator.com/item?id=50386477)). V4.1-Flash (before 1017) at 4 bits streamed from SSD on an M5 Max 128 GB: about 14 tok/s decode, from a self-promoting source ([Argonautlabs, 15.09.2026](https://news.ycombinator.com/item?id=49712330)).",
+      "searched": "2026-11-14",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50386477",
+          "site": "hacker-news",
+          "date": "2026-11-06",
+          "label": "selcuka"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=49712330",
+          "site": "hacker-news",
+          "date": "2026-09-15",
+          "label": "Argonautlabs"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Communicates less well than Google models, API use ([bscphil, 10.11.2026](https://news.ycombinator.com/item?id=50442722)). Garbled replies in non-thinking mode ([HF #33](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017/discussions/33)) and overthinking ([HF #29](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017/discussions/29)).",
+      "searched": "2026-11-14",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50442722",
+          "site": "hacker-news",
+          "date": "2026-11-10",
+          "label": "bscphil"
+        },
+        {
+          "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017/discussions/33",
+          "site": "huggingface",
+          "label": "HF #33"
+        },
+        {
+          "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017/discussions/29",
+          "site": "huggingface",
+          "label": "HF #29"
+        }
+      ]
+    },
+    {
+      "sentiment": "neutral",
+      "text": "MLX on an M3 Ultra 256 GB uses about 204 GB of memory ([HF #78](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017/discussions/78)); Q4 SSD-streaming decode about 8–9 tok/s on a 256 GB M3 Ultra ([ds4 #1085, 18.09.2026](https://github.com/antirez/ds4/issues/1085)).",
+      "searched": "2026-11-14",
+      "refs": [
+        {
+          "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017/discussions/78",
+          "site": "huggingface",
+          "label": "HF #78"
+        },
+        {
+          "url": "https://github.com/antirez/ds4/issues/1085",
+          "site": "github",
+          "date": "2026-09-18",
+          "label": "ds4 #1085"
+        }
+      ]
+    }
+  ]
+}

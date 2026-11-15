@@ -1,0 +1,97 @@
+{
+  "id": "qie-bw2truecolor",
+  "name": "QIE-2511-BW2TrueColor (LoRA)",
+  "category": "image",
+  "usage": "Colourisation of black-and-white photos (LoRA for Qwen-Image-Edit-2511)",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "prithivMLmods/QIE-2511-BW2TrueColor",
+      "note": "Repo 1.18 GB with training checkpoints in ckpts/"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "prithivMLmods",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2026-02-06",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "size_gb": {
+      "value": 0.24,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".safetensors",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "languages": {
+      "value": "en, zh (LoRA on Qwen-Image-Edit-2511)",
+      "source": "base model card",
+      "checked": "2026-11-14"
+    },
+    "runtimes": {
+      "value": "ComfyUI (MPS), diffusers; mflux compatibility unverified",
+      "source": "model card",
+      "checked": "2026-11-13"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size",
+      "checked": "2026-11-13"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Untested by the community; the only colourisation option found with an Apache 2.0 or MIT licence and safetensors weights",
+      "summary": "No user reports. Diffusion edit: regenerates the whole image, so faces can drift; recombine its colours with the original lightness (Lab).",
+      "searched": "2026-11-13",
+      "scope": "Released 02.2026: all comments. Hacker News comments, Hugging Face discussions, GitHub issues; Reddit blocked.",
+      "feedback": "none"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "neutral",
+      "text": "The author explains the difference with FlatLog2TrueColor: log footage is flat and desaturated, B&W has no colour, so the two LoRAs target different inputs.",
+      "refs": [
+        {
+          "label": "makisekurisu-jp / prithivMLmods",
+          "date": "2026-03-09",
+          "url": "https://huggingface.co/prithivMLmods/QIE-2511-FlatLog2TrueColor/discussions/2",
+          "site": "huggingface"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "positive",
+      "text": "Uses AI to colourise old black-and-white pictures for a history blog (category).",
+      "refs": [
+        {
+          "label": "strenholme",
+          "date": "2026-09-06",
+          "url": "https://news.ycombinator.com/item?id=49586100",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

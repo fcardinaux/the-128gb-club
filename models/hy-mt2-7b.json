@@ -1,0 +1,106 @@
+{
+  "id": "hy-mt2-7b",
+  "name": "Hy-MT2-7B",
+  "category": "translation",
+  "usage": "Translation EN/FR/DE (33 languages)",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "tencent/Hy-MT2-7B"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "tencent/Hy-MT2-7B-GGUF",
+      "role": "info"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://huggingface.co/api/models/tencent/Hy-MT2-7B",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/api/models/tencent/Hy-MT2-7B",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "tencent",
+      "source": "https://huggingface.co/tencent/Hy-MT2-7B",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2026-05-11",
+      "source": "https://huggingface.co/api/models/tencent/Hy-MT2-7B",
+      "checked": "2026-11-13",
+      "note": "createdAt of the repository"
+    },
+    "parameters_total_b": {
+      "value": 8.0,
+      "source": "https://huggingface.co/api/models/tencent/Hy-MT2-7B",
+      "checked": "2026-11-13"
+    },
+    "size_gb": {
+      "value": 16.1,
+      "source": "Hugging Face API, file sizes",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".py, .safetensors",
+      "source": "https://huggingface.co/api/models/tencent/Hy-MT2-7B",
+      "checked": "2026-11-13"
+    },
+    "languages": {
+      "value": "33 languages, translation between any pair; includes en, fr, de, it",
+      "source": "https://huggingface.co/tencent/Hy-MT2-7B (model card)",
+      "checked": "2026-11-13",
+      "note": "Full list: zh, en, fr, pt, es, ja, tr, ru, ar, ko, th, it, de, vi, ms, id, tl, hi, zh-Hant, pl, cs, nl, km, my, fa, gu, ur, te, mr, he, bn, ta, uk, bo, kk, mn, ug, yue. Missing: Romansh, Swiss German, Swedish, Danish, Norwegian, Finnish, Greek, Hungarian, Romanian, Bulgarian, Croatian, Catalan."
+    },
+    "runtimes": {
+      "value": "llama.cpp llama-server with official GGUF (tencent, also unsloth, mradermacher); Ollama via hf.co GGUF or community tags (kaelri/hy-mt2, maternion/hy-mt2); LM Studio (GGUF); mlx-lm with mlx-community builds (4bit, 8bit, bf16); transformers (MPS unverified)",
+      "source": "https://huggingface.co/tencent/Hy-MT2-7B-GGUF, https://huggingface.co/mlx-community/Hy-MT2-7B-8bit, https://ollama.com/search?q=hy-mt, https://lilting.ch/en/articles/hymt2-local-translation-30b-a3b",
+      "checked": "2026-11-14",
+      "note": "No official Ollama library tag. A May 2026 article ran the 1.8B GGUF on llama.cpp (M1 Max) and said the 1.8B/7B GGUFs were the Mac options; the 7B itself was not tested there."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Little feedback; small dedicated translation model, 33 languages",
+      "summary": "Strong dedicated translation model, EN/FR/DE/IT included; little feedback, and no user comparison found with general LLMs such as Qwen3.8-27B or gpt-oss-120b.",
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026: Hacker News comments (Algolia API). Reddit, Hugging Face discussions and runtime issues not read.",
+      "feedback": "thin"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "neutral",
+      "text": "Technical comment on its 1.25-bit variant; no hands-on report on translation quality ([HN, 48991840](https://news.ycombinator.com/item?id=48991840)).",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48991840",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "positive",
+      "text": "The authors' paper claims it beats strong open models; no per-language tables in the summaries found (authors' claim, not user feedback) ([arXiv 2605.22064](https://arxiv.org/pdf/2605.22064)).",
+      "refs": [
+        {
+          "url": "https://arxiv.org/pdf/2605.22064",
+          "site": "other",
+          "label": "Hy-MT2 paper"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

@@ -1,0 +1,134 @@
+{
+  "id": "qwen3-vl-30b-a3b",
+  "name": "Qwen3-VL-30B-A3B",
+  "category": "vision",
+  "usage": "Image analysis",
+  "sources": [
+    {
+      "kind": "ollama",
+      "tag": "qwen3-vl:30b"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://ollama.com/library/qwen3-vl",
+      "checked": "2026-11-12"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://ollama.com/library/qwen3-vl",
+      "checked": "2026-11-12"
+    },
+    "release_date": {
+      "value": "2025-09-30",
+      "source": "https://ollama.com/library/qwen3-vl",
+      "checked": "2026-11-12",
+      "note": "30.09.2025 (HF)"
+    },
+    "parameters_total_b": {
+      "value": 31.1,
+      "source": "https://huggingface.co/api/models/Qwen/Qwen3-VL-30B-A3B-Instruct",
+      "checked": "2026-11-14"
+    },
+    "parameters_active_b": {
+      "value": 3,
+      "source": "https://huggingface.co/Qwen/Qwen3-VL-30B-A3B-Instruct",
+      "checked": "2026-11-14",
+      "note": "from the model name (A3B)"
+    },
+    "size_gb": {
+      "value": 19.6,
+      "source": "https://ollama.com/library/qwen3-vl",
+      "checked": "2026-11-12"
+    },
+    "formats": {
+      "value": "GGUF",
+      "source": "https://ollama.com/library/qwen3-vl",
+      "checked": "2026-11-12"
+    },
+    "languages": {
+      "value": "multilingual; OCR in 32 languages",
+      "source": "https://huggingface.co/Qwen/Qwen3-VL-30B-A3B-Instruct",
+      "checked": "2026-11-14"
+    },
+    "runtimes": {
+      "value": "Ollama official qwen3-vl:30b (no video input #18151; thinking variant can loop #17978); llama.cpp llama-server + mmproj (ggml-org Instruct Q8_0 GGUF); LM Studio (lmstudio-community GGUF and MLX 4-8 bit, Instruct and Thinking); mlx-vlm with mlx-community builds (3-8 bit, bf16); transformers (MPS unverified)",
+      "source": "https://ollama.com/library/qwen3-vl, https://huggingface.co/ggml-org/Qwen3-VL-30B-A3B-Instruct-Q8_0-GGUF, https://huggingface.co/lmstudio-community/Qwen3-VL-30B-A3B-Instruct-MLX-8bit, https://huggingface.co/mlx-community/Qwen3-VL-30B-A3B-Instruct-8bit, https://github.com/ollama/ollama/issues/18151",
+      "checked": "2026-11-14",
+      "note": "Ollama issue status from an earlier check (13.11.2026), not re-checked. Video input outside Ollama (mlx-vlm, transformers) not verified."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026. Sources: Hacker News comments, Hugging Face discussions, Ollama, llama.cpp and mlx-lm issues. **Reddit could not be read** (blocked for automated reading); summaries of Reddit threads by other sites were not used as evidence. Released 30.09.2025; window: since 13.05.2026. **Feedback thin**; no direct comparison with Qwen3.6.",
+      "summary": "Works but slow; the built-in vision of Qwen3.6 and Qwen3.8 gets more praise, so a separate vision model may not be needed.",
+      "feedback": "thin",
+      "verdict": "Works but slow; Qwen3.6/3.8 built-in vision praised more; thin feedback"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "Slow: 15–30 s per image; quality quite good, if a bit verbose ([vunderba, 13.05.2026](https://news.ycombinator.com/item?id=48117409)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48117409",
+          "site": "hacker-news",
+          "date": "2026-05-13",
+          "label": "vunderba"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Ollama cannot send it video ([ollama#18151](https://github.com/ollama/ollama/issues/18151)); the thinking variant can loop without answering ([ollama#17978](https://github.com/ollama/ollama/issues/17978)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://github.com/ollama/ollama/issues/18151",
+          "site": "github",
+          "label": "ollama#18151"
+        },
+        {
+          "url": "https://github.com/ollama/ollama/issues/17978",
+          "site": "github",
+          "label": "ollama#17978"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Used daily to caption NAS photos into EXIF and a search index ([vunderba, 14.05.2026](https://news.ycombinator.com/item?id=48141957)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48141957",
+          "site": "hacker-news",
+          "date": "2026-05-14",
+          "label": "vunderba"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "For its possible replacement: the vision of Qwen3.6 is judged excellent ([scotty79, 15.06.2026](https://news.ycombinator.com/item?id=48544119)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48544119",
+          "site": "hacker-news",
+          "date": "2026-06-15",
+          "label": "scotty79"
+        }
+      ]
+    }
+  ]
+}

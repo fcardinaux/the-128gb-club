@@ -1,0 +1,165 @@
+{
+  "id": "chronos-2",
+  "name": "Chronos-2 (Amazon)",
+  "category": "timeseries",
+  "usage": "Time-series forecasting: pandas input, covariates, quantiles",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "amazon/chronos-2"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0 (card tag and GitHub repository; no LICENSE file in the weights repository)",
+      "source": "https://huggingface.co/amazon/chronos-2, https://github.com/amazon-science/chronos-forecasting",
+      "checked": "2026-11-15"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/amazon/chronos-2",
+      "checked": "2026-11-15"
+    },
+    "publisher": {
+      "value": "Amazon",
+      "source": "https://huggingface.co/amazon/chronos-2",
+      "checked": "2026-11-15"
+    },
+    "release_date": {
+      "value": "2025-10-30",
+      "source": "https://huggingface.co/amazon/chronos-2",
+      "checked": "2026-11-15"
+    },
+    "parameters_total_b": {
+      "value": 0.12,
+      "source": "https://huggingface.co/amazon/chronos-2",
+      "checked": "2026-11-15"
+    },
+    "size_gb": {
+      "value": 0.48,
+      "source": "https://huggingface.co/amazon/chronos-2",
+      "checked": "2026-11-15",
+      "note": "a 28M variant exists: autogluon/chronos-2-small, 0.11 GB"
+    },
+    "formats": {
+      "value": "safetensors; no .py",
+      "source": "https://huggingface.co/amazon/chronos-2",
+      "checked": "2026-11-15"
+    },
+    "runtimes": {
+      "value": "pip `chronos-forecasting` (≥ 2.0; `predict_df` takes a pandas table); CPU; Apple GPU (MPS) undocumented. Pin `transformers<5` unless the fix of PR #416 is confirmed (issue #491)",
+      "source": "https://github.com/amazon-science/chronos-forecasting/issues/491",
+      "checked": "2026-11-15"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-15"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-15",
+      "scope": "Released 30.10.2025 (over 12 months): comments since 15.05.2026 only. Hacker News comments, Hugging Face discussions, GitHub issues of chronos-forecasting. Reddit not found. **Feedback thin** (no hands-on HN comment in the window); TS-Arena gives the longest independent live record.",
+      "summary": "Most mature and simplest to use; strongest independent live record (57 weeks); open bugs on empty series and a mislabelled output; Transformers 5 broke loading.",
+      "feedback": "thin",
+      "verdict": "Mature, easy, long live record; watch the Transformers version"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "neutral",
+      "text": "Benchmarks (leads, not user feedback): TS-Arena 60.3 over 57 weeks [58.6–61.9] on 14.11.2026, a live benchmark where forecasts are submitted before the data exists, mostly electricity data, higher is better ([TS-Arena](https://ts-arena.live)); GIFT-Eval relative CRPS / MASE 0.485 / 0.698, recalculated from the published result files, not the official ranking, lower is better ([results](https://github.com/SalesforceAIResearch/gift-eval/tree/main/results)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://ts-arena.live",
+          "site": "other",
+          "date": "2026-11-14",
+          "label": "TS-Arena"
+        },
+        {
+          "url": "https://github.com/SalesforceAIResearch/gift-eval/tree/main/results",
+          "site": "github",
+          "date": "2026-11-15",
+          "label": "GIFT-Eval results"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Common to all forecasting foundation models: practitioners report they often do not beat simple baselines on their own data: TimesFM about ARIMA level while bigger and slower ([magimas, 31.03.2026](https://news.ycombinator.com/item?id=47583870)); seasonal naive usually wins for e-commerce ([jc4p, 19.10.2026](https://news.ycombinator.com/item?id=50155295)); one XGBoost model per series still wins ([niltecedu, 19.10.2026](https://news.ycombinator.com/item?id=50156050)); XGBoost and LightGBM beat transformers on blood glucose ([articulatepang, 14.11.2026](https://news.ycombinator.com/item?id=50498722)). The benefit is many series without building one model each ([logancbrown, 19.10.2026](https://news.ycombinator.com/item?id=50152506)). Backtest against a simple baseline first.",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=47583870",
+          "site": "hacker-news",
+          "date": "2026-03-31",
+          "label": "magimas"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=50155295",
+          "site": "hacker-news",
+          "date": "2026-10-19",
+          "label": "jc4p"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=50156050",
+          "site": "hacker-news",
+          "date": "2026-10-19",
+          "label": "niltecedu"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=50498722",
+          "site": "hacker-news",
+          "date": "2026-11-14",
+          "label": "articulatepang"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=50152506",
+          "site": "hacker-news",
+          "date": "2026-10-19",
+          "label": "logancbrown"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "An entirely empty (NaN) series gives absurd ±1e5 quantiles; one real value avoids it ([#544, 05.11.2026, open](https://github.com/amazon-science/chronos-forecasting/issues/544)); the second output of `predict_quantiles` is documented as the mean but is the median ([#542, 22.10.2026, open](https://github.com/amazon-science/chronos-forecasting/issues/542)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://github.com/amazon-science/chronos-forecasting/issues/544",
+          "site": "github",
+          "date": "2026-11-05",
+          "label": "#544"
+        },
+        {
+          "url": "https://github.com/amazon-science/chronos-forecasting/issues/542",
+          "site": "github",
+          "date": "2026-10-22",
+          "label": "#542"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Transformers 5 silently broke the loaded weights; maintainer advises `transformers<5` until the fix ([#491, 17.04.2026](https://github.com/amazon-science/chronos-forecasting/issues/491); [#519, 28.07.2026, closed](https://github.com/amazon-science/chronos-forecasting/issues/519)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://github.com/amazon-science/chronos-forecasting/issues/491",
+          "site": "github",
+          "date": "2026-04-17",
+          "label": "#491"
+        },
+        {
+          "url": "https://github.com/amazon-science/chronos-forecasting/issues/519",
+          "site": "github",
+          "date": "2026-07-28",
+          "label": "#519"
+        }
+      ]
+    }
+  ]
+}

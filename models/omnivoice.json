@@ -1,0 +1,51 @@
+{
+  "id": "omnivoice",
+  "name": "OmniVoice (k2-fsa)",
+  "category": "tts",
+  "usage": "Speech synthesis",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "k2-fsa/OmniVoice",
+      "role": "facts"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "no licence tag on the card; README says CC BY-NC for the pretrained model (Apache 2.0 for the code); audio_tokenizer/LICENSE is the Boson Higgs Audio 2 Community License",
+      "source": "https://huggingface.co/k2-fsa/OmniVoice",
+      "checked": "2026-11-15"
+    },
+    "release_date": {
+      "value": "2026-03-30",
+      "source": "https://huggingface.co/k2-fsa/OmniVoice",
+      "checked": "2026-11-15"
+    },
+    "size_gb": {
+      "value": 3.26,
+      "source": "Hugging Face API, file sizes",
+      "checked": "2026-11-15"
+    },
+    "formats": {
+      "value": "safetensors",
+      "source": "https://huggingface.co/k2-fsa/OmniVoice/tree/main",
+      "checked": "2026-11-15"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-15",
+      "note": "a build of 100 GB or less (see research-method.md, Memory target)"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-15",
+      "scope": "Checked on 15.11.2026 while researching speech synthesis models: Hugging Face metadata, licence files, discussions, mlx-audio issues. Reddit unreadable. Not researched further.",
+      "summary": "A trap: scores well and runs in mlx-audio, but the pretrained model is CC BY-NC and its tokenizer carries the Boson licence.",
+      "feedback": "none",
+      "verdict": "Non-commercial in practice despite good scores"
+    }
+  },
+  "comments": []
+}

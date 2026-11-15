@@ -1,0 +1,143 @@
+{
+  "id": "vibevoice-asr",
+  "name": "VibeVoice-ASR",
+  "category": "asr",
+  "usage": "Meeting transcription with speakers",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "microsoft/VibeVoice-ASR"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "MIT",
+      "source": "https://huggingface.co/microsoft/VibeVoice-ASR",
+      "checked": "2026-11-12"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/microsoft/VibeVoice-ASR",
+      "checked": "2026-11-12"
+    },
+    "publisher": {
+      "value": "microsoft",
+      "source": "https://huggingface.co/microsoft/VibeVoice-ASR",
+      "checked": "2026-11-12"
+    },
+    "release_date": {
+      "value": "2026-01-21",
+      "source": "https://huggingface.co/microsoft/VibeVoice-ASR",
+      "checked": "2026-11-12",
+      "note": "21.01.2026"
+    },
+    "parameters_total_b": {
+      "value": 8.7,
+      "source": "https://huggingface.co/api/models/microsoft/VibeVoice-ASR",
+      "checked": "2026-11-14"
+    },
+    "size_gb": {
+      "value": 17.4,
+      "source": "https://huggingface.co/microsoft/VibeVoice-ASR",
+      "checked": "2026-11-12"
+    },
+    "formats": {
+      "value": "safetensors",
+      "source": "https://huggingface.co/microsoft/VibeVoice-ASR",
+      "checked": "2026-11-12"
+    },
+    "languages": {
+      "value": "more than 50 languages, no language setting needed, handles code-switching; includes en, fr, de",
+      "source": "https://huggingface.co/microsoft/VibeVoice-ASR (model card)",
+      "checked": "2026-11-13",
+      "note": "No user report in French or German found."
+    },
+    "runtimes": {
+      "value": "mlx-audio (mlx-community/VibeVoice-ASR-bf16 and 4-bit; faster than real time on a 16 GB M2 per HF discussion #10); official VibeVoice demo script with an MPS path (float32, sdpa); transformers native (vibevoice_asr) via the separate microsoft/VibeVoice-ASR-HF repo. vLLM plugin is CUDA-oriented. Known issue: decoder loops ('Yes. Yes.') on some long recordings, seen with MLX 4-bit and with bf16 transformers (VibeVoice#373 open)",
+      "source": "https://github.com/Neywa-Labs/mlx-audio (README); https://github.com/microsoft/VibeVoice (demo/vibevoice_asr_inference_from_file.py, docs/vibevoice-asr.md, issue #373); https://huggingface.co/microsoft/VibeVoice-ASR/discussions/10",
+      "checked": "2026-11-14",
+      "note": "Official demo and transformers on MPS: code path exists, no Mac user report found. A GGUF/C++ runtime for llama.cpp is an open PR (#30530), not merged."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026. Sources: Hacker News comments, Hugging Face discussions, issues of Ollama, QwenLM, resemble-ai/chatterbox and mlx-audio (now `Neywa-Labs/mlx-audio`). **Reddit could not be read.** Items from before 13.05.2026 that are not launch discussions are marked \"older\". Released 21.01.2026. **No French or German feedback found.**",
+      "summary": "Unique one-pass speaker separation; unfixed loops; multilingual quality doubtful.",
+      "feedback": "moderate",
+      "verdict": "Unique speaker separation; generation loops unfixed; no FR/DE evidence"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "Generation loops (the same word repeated) or never stops, still in October ([HF #22, 14.03 and 07.10.2026](https://huggingface.co/microsoft/VibeVoice-ASR/discussions/22)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://huggingface.co/microsoft/VibeVoice-ASR/discussions/22",
+          "site": "huggingface",
+          "date": "2026-10-07",
+          "label": "HF #22"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Hallucinates a lot, very heavy and slow, poor in multilingual use ([steinvakt2, 28.04.2026, older](https://news.ycombinator.com/item?id=47933955)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=47933955",
+          "site": "hacker-news",
+          "date": "2026-04-28",
+          "label": "steinvakt2, older"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Overlapping speech poorly handled ([HF #5, 22.01.2026](https://huggingface.co/microsoft/VibeVoice-ASR/discussions/5)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://huggingface.co/microsoft/VibeVoice-ASR/discussions/5",
+          "site": "huggingface",
+          "date": "2026-01-22",
+          "label": "HF #5"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "MLX 4-bit on a 16 GB M2: faster than real time, almost the same as bf16 ([HF #10, 08.10.2026](https://huggingface.co/microsoft/VibeVoice-ASR/discussions/10)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://huggingface.co/microsoft/VibeVoice-ASR/discussions/10",
+          "site": "huggingface",
+          "date": "2026-10-08",
+          "label": "HF #10"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "More reliable than Whisper or Parakeet; built-in speaker separation seen as a big advantage ([mberg, 28.04.2026, older](https://news.ycombinator.com/item?id=47935982)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=47935982",
+          "site": "hacker-news",
+          "date": "2026-04-28",
+          "label": "mberg, older"
+        }
+      ]
+    }
+  ]
+}

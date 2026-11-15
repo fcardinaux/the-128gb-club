@@ -1,0 +1,140 @@
+{
+  "id": "sweep-next-edit",
+  "name": "sweep-next-edit 1.5B",
+  "category": "code",
+  "usage": "Next-edit prediction in the editor",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "sweepai/sweep-next-edit-1.5B",
+      "note": "GGUF only, 1.54 GB; leave out run_model.py"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "sweepai/sweep-next-edit-v2-7B",
+      "role": "info",
+      "note": "15.23 GB + inference.py; no usage reports"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "Sweep AI",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2026-01-20",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "parameters_total_b": {
+      "value": 1.5,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "size_gb": {
+      "value": 1.54,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".gguf, .py",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "runtimes": {
+      "value": "llama-server, LM Studio; Zed (sweep format, since 30.07.2026), Neovim cursortab.nvim, Sweep JetBrains plugin",
+      "source": "GitHub, HN",
+      "checked": "2026-11-13"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size",
+      "checked": "2026-11-13"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Most praised small next-edit model; fast on Macs; one open Zed bug",
+      "summary": "Users praise its quality and speed (Neovim plugin author, Zed PR). Vendor claims it beats models 4x its size (blog not reachable). One open Zed bug: random newlines.",
+      "searched": "2026-11-13",
+      "scope": "Released 20.01.2026 (3–12 months): last 6 months plus launch. Hacker News comments (Algolia), Hugging Face discussions, GitHub issues of the runtimes; Reddit blocked (no r/LocalLLaMA feedback).",
+      "feedback": "moderate"
+    },
+    "speed": [
+      {
+        "machine": "MacBook Pro M4 Max, 128 GB",
+        "runtime": "LM Studio",
+        "quantisation": "GGUF",
+        "value": "≈ 200 tok/s (chat use)",
+        "measured_by": "web",
+        "url": "https://news.ycombinator.com/item?id=46717248",
+        "date": "2026-01-22"
+      }
+    ]
+  },
+  "comments": [
+    {
+      "sentiment": "positive",
+      "text": "Neovim plugin author: super impressed by performance and quality, integrated it into cursortab.nvim.",
+      "refs": [
+        {
+          "label": "leonardcser",
+          "date": "2026-01-22",
+          "url": "https://news.ycombinator.com/item?id=46717434",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "positive",
+      "text": "Added it as a Zed edit-prediction provider on llama.cpp on a MacBook Pro; works well, including next edit.",
+      "refs": [
+        {
+          "label": "ihales",
+          "date": "2026-01-23",
+          "url": "https://news.ycombinator.com/item?id=46734093",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "positive",
+      "text": "The Zed PR adding self-hosted Sweep says personal testing shows impressive quality.",
+      "refs": [
+        {
+          "label": "zed PR #51139",
+          "date": "2026-07-30",
+          "url": "https://github.com/zed-industries/zed/pull/51139",
+          "site": "github"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "In Zed with llama.cpp, local Sweep 1.5B keeps proposing newlines at random places (open bug).",
+      "refs": [
+        {
+          "label": "zed #62635",
+          "date": "2026-08-14",
+          "url": "https://github.com/zed-industries/zed/issues/62635",
+          "site": "github"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

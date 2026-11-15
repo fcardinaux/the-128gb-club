@@ -1,0 +1,23 @@
+Content licence: Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+Copyright (c) 2026 François Cardinaux
+
+The content of this repository (the model records in `models/`, the glossary,
+the taxonomies, the generated comparison tables and the other documentation)
+is licensed under the Creative Commons Attribution 4.0 International License.
+
+To view a copy of this licence, visit
+https://creativecommons.org/licenses/by/4.0/
+(full legal code: https://creativecommons.org/licenses/by/4.0/legalcode)
+
+In short: you may share and adapt the content for any purpose, even
+commercially, provided you give appropriate credit (author's name and a link
+to this licence) and indicate if changes were made.
+
+The code (the `tools/` folder) is licensed separately under the MIT License,
+see `LICENSE`.
+
+Third-party material is not covered by these licences: the linked sources
+(model cards, Hacker News, Reddit, Hugging Face discussions, GitHub issues)
+belong to their authors. This repository only summarises them in its own
+words and links to them.

@@ -1,0 +1,134 @@
+{
+  "id": "wan2.2-ti2v-5b",
+  "name": "Wan 2.2 TI2V-5B",
+  "category": "video",
+  "usage": "Fast video",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "Wan-AI/Wan2.2-TI2V-5B-Diffusers"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B-Diffusers",
+      "checked": "2026-11-12"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B-Diffusers",
+      "checked": "2026-11-12"
+    },
+    "publisher": {
+      "value": "Wan-AI",
+      "source": "https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B-Diffusers",
+      "checked": "2026-11-12"
+    },
+    "release_date": {
+      "value": "2025-07-28",
+      "source": "https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B-Diffusers",
+      "checked": "2026-11-12",
+      "note": "28.07.2025"
+    },
+    "parameters_total_b": {
+      "value": 5.0,
+      "source": "https://huggingface.co/api/models/Wan-AI/Wan2.2-TI2V-5B-Diffusers",
+      "checked": "2026-11-14"
+    },
+    "size_gb": {
+      "value": 34.2,
+      "source": "https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B-Diffusers",
+      "checked": "2026-11-12"
+    },
+    "formats": {
+      "value": "safetensors (Diffusers)",
+      "source": "https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B-Diffusers",
+      "checked": "2026-11-12"
+    },
+    "languages": {
+      "value": "en, zh (prompts)",
+      "source": "https://huggingface.co/api/models/Wan-AI/Wan2.2-TI2V-5B-Diffusers",
+      "checked": "2026-11-14"
+    },
+    "runtimes": {
+      "value": "mlx-video (TI2V-5B, converted from the original non-Diffusers checkpoint); ComfyUI native (silent frame corruption on MPS: #15010, #15793, #16644 open; uni_pc runs float32 on MPS, use euler, #16573); Draw Things (Wan 2.2 5B since Oct 2025, import of 5B models and LoRAs); stable-diffusion.cpp (Metal, Comfy-Org or GGUF); diffusers WanPipeline (Diffusers repo; text encoder lost embed_tokens under transformers 5.0-5.2, pin 4.57.1 or use a release with transformers PR #43880, merged 19.02.2026); DiffSynth-Studio (says replace 'cuda' with 'mps'). Official Wan2.2 code has no MPS support (feature request #336 open)",
+      "source": "https://github.com/Blaizzy/mlx-video (mlx_video/models/wan_2/README.md, convert.py); https://github.com/Comfy-Org/ComfyUI/issues/15010; https://github.com/Comfy-Org/ComfyUI/issues/16573; https://drawthings.ai/downloads/; https://github.com/leejet/stable-diffusion.cpp/blob/master/docs/wan.md; https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B-Diffusers/discussions/6; https://github.com/huggingface/transformers/pull/43880; https://github.com/Wan-Video/Wan2.2/issues/336",
+      "checked": "2026-11-14",
+      "note": "mlx-video's converter reads the original Wan-AI/Wan2.2-TI2V-5B repo with .pth T5 and VAE files (torch.load weights_only=True), not the Diffusers repo; community pre-converted MLX repos exist (e.g. SceneWorks/wan2.2-ti2v-5b-mlx), not checked. The Wan 2.2 VAE (z=48) encode is corrupted on MPS with PyTorch < 2.15 above 2^20 pixels (ComfyUI#16433, reported for Qwen-Image 2.1, same AvgDown3D layer); impact on TI2V image conditioning unverified. Which transformers release first includes PR #43880 is unverified (likely 5.3.0)."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026. Sources: Hacker News comments, Hugging Face discussions, issues of mflux, ComfyUI, mlx-video and ComfyUI-WanVideoWrapper. **Reddit could not be read**; blogs and developers promoting their own engines are leads only. Released 28.07.2025; window: 13.05–13.11.2026. Feedback thin except for Mac bugs.",
+      "summary": "Aging; test on the Mac with the euler sampler before relying on it.",
+      "feedback": "thin",
+      "verdict": "Aging, LTX 2.3 preferred; silent frame corruption on Macs in ComfyUI, use euler"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "**Mac**: in ComfyUI on MPS, frames degrade (banding, over-saturation) after the first one, silently; seen on M3 Pro, M4 Pro, M4 Max and base M5 ([ComfyUI#15010, 20.07.2026](https://github.com/Comfy-Org/ComfyUI/issues/15010); [#15793, 21.08.2026](https://github.com/Comfy-Org/ComfyUI/issues/15793); [#16644, 29.09.2026](https://github.com/Comfy-Org/ComfyUI/issues/16644)). One cause: the `uni_pc` sampler; `euler` works ([#16573, 26.09.2026](https://github.com/Comfy-Org/ComfyUI/issues/16573)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://github.com/Comfy-Org/ComfyUI/issues/15010",
+          "site": "github",
+          "date": "2026-07-20",
+          "label": "ComfyUI#15010"
+        },
+        {
+          "url": "https://github.com/Comfy-Org/ComfyUI/issues/15793",
+          "site": "github",
+          "date": "2026-08-21",
+          "label": "#15793"
+        },
+        {
+          "url": "https://github.com/Comfy-Org/ComfyUI/issues/16644",
+          "site": "github",
+          "date": "2026-09-29",
+          "label": "#16644"
+        },
+        {
+          "url": "https://github.com/Comfy-Org/ComfyUI/issues/16573",
+          "site": "github",
+          "date": "2026-09-26",
+          "label": "#16573"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Diffusers text-encoder bug (see above) ([HF #6, 07–11.02.2026](https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B-Diffusers/discussions/6)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://huggingface.co/Wan-AI/Wan2.2-TI2V-5B-Diffusers/discussions/6",
+          "site": "huggingface",
+          "date": "2026-02-11",
+          "label": "HF #6"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "Still used, but LTX 2.3 is now the usual fast local choice ([vunderba, 15.05.2026](https://news.ycombinator.com/item?id=48155014)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48155014",
+          "site": "hacker-news",
+          "date": "2026-05-15",
+          "label": "vunderba"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,148 @@
+{
+  "id": "laguna-xs.2",
+  "name": "Laguna XS.2 (Poolside)",
+  "category": "code",
+  "usage": "Fast code",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "poolside/Laguna-XS.2"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://huggingface.co/api/models/poolside/Laguna-XS.2",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/api/models/poolside/Laguna-XS.2",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "poolside",
+      "source": "https://huggingface.co/poolside/Laguna-XS.2",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2026-04-23",
+      "source": "https://huggingface.co/api/models/poolside/Laguna-XS.2",
+      "checked": "2026-11-13",
+      "note": "createdAt of the repository"
+    },
+    "parameters_total_b": {
+      "value": 33.4,
+      "source": "https://huggingface.co/api/models/poolside/Laguna-XS.2",
+      "checked": "2026-11-13"
+    },
+    "parameters_active_b": {
+      "value": 3,
+      "source": "https://huggingface.co/poolside/Laguna-XS.2",
+      "checked": "2026-11-14"
+    },
+    "size_gb": {
+      "value": 66.9,
+      "source": "Hugging Face API, file sizes",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".py, .safetensors",
+      "source": "https://huggingface.co/api/models/poolside/Laguna-XS.2",
+      "checked": "2026-11-13"
+    },
+    "runtimes": {
+      "value": "Ollama official laguna-xs.2 (GGUF q4_K_M 23 GB, q8_0, bf16; MLX tags mxfp8, nvfp4, mlx-bf16); llama.cpp llama-server with community GGUF (Lucebox, linuxid10t), mainline since PR #25165 (merged 22.07.2026); mlx-lm with mlx-community builds (2-8 bit, mxfp4/8, nvfp4); transformers >= 5.7.0; vLLM >= 0.21.0 (CUDA); vllm-mlx has a Poolside parser",
+      "source": "https://ollama.com/library/laguna-xs.2/tags, https://github.com/ggml-org/llama.cpp/pull/25165, https://huggingface.co/poolside/Laguna-XS.2, https://huggingface.co/mlx-community/Laguna-XS.2-8bit",
+      "checked": "2026-11-14",
+      "note": "No official or ggml-org GGUF for XS.2 (only for XS-2.1, which superseded it); early XS.2 GGUFs were made with patched forks, so compatibility of a given community GGUF with mainline is unverified. LM Studio lists only XS-2.1 in lmstudio-community."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14",
+      "note": "largest file set ≤ 100 GB"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026: Hacker News comments only (Algolia API). Reddit, Hugging Face discussions and runtime issues not read yet.",
+      "summary": "The XS line is well liked for fast local coding, but the praised version (2.1) is not under Apache 2.0 or MIT. XS.2 (Apache 2.0) would need its own test against Qwen3.8-27B.",
+      "feedback": "moderate",
+      "verdict": "Well liked for fast coding, but most praise is for XS 2.1 (OpenMDW licence)"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "Thinking traces about obeying Chinese law seen in a local Laguna run (version not stated) ([xscott, 11.09.2026](https://news.ycombinator.com/item?id=49653697)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49653697",
+          "site": "hacker-news",
+          "date": "2026-09-11",
+          "label": "xscott"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "XS.2: a user's favourite model, very fast on CPU and very good ([roscas, 27.06.2026](https://news.ycombinator.com/item?id=48698319)); used with Continue and Ollama ([roscas, 31.05.2026](https://news.ycombinator.com/item?id=48344390)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=48698319",
+          "site": "hacker-news",
+          "date": "2026-06-27",
+          "label": "roscas"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=48344390",
+          "site": "hacker-news",
+          "date": "2026-05-31",
+          "label": "roscas"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "XS 2.1: judged excellent in 6-bit ([mark_l_watson, 10.10.2026](https://news.ycombinator.com/item?id=50036715)); fast and almost as good for routine coding ([mark_l_watson, 06.10.2026](https://news.ycombinator.com/item?id=49982882)); used for code reviews on oMLX ([mark_l_watson, 27.09.2026](https://news.ycombinator.com/item?id=49867113)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50036715",
+          "site": "hacker-news",
+          "date": "2026-10-10",
+          "label": "mark_l_watson"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=49982882",
+          "site": "hacker-news",
+          "date": "2026-10-06",
+          "label": "mark_l_watson"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=49867113",
+          "site": "hacker-news",
+          "date": "2026-09-27",
+          "label": "mark_l_watson"
+        }
+      ]
+    },
+    {
+      "sentiment": "positive",
+      "text": "XS 2.1: 102 tok/s on an M4 Max ([sawfwair, 30.07.2026](https://news.ycombinator.com/item?id=49112047)).",
+      "searched": "2026-11-13",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49112047",
+          "site": "hacker-news",
+          "date": "2026-07-30",
+          "label": "sawfwair"
+        }
+      ]
+    }
+  ]
+}

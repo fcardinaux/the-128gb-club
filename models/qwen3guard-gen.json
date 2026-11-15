@@ -1,0 +1,154 @@
+{
+  "id": "qwen3guard-gen",
+  "name": "Qwen3Guard-Gen 0.6B / 4B / 8B",
+  "category": "guard",
+  "usage": "Safety classifier for prompts and answers, 119 languages",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "Qwen/Qwen3Guard-Gen-8B",
+      "note": "Recommended, 16.38 GB"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "Qwen/Qwen3Guard-Gen-4B",
+      "note": "8.82 GB"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "Qwen/Qwen3Guard-Gen-0.6B",
+      "note": "1.50 GB"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "Qwen/Qwen3Guard-Stream-4B",
+      "role": "info",
+      "note": "Streaming variant: needs custom Python code"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "Qwen (Alibaba)",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2025-09-23",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "parameters_total_b": {
+      "value": {
+        "8B": 8.2,
+        "4B": 4.4,
+        "0.6B": 0.75
+      },
+      "source": "Hugging Face API, safetensors totals",
+      "checked": "2026-11-14"
+    },
+    "size_gb": {
+      "value": {
+        "0.6B": 1.5,
+        "4B": 8.82,
+        "8B": 16.38
+      },
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".safetensors",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "languages": {
+      "value": "119 languages, EN/FR/DE included",
+      "source": "model card",
+      "checked": "2026-11-13"
+    },
+    "runtimes": {
+      "value": "transformers on MPS; llama.cpp, LM Studio, mlx-lm through conversion or third-party GGUF; no official Ollama tag",
+      "source": "model card, Ollama",
+      "checked": "2026-11-13"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "sizes",
+      "checked": "2026-11-13"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Best multilingual harm classifier; weak on prompt injection below 8B",
+      "summary": "9 categories plus refusal detection, Safe/Controversial/Unsafe, no custom policies. Highest recall in one independent 2026 benchmark of 14 guards (arXiv 2605.28830). Sizes below 8B missed a plain prompt-injection request (ignore previous instructions).",
+      "searched": "2026-11-13",
+      "scope": "Released 09.2025 (more than 12 months): comments since 13.05.2026. Hacker News comments (Algolia), Hugging Face discussions, GitHub issues of the runtimes; Reddit blocked (no r/LocalLLaMA feedback).",
+      "feedback": "thin"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "negative",
+      "text": "Every size below 8B classified a classic prompt-injection request (ignore previous instructions, reveal the system prompt) as Safe.",
+      "refs": [
+        {
+          "label": "HF discussion #14",
+          "date": "2026-05-17",
+          "url": "https://huggingface.co/Qwen/Qwen3Guard-Gen-8B/discussions/14",
+          "site": "huggingface"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "A secondary-semantic attack (a harmless poster prompt whose characters spell an attack phrase) passed: input Controversial, generated HTML Safe.",
+      "refs": [
+        {
+          "label": "QwenLM/Qwen3Guard #24",
+          "date": "2026-06-01",
+          "url": "https://github.com/QwenLM/Qwen3Guard/issues/24",
+          "site": "github"
+        }
+      ],
+      "searched": "2026-11-13",
+      "original_language": "zh"
+    },
+    {
+      "sentiment": "negative",
+      "text": "Stream variant: reusing a stream id makes latency grow until it hangs (CUDA and MPS), and labels drift from Unsafe to Safe; remote code incompatible with transformers 5.x.",
+      "refs": [
+        {
+          "label": "QwenLM/Qwen3Guard #29",
+          "date": "2026-09-22",
+          "url": "https://github.com/QwenLM/Qwen3Guard/issues/29",
+          "site": "github"
+        }
+      ],
+      "searched": "2026-11-13",
+      "original_language": "zh"
+    },
+    {
+      "sentiment": "positive",
+      "text": "Stream variant: a community PR adds KV caching, 0.6B on an Apple M4 (MPS) from 116 to 28.7 ms per token; merged.",
+      "refs": [
+        {
+          "label": "HF PR #4 (Stream-8B)",
+          "date": "2026-09-19",
+          "url": "https://huggingface.co/Qwen/Qwen3Guard-Stream-8B/discussions/4",
+          "site": "huggingface"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

@@ -1,0 +1,375 @@
+{
+  "id": "kimi-k3",
+  "name": "Kimi K3 and K3.1 Pro (Moonshot AI)",
+  "category": "llm",
+  "usage": "General, reasoning and code (2.8T MoE)",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "moonshotai/Kimi-K3",
+      "role": "facts",
+      "note": "Official weights, safetensors, 1,560.9 GB"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "moonshotai/Kimi-K3.1-Pro",
+      "role": "facts",
+      "note": "Official weights, safetensors, 1,561.3 GB; no plain 'K3.1', only Pro (Highspeed variant API only)"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "unsloth/Kimi-K3-GGUF",
+      "role": "info",
+      "note": "GGUF from UD-Q1_0 (466.4 GB) to UD-Q8_K_XL (1,561.2 GB)"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "KarLexAI/Kimi-K3.1-Pro-GGUF",
+      "role": "info",
+      "note": "GGUF IQ1_S (592.7 GB) to IQ2_XXS (709.9 GB)"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "mlx-community/Kimi-K3-mlx-reap160-2bit",
+      "role": "info",
+      "note": "Pruned experts (REAP), 2-bit MLX, 181.2 GB: still too large"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "other (kimi-k3, kimi-k3.1-pro)",
+      "source": "Hugging Face API, card_data",
+      "checked": "2026-11-13",
+      "note": "Custom, not OSI-approved. Free use; attribution above 100M monthly users or $20M monthly revenue; separate agreement for large model-as-a-service operators (secondary sources: VentureBeat, OpenRouter, implicator.ai)"
+    },
+    "gated": {
+      "value": false,
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "Moonshot AI",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "K3: weights late July 2026 (API 16.07.2026); K3.1 Pro: API 23.10.2026, weights early November 2026",
+      "source": "https://the-decoder.com/moonshot-ai-releases-kimi-k3-open-weights-and-infrastructure-after-shaking-up-the-frontier-model-race/ ; https://letsdatascience.com/news/moonshot-releases-kimi-k31-pro-api-open-weights-due-nov-4-786e160c",
+      "checked": "2026-11-13"
+    },
+    "parameters_total_b": {
+      "value": 2780,
+      "source": "Hugging Face API, safetensors total (K3: 2,779.9B; K3.1 Pro: 2,780.1B)",
+      "checked": "2026-11-13"
+    },
+    "parameters_active_b": {
+      "value": 104,
+      "source": "press reports (K3)",
+      "checked": "2026-11-13",
+      "note": "One r/LocalLLaMA title says '2.8T A50B'; not verified"
+    },
+    "size_gb": {
+      "value": 1561,
+      "source": "Hugging Face API, file sizes of moonshotai/Kimi-K3 (1,560.9 GB) and moonshotai/Kimi-K3.1-Pro (1,561.3 GB), safetensors",
+      "checked": "2026-11-13",
+      "note": "Official weights. Smallest quantised versions in the sources: GGUF 466.4 GB (K3) and 592.7 GB (K3.1 Pro), pruned MLX 181.2 GB"
+    },
+    "formats": {
+      "value": ".safetensors, .gguf",
+      "source": "Hugging Face API",
+      "checked": "2026-11-13"
+    },
+    "runtimes": {
+      "value": "Not practical on 128 GB. llama.cpp: unsloth GGUF from 466 GB; Q1/TQ2 files use ggml types rejected by mainline, Metal lacks op DSV4_HC_PRE (RPC crash, issue #28126 closed stale); MLX: mlx-community REAP160 2-bit 181 GB (pruned); Ollama: cloud tag only",
+      "source": "https://huggingface.co/unsloth/Kimi-K3-GGUF, https://github.com/ggml-org/llama.cpp/issues/28126, https://huggingface.co/mlx-community/Kimi-K3-mlx-reap160-2bit, https://ollama.com/library/kimi-k3/tags",
+      "checked": "2026-11-14",
+      "note": "The ggml-types point and the SSD-streaming speeds come from Hugging Face discussions #12 and #18, not re-checked. Whether stock mlx-lm loads the REAP build is inferred from the mlx-community conversion."
+    },
+    "fits_128gb": {
+      "value": false,
+      "source": "sizes above",
+      "checked": "2026-11-13",
+      "note": "SSD streaming would be very slow (104B active parameters) and the smallest file alone would take a quarter of a 2 TB SSD"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Near-frontier through the API (between Sonnet and Opus); unusable locally on 128 GB (0.3–2 tok/s); licence seen as not really open",
+      "summary": "Several HN users moved daily coding to K3 or K3.1 Pro through the API and place it just below Opus 5.5; one heavy user finds it clearly stronger than DeepSeek V4.1 Flash, another finds K3.1 a bit behind it. Locally on a 128 GB M5 Max, SSD streaming gives about 1 tok/s (K3) and 2 tok/s (K3.1): batch jobs only. An 80 % pruned MLX build reaches 5.5 tok/s but needs 512 GB and loses quality; low-bit Unsloth GGUFs had loader and corrupted-output bugs. K3.1 complaints: a hard-wired persona that ignores system prompts, and cyber data removed from training. The $20M model-as-a-service clause is criticised.",
+      "searched": "2026-11-13",
+      "scope": "K3 weights late July 2026, K3.1 Pro early November 2026: all comments since release. HN comments (Algolia, 'Kimi K3' and 'Kimi K3.1'), HF discussions of moonshotai/Kimi-K3, moonshotai/Kimi-K3.1-Pro and unsloth/Kimi-K3-GGUF, GitHub issues of llama.cpp, mlx-lm and Ollama, Simon Willison. Reddit only through a mirror (thin); no r/LocalLLaMA thread on K3.1 Pro found.",
+      "feedback": "moderate"
+    },
+    "speed": [
+      {
+        "machine": "MacBook Pro M5 Max, 128 GB",
+        "runtime": "argodrive fork (SSD streaming)",
+        "quantisation": "K3.1",
+        "value": "2 tok/s decode, 8.4 tok/s prefill",
+        "measured_by": "web",
+        "url": "https://news.ycombinator.com/item?id=50431728",
+        "date": "2026-11-09"
+      },
+      {
+        "machine": "MacBook Pro M5 Max, 128 GB, 1–4 SSDs",
+        "runtime": "llama.cpp-derived fork",
+        "quantisation": "K3, 4-bit experts (1.44 TB)",
+        "value": "0.55 tok/s (1 SSD) to 1.0 tok/s (4 SSDs)",
+        "measured_by": "web",
+        "url": "https://huggingface.co/moonshotai/Kimi-K3/discussions/185",
+        "date": "2026-09-17"
+      },
+      {
+        "machine": "MacBook Pro M5 Pro, 64 GB",
+        "runtime": "WASTE (CPU/NEON)",
+        "quantisation": "K3, VQ3R experts",
+        "value": "≈ 0.32 tok/s",
+        "measured_by": "web",
+        "url": "https://huggingface.co/moonshotai/Kimi-K3/discussions/148",
+        "date": "2026-07-29"
+      },
+      {
+        "machine": "Mac Studio M3 Ultra, 512 GiB",
+        "runtime": "mlx_lm",
+        "quantisation": "K3 REAP80, mxfp4-q8, ≈ 350 GB",
+        "value": "5.54 tok/s decode",
+        "measured_by": "web",
+        "url": "https://huggingface.co/pipenetwork/Kimi-K3-REAP80-MLX-mxfp4-q8",
+        "date": "2026-07-28"
+      }
+    ]
+  },
+  "comments": [
+    {
+      "sentiment": "positive",
+      "text": "**K3.** After daily use, K3 and K3.1 feel clearly stronger than DS4.1-Flash-1017, which benchmarks miss; DS Flash is excellent for its price but much smaller. K3 has long topped Design Arena (human preference) among open-weight models.",
+      "refs": [
+        {
+          "label": "reissbaker",
+          "date": "2026-11-04",
+          "url": "https://news.ycombinator.com/item?id=50368806",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "neutral",
+      "text": "**K3.1 Pro.** Competitive with Opus 5.5 and a little behind DS V4.1F.",
+      "refs": [
+        {
+          "label": "eunos",
+          "date": "2026-11-05",
+          "url": "https://news.ycombinator.com/item?id=50376978",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "positive",
+      "text": "**K3.1 Pro.** Switched from Anthropic's API to Kimi K3 (now 3.1 Pro) as a daily driver; goes back to Anthropic about once a month for large refactors, as Anthropic keeps only a small, negligible edge.",
+      "refs": [
+        {
+          "label": "rglover",
+          "date": "2026-11-09",
+          "url": "https://news.ycombinator.com/item?id=50426397",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "neutral",
+      "text": "**K3.1 Pro.** On the $40 plan, hit the 5-hour limit quickly; output solid enough. Tier list: 1 Opus 5.5, 2 Astra, 3 Argon, 4 Kimi K3.1 Pro. A same-day reply (egeozcan) says Argon is unreliable on big tasks and this undervalues Kimi.",
+      "refs": [
+        {
+          "label": "sail0rm00n",
+          "date": "2026-10-24",
+          "url": "https://news.ycombinator.com/item?id=50218402",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "neutral",
+      "text": "**K3.** Placed between Sonnet/Sol and Astra/Opus, so not at the top level. Its advantage: a company can run it on its own B300s.",
+      "refs": [
+        {
+          "label": "razemio",
+          "date": "2026-11-09",
+          "url": "https://news.ycombinator.com/item?id=50423919",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "positive",
+      "text": "**K3.1 Pro.** Simon Willison: Artificial Analysis scores K3.1 Pro at 55, behind only Opus 5.5 (58); the max-reasoning pelican drawing is quite solid. API price $2/$10 per M tokens.",
+      "refs": [
+        {
+          "label": "Simon Willison",
+          "date": "2026-10-23",
+          "url": "https://simonwillison.net/2026/Oct/23/kimi-k31-pro/",
+          "site": "blog"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "neutral",
+      "text": "**K3.1 Pro.** Runs locally on a **MacBook Pro M5 Max with 128 GB** at about **2 tok/s decode, 8.4 tok/s prefill** (argodrive fork, SSD streaming). Same author on HF: one 96 GB GPU, 2 tok/s decode, 40 tok/s prefill.",
+      "refs": [
+        {
+          "label": "Argonautlabs",
+          "date": "2026-11-09",
+          "url": "https://news.ycombinator.com/item?id=50431728",
+          "site": "hacker-news"
+        },
+        {
+          "label": "konstantinnikol, HF #12 (date approx.)",
+          "date": "2026-11-06",
+          "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro/discussions/12",
+          "site": "huggingface"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "neutral",
+      "text": "**K3.** K3 (4-bit experts, 1.44 TB) on a 128 GB M5 Max, streaming experts from 4 SSDs (internal + 3 TB5 enclosures): 0.55 tok/s with 1 drive, about 1.0 with 4. A reply calls it painful; the author uses it only for overnight batches. Another user: 0.25–0.33 tok/s with WARP on 64/128 GB machines.",
+      "refs": [
+        {
+          "label": "konstantinnikol, HF #185",
+          "date": "2026-09-17",
+          "url": "https://huggingface.co/moonshotai/Kimi-K3/discussions/185",
+          "site": "huggingface"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "**K3.** WASTE engine: full K3 on a 64 GB M5 Pro at about 0.32 tok/s, very sensitive to memory pressure (0.03–0.46). A reviewer found its VQ3R expert quantisation has about 19.4 % weight error, which they see as a deliberate weakening. Metal 22 % slower than CPU.",
+      "refs": [
+        {
+          "label": "marcobambini, HF #148",
+          "date": "2026-07-29",
+          "url": "https://huggingface.co/moonshotai/Kimi-K3/discussions/148",
+          "site": "huggingface"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "**K3.** REAP80 MLX mxfp4-q8 build (80 % of experts pruned, about 350 GB): about 5.54 tok/s on a 512 GiB M3 Ultra; its own card warns of noticeable degradation (drift, repetition loops, weak Chinese), code structurally correct; no benchmarks against the full model.",
+      "refs": [
+        {
+          "label": "pipenetwork model card",
+          "date": "2026-07-28",
+          "url": "https://huggingface.co/pipenetwork/Kimi-K3-REAP80-MLX-mxfp4-q8",
+          "site": "huggingface"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "positive",
+      "text": "**K3.** Unsloth's 2-bit UD-Q2_K_XL holds up well as a daily driver (8×B200), 17 t/s with llama.cpp; 1-bit at 36 tok/s on 4×B200 (Unsloth's pinned post). A commenter warns one generation proves nothing about quant quality.",
+      "refs": [
+        {
+          "label": "anuppillai, unsloth HF #12",
+          "date": "2026-07-31",
+          "url": "https://huggingface.co/unsloth/Kimi-K3-GGUF/discussions/12",
+          "site": "huggingface"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "**K3.** Low-bit GGUF problems: UD-TQ2_0 loads on 768 GB of GPUs but logits are corrupted; the Q1/TQ2 files use ggml types 64–66, rejected by mainline llama.cpp. A llama.cpp RPC run on Apple Silicon crashed after 430 GB of UD-Q2_K_XL (closed as stale).",
+      "refs": [
+        {
+          "label": "bperin42, unsloth HF #18",
+          "date": "2026-08-11",
+          "url": "https://huggingface.co/unsloth/Kimi-K3-GGUF/discussions/18",
+          "site": "huggingface"
+        },
+        {
+          "label": "llama.cpp #28126",
+          "date": "2026-08-31",
+          "url": "https://github.com/ggml-org/llama.cpp/issues/28126",
+          "site": "github"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "**K3.** r/LocalLLaMA: workstation (9965WX, 512 GB DDR5, 2× RTX 6000 PRO, RAID0 NVMe 29 GB/s), llama.cpp CPU-MoE offload: 0.23 tok/s, 31 min for 400 tokens. (Read through a mirror; Reddit could not be fetched.)",
+      "refs": [
+        {
+          "label": "u/Aroochacha",
+          "date": "2026-07-28",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1v9cwfz/i_got_kimik3_running/",
+          "site": "reddit"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "**K3.1 Pro.** K3.1 keeps falling back to its default persona and largely ignores the user's system prompt; the same prompt worked on DSV4.1 and GLM-5.3. No reply from Moonshot.",
+      "refs": [
+        {
+          "label": "sumiremelody, HF #5 (date approx.)",
+          "date": "2026-11-04",
+          "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro/discussions/5",
+          "site": "huggingface"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "negative",
+      "text": "**K3.1 Pro.** Licence: Model-as-a-Service companies over $20M revenue need a separate agreement; one user's attempt to get one for their company failed. Another says calling it open-weight is misleading, closer to source-available.",
+      "refs": [
+        {
+          "label": "codethief",
+          "date": "2026-11-04",
+          "url": "https://news.ycombinator.com/item?id=50369414",
+          "site": "hacker-news"
+        },
+        {
+          "label": "codethief",
+          "date": "2026-11-05",
+          "url": "https://news.ycombinator.com/item?id=50380741",
+          "site": "hacker-news"
+        },
+        {
+          "label": "singpolyma3",
+          "date": "2026-11-05",
+          "url": "https://news.ycombinator.com/item?id=50374476",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "neutral",
+      "text": "**K3.1 Pro.** K3.1 had dual-use cyber data removed from pretraining; one user finds it weakened for cyber tasks; a reply says it still beats K3 on cyber because it codes better, and the unrestricted checkpoint was never released.",
+      "refs": [
+        {
+          "label": "mapontosevenths / reissbaker",
+          "date": "2026-11-01",
+          "url": "https://news.ycombinator.com/item?id=50321513",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

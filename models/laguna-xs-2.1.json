@@ -1,0 +1,89 @@
+{
+  "id": "laguna-xs-2.1",
+  "name": "Laguna XS 2.1 (Poolside)",
+  "category": "code",
+  "usage": "Fast code",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "poolside/Laguna-XS-2.1",
+      "role": "facts"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "poolside/Laguna-XS-2.1-GGUF",
+      "role": "facts"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "poolside/Laguna-XS-2.1-INT4",
+      "role": "facts"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "OpenMDW 1.1",
+      "source": "https://huggingface.co/poolside/Laguna-XS-2.1",
+      "checked": "2026-11-15"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/poolside/Laguna-XS-2.1",
+      "checked": "2026-11-15"
+    },
+    "publisher": {
+      "value": "Poolside",
+      "source": "https://huggingface.co/poolside",
+      "checked": "2026-11-15"
+    },
+    "release_date": {
+      "value": "2026-06-20",
+      "source": "https://huggingface.co/poolside/Laguna-XS-2.1",
+      "checked": "2026-11-15"
+    },
+    "size_gb": {
+      "value": {
+        "bf16": 66.89,
+        "INT4": 23.9,
+        "GGUF Q4_K_M": 20.3
+      },
+      "source": "Hugging Face API, file sizes",
+      "checked": "2026-11-15"
+    },
+    "formats": {
+      "value": "safetensors; official GGUF",
+      "source": "https://huggingface.co/poolside/Laguna-XS-2.1-GGUF/tree/main",
+      "checked": "2026-11-15"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-15",
+      "note": "a build of 100 GB or less (see research-method.md, Memory target)"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Fast, well-liked local coder",
+      "summary": "Praised on Hacker News; licence not Apache 2.0 or MIT.",
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026: Hacker News comments only, collected while researching other models.",
+      "feedback": "thin"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "positive",
+      "text": "Laguna XS 2.1 (6-bit) judged excellent ([mark_l_watson, 10.10.2026](https://news.ycombinator.com/item?id=50036715)).",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50036715",
+          "site": "hacker-news",
+          "label": "mark_l_watson",
+          "date": "2026-10-10"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

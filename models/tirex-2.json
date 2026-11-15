@@ -1,0 +1,148 @@
+{
+  "id": "tirex-2",
+  "name": "TiRex-2 (NX-AI)",
+  "category": "timeseries",
+  "usage": "Time-series forecasting: light, covariates, Mac CPU and MPS",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "NX-AI/TiRex-2"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0 (LICENSE and NOTICE files)",
+      "source": "https://huggingface.co/NX-AI/TiRex-2",
+      "checked": "2026-11-15",
+      "note": "TiRex v1 was under the NXAI Community License"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/NX-AI/TiRex-2",
+      "checked": "2026-11-15"
+    },
+    "publisher": {
+      "value": "NX-AI",
+      "source": "https://huggingface.co/NX-AI/TiRex-2",
+      "checked": "2026-11-15"
+    },
+    "release_date": {
+      "value": "2026-06-16",
+      "source": "https://huggingface.co/NX-AI/TiRex-2",
+      "checked": "2026-11-15"
+    },
+    "parameters_total_b": {
+      "value": 0.038,
+      "source": "https://huggingface.co/NX-AI/TiRex-2",
+      "checked": "2026-11-15",
+      "note": "active parameters"
+    },
+    "size_gb": {
+      "value": 0.33,
+      "source": "https://huggingface.co/NX-AI/TiRex-2",
+      "checked": "2026-11-15",
+      "note": "safetensors only; the repository also holds a legacy model.ckpt (pickle) and model.onnx"
+    },
+    "formats": {
+      "value": "safetensors, plus legacy .ckpt and .onnx; no .py",
+      "source": "https://huggingface.co/NX-AI/TiRex-2",
+      "checked": "2026-11-15"
+    },
+    "runtimes": {
+      "value": "pip `tirex-2` (0.5.0); macOS CPU and MPS fixed (PR #10); covariates past and future; 9 quantiles",
+      "source": "https://huggingface.co/NX-AI/TiRex-2",
+      "checked": "2026-11-15"
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-15"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "searched": "2026-11-15",
+      "scope": "Released 16.06.2026: all comments since release. Hacker News (promotional only), Hugging Face discussions (none), GitHub issues of tirex-2. Reddit not found. **Feedback thin.**",
+      "summary": "Light alternative; quantile ordering bug on tiny-scale data fixed; benchmark leakage found by a reviewer and removed by the authors.",
+      "feedback": "thin",
+      "verdict": "Light, Mac-friendly alternative; thin feedback"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "neutral",
+      "text": "Benchmarks (leads, not user feedback): TS-Arena 58.6 over 20 weeks on 14.11.2026, a live benchmark where forecasts are submitted before the data exists, mostly electricity data, higher is better ([TS-Arena](https://ts-arena.live)); GIFT-Eval relative CRPS / MASE 0.478 / 0.697, recalculated from the published result files, not the official ranking, lower is better ([results](https://github.com/SalesforceAIResearch/gift-eval/tree/main/results)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://ts-arena.live",
+          "site": "other",
+          "date": "2026-11-14",
+          "label": "TS-Arena"
+        },
+        {
+          "url": "https://github.com/SalesforceAIResearch/gift-eval/tree/main/results",
+          "site": "github",
+          "date": "2026-11-15",
+          "label": "GIFT-Eval results"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Common to all forecasting foundation models: practitioners report they often do not beat simple baselines on their own data: TimesFM about ARIMA level while bigger and slower ([magimas, 31.03.2026](https://news.ycombinator.com/item?id=47583870)); seasonal naive usually wins for e-commerce ([jc4p, 19.10.2026](https://news.ycombinator.com/item?id=50155295)); one XGBoost model per series still wins ([niltecedu, 19.10.2026](https://news.ycombinator.com/item?id=50156050)); XGBoost and LightGBM beat transformers on blood glucose ([articulatepang, 14.11.2026](https://news.ycombinator.com/item?id=50498722)). The benefit is many series without building one model each ([logancbrown, 19.10.2026](https://news.ycombinator.com/item?id=50152506)). Backtest against a simple baseline first.",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=47583870",
+          "site": "hacker-news",
+          "date": "2026-03-31",
+          "label": "magimas"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=50155295",
+          "site": "hacker-news",
+          "date": "2026-10-19",
+          "label": "jc4p"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=50156050",
+          "site": "hacker-news",
+          "date": "2026-10-19",
+          "label": "niltecedu"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=50498722",
+          "site": "hacker-news",
+          "date": "2026-11-14",
+          "label": "articulatepang"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=50152506",
+          "site": "hacker-news",
+          "date": "2026-10-19",
+          "label": "logancbrown"
+        }
+      ]
+    },
+    {
+      "sentiment": "negative",
+      "text": "Quantiles out of order on very small-scale data, fixed in PR #101 ([tirex-2 #81, 21.10.2026](https://github.com/NX-AI/tirex-2/issues/81)); a reviewer found GIFT-Eval solar data in the training set, the authors removed it from their reported results ([#2, 05.07.2026](https://github.com/NX-AI/tirex-2/issues/2)).",
+      "searched": "2026-11-15",
+      "refs": [
+        {
+          "url": "https://github.com/NX-AI/tirex-2/issues/81",
+          "site": "github",
+          "date": "2026-10-21",
+          "label": "#81"
+        },
+        {
+          "url": "https://github.com/NX-AI/tirex-2/issues/2",
+          "site": "github",
+          "date": "2026-07-05",
+          "label": "#2"
+        }
+      ]
+    }
+  ]
+}

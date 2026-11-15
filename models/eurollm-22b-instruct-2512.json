@@ -1,0 +1,92 @@
+{
+  "id": "eurollm-22b-instruct-2512",
+  "name": "EuroLLM-22B-Instruct-2512",
+  "category": "translation",
+  "usage": "Translation, all EU languages",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "utter-project/EuroLLM-22B-Instruct-2512"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Apache 2.0",
+      "source": "https://huggingface.co/api/models/utter-project/EuroLLM-22B-Instruct-2512",
+      "checked": "2026-11-13"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/api/models/utter-project/EuroLLM-22B-Instruct-2512",
+      "checked": "2026-11-13"
+    },
+    "publisher": {
+      "value": "utter-project",
+      "source": "https://huggingface.co/utter-project/EuroLLM-22B-Instruct-2512",
+      "checked": "2026-11-13"
+    },
+    "release_date": {
+      "value": "2025-12-05",
+      "source": "https://huggingface.co/api/models/utter-project/EuroLLM-22B-Instruct-2512",
+      "checked": "2026-11-13",
+      "note": "createdAt of the repository"
+    },
+    "parameters_total_b": {
+      "value": 22.6,
+      "source": "https://huggingface.co/api/models/utter-project/EuroLLM-22B-Instruct-2512",
+      "checked": "2026-11-13"
+    },
+    "size_gb": {
+      "value": 45.3,
+      "source": "Hugging Face API, file sizes",
+      "checked": "2026-11-13"
+    },
+    "formats": {
+      "value": ".safetensors",
+      "source": "https://huggingface.co/api/models/utter-project/EuroLLM-22B-Instruct-2512",
+      "checked": "2026-11-13"
+    },
+    "languages": {
+      "value": "all EU languages and some others; includes en, fr, de, it",
+      "source": "https://huggingface.co/utter-project/EuroLLM-22B-Instruct-2512",
+      "checked": "2026-11-14"
+    },
+    "runtimes": {
+      "value": "llama.cpp llama-server with GGUF (bartowski, mradermacher; plain llama architecture, ChatML template); LM Studio (bartowski GGUF); Ollama only via hf.co/<repo> GGUF (no library tag); mlx-lm with mlx-community builds (4/5/6/8-bit, bf16); transformers on MPS (unverified)",
+      "source": "https://huggingface.co/bartowski/utter-project_EuroLLM-22B-Instruct-2512-GGUF, https://huggingface.co/mlx-community/EuroLLM-22B-Instruct-2512-mlx-8bit, https://ollama.com/search?q=eurollm",
+      "checked": "2026-11-14",
+      "note": "No official Ollama tag and no ggml-org/lmstudio-community build. Standard llama architecture, so no runtime blocker expected; no first-hand report of transformers on MPS found."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "size_gb",
+      "checked": "2026-11-14"
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Praised for small EU languages; no FR/DE translation report",
+      "summary": "EuroLLM 1.5 is in progress (EuroLLM1.5-9B-SFT, 29.08.2026).",
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026: Hacker News comments (Algolia API). Reddit, Hugging Face discussions and runtime issues not read.",
+      "feedback": "thin"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "positive",
+      "text": "Better than much bigger models for smaller EU languages such as Latvian ([HN 49606890](https://news.ycombinator.com/item?id=49606890), [HN 49223622](https://news.ycombinator.com/item?id=49223622)).",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49606890",
+          "site": "hacker-news"
+        },
+        {
+          "url": "https://news.ycombinator.com/item?id=49223622",
+          "site": "hacker-news"
+        }
+      ],
+      "searched": "2026-11-13"
+    }
+  ]
+}

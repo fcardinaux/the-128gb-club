@@ -1,0 +1,161 @@
+{
+  "id": "qwen3.8-flash-next",
+  "name": "Qwen3.8-Flash-Next",
+  "category": "llm",
+  "usage": "Large MoE, coding and long context",
+  "sources": [
+    {
+      "kind": "huggingface",
+      "repo": "Qwen/Qwen3.8-Flash-Next",
+      "role": "facts"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "ggml-org/Qwen3.8-Flash-Next-GGUF",
+      "role": "facts"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "mlx-community/Qwen3.8-Flash-Next-4bit",
+      "role": "facts"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF",
+      "role": "facts"
+    },
+    {
+      "kind": "huggingface",
+      "repo": "unsloth/Qwen3.8-Flash-Next-GGUF",
+      "role": "facts"
+    }
+  ],
+  "facts": {
+    "licence": {
+      "value": "Qwen Community License 1.0",
+      "source": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next/blob/main/LICENSE",
+      "checked": "2026-11-15"
+    },
+    "gated": {
+      "value": false,
+      "source": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "checked": "2026-11-15"
+    },
+    "publisher": {
+      "value": "Qwen (Alibaba)",
+      "source": "https://huggingface.co/Qwen",
+      "checked": "2026-11-15"
+    },
+    "release_date": {
+      "value": "2026-08-24",
+      "source": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "checked": "2026-11-15"
+    },
+    "parameters_total_b": {
+      "value": 180,
+      "source": "https://huggingface.co/Qwen/Qwen3.8-Flash-Next",
+      "checked": "2026-11-15"
+    },
+    "size_gb": {
+      "value": {
+        "official bf16": 360.0,
+        "ggml-org Q2_K": 83.1,
+        "ggml-org IQ4_NL": 102.0,
+        "mlx-community 4-bit": 111.5,
+        "ISTA-DASLab Q2_0 (incl. 28.8 GB n-gram table)": 66.4,
+        "ISTA-DASLab IQ3_S (incl. 28.8 GB n-gram table)": 83.6,
+        "unsloth UD-Q4_K_XL (incl. n-gram table)": 111.3
+      },
+      "source": "Hugging Face API, file sizes",
+      "checked": "2026-11-15",
+      "note": "The ISTA-DASLab and Unsloth GGUF builds include a 28.8 GB n-gram table that Strata reads from the SSD, not from memory (Strata MAC.md: GPU-mapped file 37.6 GB for Q2_0, 54.8 GB for IQ3_S, 82.6 GB for UD-Q4_K_XL)."
+    },
+    "formats": {
+      "value": "safetensors; GGUF and MLX builds by third parties",
+      "source": "https://huggingface.co/ggml-org/Qwen3.8-Flash-Next-GGUF/tree/main",
+      "checked": "2026-11-15",
+      "note": "ISTA-DASLab's GGUF repository declares Apache 2.0, unlike the Qwen Community License of the original; Unsloth's declares \"other\"."
+    },
+    "fits_128gb": {
+      "value": true,
+      "source": "https://github.com/Niko1221/Strata/blob/main/docs/MAC.md",
+      "checked": "2026-11-15",
+      "note": "with Strata: Q2_0 (≈ 46 GB needed), IQ3_S (≈ 63 GB, the default from 96 GB) and Unsloth UD-Q4_K_XL (≈ 91 GB) stay resident, the n-gram table on the SSD; UD-Q5/Q6_K_XL stream experts from the SSD. Without Strata: ggml-org Q2_K (83.1 GB) fits; IQ4_NL (102 GB) and MLX 4-bit (111.5 GB) are tight"
+    },
+    "runtimes": {
+      "value": "Strata (MIT; engine built for this model; Metal engine on Apple silicon, also CUDA, HIP, Intel, Strix Halo, DGX Spark; OpenAI- and Anthropic-compatible local API; image input); llama.cpp with GGUF; mlx-lm with mlx-community builds",
+      "source": "https://github.com/Niko1221/Strata, https://github.com/Niko1221/Strata/blob/main/docs/MAC.md, https://huggingface.co/ggml-org/Qwen3.8-Flash-Next-GGUF, https://huggingface.co/mlx-community/Qwen3.8-Flash-Next-4bit",
+      "checked": "2026-11-15",
+      "note": "Strata's own measurements on an M5 Max 128 GB (macOS 27.2): decode about 95–102 tok/s with IQ3_S and 74–94 tok/s with UD-Q4_K_XL (MTP on), against 48–51 tok/s for llama.cpp Metal on the same packs; prompts about 1,150–1,300 tok/s. Strata 0.2.13, first released 24.09.2026; not independently verified."
+    },
+    "provenance": {
+      "value": "consistent (ISTA-DASLab IQ3_S and unsloth UD-Q4_K_XL GGUF builds)",
+      "source": "https://huggingface.co/api/models/ISTA-DASLab/Qwen3.8-Flash-Next-GSQ-RCO-GGUF, https://huggingface.co/api/models/unsloth/Qwen3.8-Flash-Next-GGUF, https://huggingface.co/Qwen/Qwen3.8-Flash-Next/blob/main/model.safetensors.index.json, https://github.com/Niko1221/Strata/blob/main/tools/mtp_fetch.py",
+      "checked": "2026-11-15",
+      "note": "Metadata only. Uploaders: ISTA-DASLab (IST Austria lab; GSQ-RCO quantisation, repo created 07.09.2026, IQ3_S added 26.09.2026, about 7.0 M downloads) and unsloth (repo created 26.08.2026, Dynamic v3.1 quants of 04.11.2026, about 2.6 M downloads); both name Qwen/Qwen3.8-Flash-Next as base model. Parameter count in the GGUF metadata: 176.94 B for both, against 180.00 B in the official safetensors; the difference matches the 31 `mtp.*` tensors (multi-token prediction head), which these GGUFs do not include (Strata fetches them from the official checkpoint by HTTP range requests, checked against SHA-256). Files: GGUF, Markdown and text only (the unsloth repository also holds an `engram/set_split.py` helper). Licence: unsloth declares the Qwen Community License; ISTA-DASLab's card declares Apache 2.0, which does not match the original. Not done: comparing GGUF tensor headers, and the output check against the publisher's examples (step 7)."
+    }
+  },
+  "appraisals": {
+    "web": {
+      "verdict": "Most praised model on 128 GB Macs",
+      "summary": "Praised on Hacker News; licence not Apache 2.0 or MIT.",
+      "searched": "2026-11-13",
+      "scope": "Searched on 13.11.2026: Hacker News comments only, collected while researching other models.",
+      "feedback": "thin"
+    }
+  },
+  "comments": [
+    {
+      "sentiment": "positive",
+      "text": "Used for more than a week with very good results: very fast, very long context windows, on an M5 Max 128 GB ([ttoinou, 02.10.2026](https://news.ycombinator.com/item?id=49939328)).",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=49939328",
+          "site": "hacker-news",
+          "label": "ttoinou",
+          "date": "2026-10-02"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "positive",
+      "text": "Settled on Qwen3.8 27B/Flash Next on a new M5 Max 128 GB Mac Studio ([fzxu22, 05.11.2026](https://news.ycombinator.com/item?id=50385925)).",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50385925",
+          "site": "hacker-news",
+          "label": "fzxu22",
+          "date": "2026-11-05"
+        }
+      ],
+      "searched": "2026-11-13"
+    },
+    {
+      "sentiment": "positive",
+      "text": "Qwen3.8-Flash-Next with Strata at about 70 tok/s on an RTX 5070 Ti with 64 GB of DDR4, Q3 quantisation; hard to tell apart from hosted models for coding ([mortalapeman, 06.11.2026](https://news.ycombinator.com/item?id=50400036)).",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50400036",
+          "site": "hacker-news",
+          "label": "mortalapeman",
+          "date": "2026-11-06"
+        }
+      ],
+      "searched": "2026-11-15"
+    },
+    {
+      "sentiment": "negative",
+      "text": "Strata looks promising for weight streaming, but inference crashed before finishing a full answer ([Balinares, 19.10.2026](https://news.ycombinator.com/item?id=50149101)).",
+      "refs": [
+        {
+          "url": "https://news.ycombinator.com/item?id=50149101",
+          "site": "hacker-news",
+          "label": "Balinares",
+          "date": "2026-10-19"
+        }
+      ],
+      "searched": "2026-11-15"
+    }
+  ]
+}
