@@ -9,6 +9,7 @@ Commands (run from the repository root):
   uv run tools/model_compare.py refresh [ID ...]      update verifiable facts from the Hugging Face API (metadata only)
   uv run tools/model_compare.py render                write model-comparison.md (generated view, do not edit)
   uv run tools/model_compare.py show ID               print one model's facts and comments
+  uv run tools/model_compare.py --output FILE export  write all public records as one JSON file (for a web page)
 
 Options, placed before the command:
   --private FILE     merge your own overlay (shortlist, decisions, pinned revisions) over the
@@ -16,7 +17,7 @@ Options, placed before the command:
                      full view is written next to FILE instead of this repository
   --manifest FILE    with --private: also check consistency with a download manifest (Markdown file
                      with a "## Manifeste" TOML block)
-  --output FILE      where `render` writes its Markdown file
+  --output FILE      where `render` writes its Markdown file, or `export` its JSON file (required)
 
 Never downloads weights: `refresh` only reads https://huggingface.co/api/models/<repo>.
 """
@@ -438,6 +439,45 @@ def details(r: dict, models_rel: str = "models", private: bool = False) -> list[
     return lines + [""]
 
 
+# ---------------------------------------------------------------- export
+def licence_class(rec: dict) -> str:
+    """Apache 2.0, MIT or other, from the licence text (mixed or restricted licences count as other)."""
+    v = str(rec["facts"].get("licence", {}).get("value", ""))
+    if re.match(r"Apache 2\.0(?![^;]*\b(?:non-commercial|but)\b)", v) and ";" not in v.split("(")[0]:
+        return "Apache 2.0"
+    if re.match(r"MIT(?! plus)( \(|$)", v):
+        return "MIT"
+    return "other"
+
+
+def size_min(rec: dict) -> float | None:
+    v = rec["facts"].get("size_gb", {}).get("value")
+    if isinstance(v, dict):
+        nums = [x for x in v.values() if isinstance(x, (int, float))]
+        return min(nums) if nums else None
+    return v if isinstance(v, (int, float)) else None
+
+
+def cmd_export(_args) -> int:
+    if OPTS.private:
+        print("✗ export writes public records only; run it without --private")
+        return 1
+    if not OPTS.output:
+        print("✗ export needs --output FILE")
+        return 1
+    models = []
+    for r in sorted(load_public().values(), key=sort_key):
+        r = copy.deepcopy(r)
+        r["derived"] = {"licence_class": licence_class(r), "size_min_gb": size_min(r)}
+        models.append(r)
+    data = {"generated": TODAY, "source": "https://github.com/fcardinaux/the-128gb-club",
+            "licence": "CC BY 4.0", "categories": {k: CATEGORY_TITLE[k] for k in CATEGORY_ORDER}, "models": models}
+    out = Path(OPTS.output).resolve()
+    out.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n")
+    print(f"✓ {len(models)} records written to {out}")
+    return 0
+
+
 # ---------------------------------------------------------------- show
 def cmd_show(args) -> int:
     rec = load_models().get(args.id)
@@ -460,6 +500,7 @@ def main() -> int:
     r.add_argument("ids", nargs="*")
     r.set_defaults(func=cmd_refresh)
     sub.add_parser("render").set_defaults(func=cmd_render)
+    sub.add_parser("export").set_defaults(func=cmd_export)
     s = sub.add_parser("show")
     s.add_argument("id")
     s.set_defaults(func=cmd_show)
